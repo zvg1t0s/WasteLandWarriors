@@ -27,31 +27,32 @@ namespace WasteLandWarriors.WorldObjects
             bar2.SetMaterial(0, 3922, "bistro", "sw_wallbrick_01", 0);
             bar2.ShowInInterior(11);
 
-            //tmpobjid = CreateDynamicObject(2205, 510.326538, -81.602119, 997.940856, 0.000000, 0.000000, 107.400016, object_world, object_int, -1, 300.00, 300.00); 
+
+            //tmpobjid = CreateDynamicObject(2205, 510.326538, -81.602119, 997.940856, 0.000000, 0.000000, 107.400016, 1011, object_int, -1, 300.00, 300.00); 
             var bar3 = new DynamicObject(2205, new Vector3(510.326538, -81.602119, 997.940856), new Vector3(0.000000, 0.000000, 107.400016), 1002, 11, player, 25, 25);
             bar3.ShowInInterior(11);
-            //tmpobjid = CreateDynamicObject(1671, 511.589538, -80.387573, 998.391113, 0.000000, 0.000000, -54.700004, object_world, object_int, -1, 300.00, 300.00); 
+            //tmpobjid = CreateDynamicObject(1671, 511.589538, -80.387573, 998.391113, 0.000000, 0.000000, -54.700004, 1011, object_int, -1, 300.00, 300.00); 
             var bar4 = new DynamicObject(1671, new Vector3(511.589538, -80.387573, 998.391113), new Vector3(0.000000, 0.000000, -54.700004), 1002, 11, player, 25, 25);
             bar4.ShowInInterior(11);
-            //tmpobjid = CreateDynamicObject(1728, 511.626251, -85.992668, 997.900878, 0.000000, 0.000000, -109.900039, object_world, object_int, -1, 300.00, 300.00);
+            //tmpobjid = CreateDynamicObject(1728, 511.626251, -85.992668, 997.900878, 0.000000, 0.000000, -109.900039, 1011, object_int, -1, 300.00, 300.00);
             var bar5 = new DynamicObject(1728, new Vector3(511.626251, -85.992668, 997.900878), new Vector3(0.000000, 0.000000, -109.900039), 1002, 11, player, 25, 25);
             bar5.ShowInInterior(11);
-            //tmpobjid = CreateDynamicObject(2083, 509.925415, -85.762634, 997.830627, 0.000000, 0.000000, -129.800018, object_world, object_int, -1, 300.00, 300.00);
+            //tmpobjid = CreateDynamicObject(2083, 509.925415, -85.762634, 997.830627, 0.000000, 0.000000, -129.800018, 1011, object_int, -1, 300.00, 300.00);
             var bar6 = new DynamicObject(2083, new Vector3(509.925415, -85.762634, 997.830627), new Vector3(0.000000, 0.000000, -129.800018), 1002, 11, player, 25, 25);
             bar6.ShowInInterior(11);
-            //tmpobjid = CreateDynamicObject(1729, 509.318237, -88.108978, 997.910888, 0.000000, 0.000000, 162.700042, object_world, object_int, -1, 300.00, 300.00); 
+            //tmpobjid = CreateDynamicObject(1729, 509.318237, -88.108978, 997.910888, 0.000000, 0.000000, 162.700042, 1011, object_int, -1, 300.00, 300.00); 
             var bar7 = new DynamicObject(1729, new Vector3(509.318237, -88.108978, 997.910888), new Vector3(0.000000, 0.000000, 162.700042), 1002, 11, player, 25, 25);
             bar7.ShowInInterior(11);
-            //tmpobjid = CreateDynamicObject(1575, 510.075561, -86.646141, 998.301269, 0.000000, 0.000000, 57.100006, object_world, object_int, -1, 300.00, 300.00); 
+            //tmpobjid = CreateDynamicObject(1575, 510.075561, -86.646141, 998.301269, 0.000000, 0.000000, 57.100006, 1011, object_int, -1, 300.00, 300.00); 
             var bar8 = new DynamicObject(1575, new Vector3(510.075561, -86.646141, 998.301269), new Vector3(0.000000, 0.000000, 57.100006), 1002, 11, player, 25, 25);
             bar8.ShowInInterior(11);
-            //tmpobjid = CreateDynamicObject(335, 510.063659, -86.532058, 998.660644, 178.699996, -6.399999, -12.599999, object_world, object_int, -1, 300.00, 300.00); 
+            //tmpobjid = CreateDynamicObject(335, 510.063659, -86.532058, 998.660644, 178.699996, -6.399999, -12.599999, 1011, object_int, -1, 300.00, 300.00); 
             var bar9 = new DynamicObject(335, new Vector3(510.063659, -86.532058, 998.660644), new Vector3(178.699996, -6.399999, -12.599999), 1002, 11, player, 25, 25);
             bar9.ShowInInterior(11);
-            //tmpobjid = CreateDynamicObject(19177, 510.096099, -86.580162, 998.481018, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); 
+            //tmpobjid = CreateDynamicObject(19177, 510.096099, -86.580162, 998.481018, 0.000000, 0.000000, 0.000000, 1011, object_int, -1, 300.00, 300.00); 
             var bar10 = new DynamicObject(19177, new Vector3(510.096099, -86.580162, 998.481018), new Vector3(0.0, 0.0, 90.0), 1002, 11, player, 25, 25);
             bar10.ShowInInterior(11);
-            //tmpobjid = CreateDynamicObject(19177, 510.216217, -86.320182, 998.340881, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); 
+            //tmpobjid = CreateDynamicObject(19177, 510.216217, -86.320182, 998.340881, 0.000000, 0.000000, 0.000000, 1011, object_int, -1, 300.00, 300.00); 
             var bar11 = new DynamicObject(19177, new Vector3(510.216217, -86.320182, 998.340881), new Vector3(0.0, 0.0, 0.0), 1002, 11, player, 25, 25);
             bar11.ShowInInterior(11);
             //tmpobjid = CreateDynamicObject(3109, 505.189270, -89.185325, 999.141174, 0.000000, 0.000000, -90.000000, object_world, object_int, -1, 300.00, 300.00); 
@@ -1451,6 +1452,1105 @@ namespace WasteLandWarriors.WorldObjects
             //tmpobjid = CreateDynamicObject(1235, 2222.360351, 1597.780761, 999.442138, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); 
             var shelter143 = new DynamicObject(1235, new Vector3(2222.360351, 1597.780761, 999.442138), new Vector3(0.000000, 0.000000, 0.000000), 1010, 1, player, 200, 200);
             shelter143.ShowInWorld(1010);
+            //tmpobjid = CreateDynamicObject(19378, 1338.942871, 1522.088134, 2999.158691, 0.000000, 90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            //SetDynamicObjectMaterial(tmpobjid, 0, 3967, "cj_airprt", "bigbrick", 0xFFFFFFFF);
+            
+            //tmpobjid = CreateDynamicObject(19378, 1349.442871, 1522.088134, 2999.158691, 0.000000, 90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            //SetDynamicObjectMaterial(tmpobjid, 0, 3967, "cj_airprt", "bigbrick", 0xFFFFFFFF);
+            //tmpobjid = CreateDynamicObject(14416, 1342.198608, 1515.430541, 2996.050292, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            //SetDynamicObjectMaterial(tmpobjid, 0, 12855, "cunte_cop", "sw_brick05", 0xFFFFFFFF);
+            //SetDynamicObjectMaterial(tmpobjid, 1, 3967, "cj_airprt", "bigbrick", 0x00000000);
+            // tmpobjid = CreateDynamicObject(19378, 1344.142089, 1510.431152, 2997.706298, 0.000000, 90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 16639, "a51_labs", "dam_terazzo", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(19378, 1349.442871, 1531.710815, 2999.158691, 0.000000, 90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 3967, "cj_airprt", "bigbrick", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(19378, 1338.942871, 1531.710815, 2999.158691, 0.000000, 90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 3967, "cj_airprt", "bigbrick", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(14416, 1346.188598, 1515.430541, 2996.050292, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 12855, "cunte_cop", "sw_brick05", 0xFFFFFFFF);
+            // SetDynamicObjectMaterial(tmpobjid, 1, 3967, "cj_airprt", "bigbrick", 0x00000000);
+            // tmpobjid = CreateDynamicObject(19378, 1348.190551, 1512.471435, 3001.640136, 0.000000, 180.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0xFFD1E0E0);
+            // tmpobjid = CreateDynamicObject(19378, 1340.188476, 1512.471435, 3001.640136, 0.000000, 180.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0xFFD1E0E0);
+            // tmpobjid = CreateDynamicObject(19378, 1344.069702, 1507.851562, 3001.640136, 0.000000, 180.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0xFFD1E0E0);
+            // tmpobjid = CreateDynamicObject(2957, 1344.071899, 1507.892700, 2999.315185, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            //  SetDynamicObjectMaterial(tmpobjid, 0, 8391, "ballys01", "vgncorpdoor1_512", 0xFFFFFFFF);
+            //  tmpobjid = CreateDynamicObject(19378, 1344.142089, 1512.502807, 3004.316894, 0.000000, 90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            //tmpobjid = CreateDynamicObject(19378, 1333.642089, 1531.768920, 3004.316894, 0.000000, 90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(19378, 1344.142089, 1522.135864, 3004.316894, 0.000000, 90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(19378, 1354.642089, 1522.135864, 3004.316894, 0.000000, 90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(19378, 1333.642089, 1522.135864, 3004.316894, 0.000000, 90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            //  SetDynamicObjectMaterial(tmpobjid, 0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            //  tmpobjid = CreateDynamicObject(19378, 1344.142089, 1531.768920, 3004.316894, 0.000000, 90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            //  SetDynamicObjectMaterial(tmpobjid, 0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            //  tmpobjid = CreateDynamicObject(19378, 1354.642089, 1531.768920, 3004.316894, 0.000000, 90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            //  SetDynamicObjectMaterial(tmpobjid, 0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            //  tmpobjid = CreateDynamicObject(19378, 1336.823364, 1520.626708, 3001.640136, 0.000000, 180.000000, 45.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0xFFD1E0E0);
+            // tmpobjid = CreateDynamicObject(19378, 1351.564331, 1520.623291, 3001.640136, 0.000000, 180.000000, -45.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            //  SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0xFFD1E0E0);
+            // tmpobjid = CreateDynamicObject(19378, 1354.685424, 1528.579101, 3001.640136, 0.000000, 180.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            //  SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0xFFD1E0E0);
+            // tmpobjid = CreateDynamicObject(19378, 1333.654663, 1528.579101, 3001.640136, 0.000000, 180.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0xFFD1E0E0);
+            // tmpobjid = CreateDynamicObject(19378, 1349.802368, 1533.304077, 3001.640136, 0.000000, 180.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0xFFD1E0E0);
+            // tmpobjid = CreateDynamicObject(19378, 1340.179077, 1533.304077, 3001.640136, 0.000000, 180.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0xFFD1E0E0);
+            // tmpobjid = CreateDynamicObject(19378, 1330.547241, 1533.304077, 3001.640136, 0.000000, 180.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); // âõîä ïëèòà
+            // SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0xFFD1E0E0);
+            // tmpobjid = CreateDynamicObject(2928, 1338.932128, 1533.447509, 3000.465820, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 14577, "casinovault01", "dts_elevator_door", 0xFFFFFFFF);
+            //  tmpobjid = CreateDynamicObject(2928, 1349.456176, 1533.447509, 3000.465820, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 14577, "casinovault01", "dts_elevator_door", 0xFFFFFFFF);
+            //  tmpobjid = CreateDynamicObject(19439, 1344.182861, 1533.289672, 3002.317626, 103.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 3119, "cs_ry_props", "lightgrey", 0x00000000);
+            //  tmpobjid = CreateDynamicObject(19483, 1344.258300, 1533.188110, 3002.254394, -13.000000, 0.000000, -90.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterialText(tmpobjid, 0, "Las Venturas\n Medical Center", 120, "Courier New", 60, 0, 0xFFCC0000, 0x00000000, 0);
+            // tmpobjid = CreateDynamicObject(19929, 1344.181518, 1530.146606, 2999.244628, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-60-percent", 0x00000000);
+            // SetDynamicObjectMaterial(tmpobjid, 1, 18646, "matcolours", "grey-80-percent", 0x00000000);
+            // tmpobjid = CreateDynamicObject(19925, 1342.323730, 1530.149780, 2999.244628, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-60-percent", 0x00000000);
+            // SetDynamicObjectMaterial(tmpobjid, 1, 18646, "matcolours", "grey-80-percent", 0x00000000);
+            // tmpobjid = CreateDynamicObject(19929, 1342.322631, 1532.008422, 2999.244628, 0.000000, 0.000000, 360.000000, object_world, object_int, -1, 300.00, 300.00);
+            //  SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-60-percent", 0x00000000);
+            // SetDynamicObjectMaterial(tmpobjid, 1, 18646, "matcolours", "grey-80-percent", 0x00000000);
+            // tmpobjid = CreateDynamicObject(1742, 1344.719360, 1533.281860, 2999.214599, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 1977, "cooler1", "shelf_stuff1", 0x00000000);
+            // SetDynamicObjectMaterial(tmpobjid, 1, 1977, "cooler1", "shelf_stuff1", 0x00000000);
+            // SetDynamicObjectMaterial(tmpobjid, 2, 3629, "arprtxxref_las", "dirtywhite", 0x00000000);
+            // tmpobjid = CreateDynamicObject(1997, 1339.258300, 1519.140014, 2999.234619, 0.000000, 0.000000, 45.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, -1, "none", "none", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(1997, 1337.930541, 1521.667114, 2999.685058, 0.000000, 90.000000, 7.200090, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, -1, "none", "none", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(2897, 1352.921508, 1530.726440, 2999.505859, 0.000000, 0.000000, -69.500022, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 3629, "arprtxxref_las", "dirtywhite", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(2907, 1343.223266, 1532.718383, 3000.053710, -76.799812, 49.299926, -90.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, -1, "none", "none", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(2906, 1343.013305, 1532.461425, 3000.097656, -35.900054, 0.000000, -176.600357, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, -1, "none", "none", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(19836, 1351.396850, 1531.331542, 2999.254638, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, -1, "none", "none", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(1620, 1351.334228, 1520.538574, 3003.418701, 0.000000, 0.000000, -45.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, -1, "none", "none", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(1620, 1337.107177, 1520.481201, 3003.418701, 0.000000, 0.000000, 225.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, -1, "none", "none", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(3089, 1354.579345, 1524.915283, 3000.485839, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 11631, "mp_ranchcut", "mpCJ_Black_metal", 0x00000000);
+            // SetDynamicObjectMaterial(tmpobjid, 1, 6284, "bev_law2", "pierwall03_law", 0x00000000);
+            //  SetDynamicObjectMaterial(tmpobjid, 2, 6284, "bev_law2", "pierwall03_law", 0x00000000);
+            // SetDynamicObjectMaterial(tmpobjid, 3, 6284, "bev_law2", "pierwall03_law", 0x00000000);
+            // tmpobjid = CreateDynamicObject(19433, 1356.296752, 1525.660156, 3001.827148, 0.000000, -90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+            // tmpobjid = CreateDynamicObject(19433, 1355.345703, 1526.470947, 3000.165527, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+            // tmpobjid = CreateDynamicObject(19433, 1355.345703, 1524.939453, 3000.165527, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+            // tmpobjid = CreateDynamicObject(3089, 1333.747192, 1524.915283, 3000.485839, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 11631, "mp_ranchcut", "mpCJ_Black_metal", 0x00000000);
+            // SetDynamicObjectMaterial(tmpobjid, 1, 6284, "bev_law2", "pierwall03_law", 0x00000000);
+            // SetDynamicObjectMaterial(tmpobjid, 2, 6284, "bev_law2", "pierwall03_law", 0x00000000);
+            // SetDynamicObjectMaterial(tmpobjid, 3, 6284, "bev_law2", "pierwall03_law", 0x00000000);
+            //tmpobjid = CreateDynamicObject(19433, 1333.005981, 1526.470947, 3000.165527, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00);
+            //SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+            //tmpobjid = CreateDynamicObject(19433, 1332.058105, 1525.660156, 3001.827148, 0.000000, -90.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            //SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+            //tmpobjid = CreateDynamicObject(19433, 1333.005981, 1524.939453, 3000.165527, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+            // tmpobjid = CreateDynamicObject(1776, 1346.802856, 1511.879516, 2998.185302, 90.000000, -13.099831, 270.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, -1, "none", "none", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(1997, 1334.600219, 1531.692871, 2999.234619, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, -1, "none", "none", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(1997, 1334.600219, 1528.419677, 2999.234619, 0.000000, 0.000000, 180.000000, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, -1, "none", "none", 0xFFFFFFFF);
+            // tmpobjid = CreateDynamicObject(932, 1345.327026, 1524.247070, 2999.215576, 0.000000, 0.000000, -41.800003, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, 2994, "trolex", "trolley03", 0x00000000);
+            // tmpobjid = CreateDynamicObject(2894, 1343.106689, 1530.108398, 3000.175537, 0.000000, 0.000000, -19.100013, object_world, object_int, -1, 300.00, 300.00);
+            // SetDynamicObjectMaterial(tmpobjid, 0, -1, "none", "none", 0xFFFFFFFF);
+            // SetDynamicObjectMaterial(tmpobjid, 0, -1, "none", "none", 0xFFFFFFFF);
+
+            var hospitallv1 = new DynamicObject(19378, new Vector3(1338.942871, 1522.088134, 2999.158691), new Vector3(0.000000, 90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv1.SetMaterial(0, 3967, "cj_airprt", "bigbrick", 0xFFFFFFFF);
+            hospitallv1.ShowInWorld(1011);
+
+            var hospitallv2 = new DynamicObject(19378, new Vector3(1349.442871, 1522.088134, 2999.158691), new Vector3(0.000000, 90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv2.SetMaterial(0, 3967, "cj_airprt", "bigbrick", 0xFFFFFFFF);
+            hospitallv2.ShowInWorld(1011);
+
+            var hospitallv3 = new DynamicObject(14416, new Vector3(1342.198608, 1515.430541, 2996.050292), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv3.SetMaterial(0, 12855, "cunte_cop", "sw_brick05", 0xFFFFFFFF);
+            hospitallv3.SetMaterial(1, 3967, "cj_airprt", "bigbrick", 0x00000000);
+            hospitallv3.ShowInWorld(1011);
+
+            var hospitallv4 = new DynamicObject(19378, new Vector3(1344.142089, 1510.431152, 2997.706298), new Vector3(0.000000, 90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv4.SetMaterial(0, 16639, "a51_labs", "dam_terazzo", 0xFFFFFFFF);
+            hospitallv4.ShowInWorld(1011);
+
+            var hospitallv5 = new DynamicObject(19378, new Vector3(1349.442871, 1531.710815, 2999.158691), new Vector3(0.000000, 90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv5.SetMaterial(0, 3967, "cj_airprt", "bigbrick", 0xFFFFFFFF);
+            hospitallv5.ShowInWorld(1011);
+
+            var hospitallv6 = new DynamicObject(19378, new Vector3(1338.942871, 1531.710815, 2999.158691), new Vector3(0.000000, 90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv6.SetMaterial(0, 3967, "cj_airprt", "bigbrick", 0xFFFFFFFF);
+            hospitallv6.ShowInWorld(1011);
+
+            var hospitallv7 = new DynamicObject(14416, new Vector3(1346.188598, 1515.430541, 2996.050292), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv7.SetMaterial(0, 12855, "cunte_cop", "sw_brick05", 0xFFFFFFFF);
+            hospitallv7.SetMaterial(1, 3967, "cj_airprt", "bigbrick", 0x00000000);
+            hospitallv7.ShowInWorld(1011);
+
+            var hospitallv8 = new DynamicObject(19378, new Vector3(1348.190551, 1512.471435, 3001.640136), new Vector3(0.000000, 180.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv8.SetMaterial(0, 10765, "airportgnd_sfse", "white", 0xFFFFFFFF);
+            hospitallv8.ShowInWorld(1011);
+
+            var hospitallv9 = new DynamicObject(19378, new Vector3(1340.188476, 1512.471435, 3001.640136), new Vector3(0.000000, 180.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv9.SetMaterial(0, 10765, "airportgnd_sfse", "white", 0xFFFFFFFF);
+            hospitallv9.ShowInWorld(1011);
+
+            var hospitallv10 = new DynamicObject(19378, new Vector3(1344.069702, 1507.851562, 3001.640136), new Vector3(0.000000, 180.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv10.SetMaterial(0, 10765, "airportgnd_sfse", "white", 0xFFFFFFFF);
+            hospitallv10.ShowInWorld(1011);
+
+            var hospitallv11 = new DynamicObject(2957, new Vector3(1344.071899, 1507.892700, 2999.315185), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv11.SetMaterial(0, 8391, "ballys01", "vgncorpdoor1_512", 0xFFFFFFFF);
+            hospitallv11.ShowInWorld(1011);
+
+            var hospitallv12 = new DynamicObject(19378, new Vector3(1344.142089, 1512.502807, 3004.316894), new Vector3(0.000000, 90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv12.SetMaterial(0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            hospitallv12.ShowInWorld(1011);
+
+            var hospitallv13 = new DynamicObject(19378, new Vector3(1333.642089, 1531.768920, 3004.316894), new Vector3(0.000000, 90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv13.SetMaterial(0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            hospitallv13.ShowInWorld(1011);
+
+            var hospitallv14 = new DynamicObject(19378, new Vector3(1344.142089, 1522.135864, 3004.316894), new Vector3(0.000000, 90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv14.SetMaterial(0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            hospitallv14.ShowInWorld(1011);
+
+            var hospitallv15 = new DynamicObject(19378, new Vector3(1354.642089, 1522.135864, 3004.316894), new Vector3(0.000000, 90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv15.SetMaterial(0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            hospitallv15.ShowInWorld(1011);
+
+            var hospitallv16 = new DynamicObject(19378, new Vector3(1333.642089, 1522.135864, 3004.316894), new Vector3(0.000000, 90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv16.SetMaterial(0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            hospitallv16.ShowInWorld(1011);
+
+            var hospitallv17 = new DynamicObject(19378, new Vector3(1344.142089, 1531.768920, 3004.316894), new Vector3(0.000000, 90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv17.SetMaterial(0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            hospitallv17.ShowInWorld(1011);
+
+            var hospitallv18 = new DynamicObject(19378, new Vector3(1354.642089, 1531.768920, 3004.316894), new Vector3(0.000000, 90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv18.SetMaterial(0, 10023, "bigwhitesfe", "sfe_arch10", 0xFFFFFFFF);
+            hospitallv18.ShowInWorld(1011);
+
+            var hospitallv19 = new DynamicObject(19378, new Vector3(1336.823364, 1520.626708, 3001.640136), new Vector3(0.000000, 180.000000, 45.000000), 1011, 1, player, 50, 50);
+            hospitallv19.SetMaterial(0, 10765, "airportgnd_sfse", "white", 0xFFFFFFFF);
+            hospitallv19.ShowInWorld(1011);
+
+            var hospitallv20 = new DynamicObject(19378, new Vector3(1351.564331, 1520.623291, 3001.640136), new Vector3(0.000000, 180.000000, -45.000000), 1011, 1, player, 50, 50);
+            hospitallv20.SetMaterial(0, 10765, "airportgnd_sfse", "white", 0xFFFFFFFF);
+            hospitallv20.ShowInWorld(1011);
+
+            var hospitallv21 = new DynamicObject(19378, new Vector3(1354.685424, 1528.579101, 3001.640136), new Vector3(0.000000, 180.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv21.SetMaterial(0, 10765, "airportgnd_sfse", "white", 0xFFFFFFFF);
+            hospitallv21.ShowInWorld(1011);
+
+            var hospitallv22 = new DynamicObject(19378, new Vector3(1333.654663, 1528.579101, 3001.640136), new Vector3(0.000000, 180.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv22.SetMaterial(0, 10765, "airportgnd_sfse", "white", 0xFFFFFFFF);
+            hospitallv22.ShowInWorld(1011);
+
+            var hospitallv23 = new DynamicObject(19378, new Vector3(1349.802368, 1533.304077, 3001.640136), new Vector3(0.000000, 180.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv23.SetMaterial(0, 10765, "airportgnd_sfse", "white", 0xFFFFFFFF);
+            hospitallv23.ShowInWorld(1011);
+
+            var hospitallv24 = new DynamicObject(19378, new Vector3(1340.179077, 1533.304077, 3001.640136), new Vector3(0.000000, 180.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv24.SetMaterial(0, 10765, "airportgnd_sfse", "white", 0xFFFFFFFF);
+            hospitallv24.ShowInWorld(1011);
+
+            var hospitallv25 = new DynamicObject(19378, new Vector3(1330.547241, 1533.304077, 3001.640136), new Vector3(0.000000, 180.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv25.SetMaterial(0, 10765, "airportgnd_sfse", "white", 0xFFFFFFFF);
+            hospitallv25.ShowInWorld(1011);
+
+            var hospitallv26 = new DynamicObject(2928, new Vector3(1338.932128, 1533.447509, 3000.465820), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv26.SetMaterial(0, 14577, "casinovault01", "dts_elevator_door", 0xFFFFFFFF);
+            hospitallv26.ShowInWorld(1011);
+
+            var hospitallv27 = new DynamicObject(2928, new Vector3(1349.456176, 1533.447509, 3000.465820), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv27.SetMaterial(0, 14577, "casinovault01", "dts_elevator_door", 0xFFFFFFFF);
+            hospitallv27.ShowInWorld(1011);
+            /**
+            var hospitallv28 = new DynamicObject(19439, new Vector3(1344.182861, 1533.289672, 3002.317626), new Vector3(103.000000, 0.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv28.SetMaterial(0, 3119, "cs_ry_props", "lightgrey", 0x00000000);
+            hospitallv28.ShowInWorld(1011);
+
+            var hospitallv29 = new DynamicObject(19483, new Vector3(1344.258300, 1533.188110, 3002.254394), new Vector3(-13.000000, 0.000000, -90.000000), 1011, 1, player, 50, 50);
+            hospitallv29.SetMaterialText(0, "Las Venturas\n Medical Center", ObjectMaterialSize.X512X128, "Courier New", 60, false, 0xFFCC0000, 0x00000000, ObjectMaterialTextAlign.Left);
+            hospitallv29.ShowInWorld(1011);
+            **/
+
+            var hospitallv30 = new DynamicObject(19929, new Vector3(1344.181518, 1530.146606, 2999.244628), new Vector3(0.000000, 0.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv30.SetMaterial(0, 18646, "matcolours", "grey-60-percent", 0x00000000);
+            hospitallv30.SetMaterial(1, 18646, "matcolours", "grey-80-percent", 0x00000000);
+            hospitallv30.ShowInWorld(1011);
+
+            var hospitallv31 = new DynamicObject(19925, new Vector3(1342.323730, 1530.149780, 2999.244628), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv31.SetMaterial(0, 18646, "matcolours", "grey-60-percent", 0x00000000);
+            hospitallv31.SetMaterial(1, 18646, "matcolours", "grey-80-percent", 0x00000000);
+            hospitallv31.ShowInWorld(1011);
+
+            var hospitallv32 = new DynamicObject(19929, new Vector3(1342.322631, 1532.008422, 2999.244628), new Vector3(0.000000, 0.000000, 360.000000), 1011, 1, player, 50, 50);
+            hospitallv32.SetMaterial(0, 18646, "matcolours", "grey-60-percent", 0x00000000);
+            hospitallv32.SetMaterial(1, 18646, "matcolours", "grey-80-percent", 0x00000000);
+            hospitallv32.ShowInWorld(1011);
+
+            var hospitallv33 = new DynamicObject(1742, new Vector3(1344.719360, 1533.281860, 2999.214599), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv33.SetMaterial(0, 1977, "cooler1", "shelf_stuff1", 0x00000000);
+            hospitallv33.SetMaterial(1, 1977, "cooler1", "shelf_stuff1", 0x00000000);
+            hospitallv33.SetMaterial(2, 3629, "arprtxxref_las", "dirtywhite", 0x00000000);
+            hospitallv33.ShowInWorld(1011);
+
+            var hospitallv34 = new DynamicObject(1997, new Vector3(1339.258300, 1519.140014, 2999.234619), new Vector3(0.000000, 0.000000, 45.000000), 1011, 1, player, 50, 50);
+            hospitallv34.SetMaterial(0, -1, "none", "none", 0xFFFFFFFF);
+            hospitallv34.ShowInWorld(1011);
+
+            var hospitallv35 = new DynamicObject(1997, new Vector3(1337.930541, 1521.667114, 2999.685058), new Vector3(0.000000, 90.000000, 7.200090), 1011, 1, player, 50, 50);
+            hospitallv35.SetMaterial(0, -1, "none", "none", 0xFFFFFFFF);
+            hospitallv35.ShowInWorld(1011);
+
+            var hospitallv36 = new DynamicObject(2897, new Vector3(1352.921508, 1530.726440, 2999.505859), new Vector3(0.000000, 0.000000, -69.500022), 1011, 1, player, 50, 50);
+            hospitallv36.SetMaterial(0, 3629, "arprtxxref_las", "dirtywhite", 0xFFFFFFFF);
+            hospitallv36.ShowInWorld(1011);
+
+            var hospitallv37 = new DynamicObject(2907, new Vector3(1343.223266, 1532.718383, 3000.053710), new Vector3(-76.799812, 49.299926, -90.000000), 1011, 1, player, 50, 50);
+            hospitallv37.SetMaterial(0, -1, "none", "none", 0xFFFFFFFF);
+            hospitallv37.ShowInWorld(1011);
+
+            var hospitallv38 = new DynamicObject(2906, new Vector3(1343.013305, 1532.461425, 3000.097656), new Vector3(-35.900054, 0.000000, -176.600357), 1011, 1, player, 50, 50);
+            hospitallv38.SetMaterial(0, -1, "none", "none", 0xFFFFFFFF);
+            hospitallv38.ShowInWorld(1011);
+
+            var hospitallv39 = new DynamicObject(19836, new Vector3(1351.396850, 1531.331542, 2999.254638), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv39.SetMaterial(0, -1, "none", "none", 0xFFFFFFFF);
+            hospitallv39.ShowInWorld(1011);
+
+            var hospitallv40 = new DynamicObject(1620, new Vector3(1351.334228, 1520.538574, 3003.418701), new Vector3(0.000000, 0.000000, -45.000000), 1011, 1, player, 50, 50);
+            hospitallv40.SetMaterial(0, -1, "none", "none", 0xFFFFFFFF);
+            hospitallv40.ShowInWorld(1011);
+
+            var hospitallv41 = new DynamicObject(1620, new Vector3(1337.107177, 1520.481201, 3003.418701), new Vector3(0.000000, 0.000000, 225.000000), 1011, 1, player, 50, 50);
+            hospitallv41.SetMaterial(0, -1, "none", "none", 0xFFFFFFFF);
+            hospitallv41.ShowInWorld(1011);
+
+            var hospitallv42 = new DynamicObject(3089, new Vector3(1354.579345, 1524.915283, 3000.485839), new Vector3(0.000000, 0.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv42.SetMaterial(0, 11631, "mp_ranchcut", "mpCJ_Black_metal", 0x00000000);
+            hospitallv42.SetMaterial(1, 6284, "bev_law2", "pierwall03_law", 0x00000000);
+            hospitallv42.SetMaterial(2, 6284, "bev_law2", "pierwall03_law", 0x00000000);
+            hospitallv42.SetMaterial(3, 6284, "bev_law2", "pierwall03_law", 0x00000000);
+            hospitallv42.ShowInWorld(1011);
+
+            var hospitallv43 = new DynamicObject(19433, new Vector3(1356.296752, 1525.660156, 3001.827148), new Vector3(0.000000, -90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv43.SetMaterial(0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+            hospitallv43.ShowInWorld(1011);
+
+            var hospitallv44 = new DynamicObject(19433, new Vector3(1355.345703, 1526.470947, 3000.165527), new Vector3(0.000000, 0.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv44.SetMaterial(0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+            hospitallv44.ShowInWorld(1011);
+
+            var hospitallv45 = new DynamicObject(19433, new Vector3(1355.345703, 1524.939453, 3000.165527), new Vector3(0.000000, 0.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv45.SetMaterial(0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+            hospitallv45.ShowInWorld(1011);
+
+            var hospitallv46 = new DynamicObject(3089, new Vector3(1333.747192, 1524.915283, 3000.485839), new Vector3(0.000000, 0.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv46.SetMaterial(0, 11631, "mp_ranchcut", "mpCJ_Black_metal", 0x00000000);
+            hospitallv46.SetMaterial(1, 6284, "bev_law2", "pierwall03_law", 0x00000000);
+            hospitallv46.SetMaterial(2, 6284, "bev_law2", "pierwall03_law", 0x00000000);
+            hospitallv46.SetMaterial(3, 6284, "bev_law2", "pierwall03_law", 0x00000000);
+            hospitallv46.ShowInWorld(1011);
+
+            var hospitallv47 = new DynamicObject(19433, new Vector3(1333.005981, 1526.470947, 3000.165527), new Vector3(0.000000, 0.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv47.SetMaterial(0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+            hospitallv47.ShowInWorld(1011);
+
+            var hospitallv48 = new DynamicObject(19433, new Vector3(1332.058105, 1525.660156, 3001.827148), new Vector3(0.000000, -90.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv48.SetMaterial(0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+            hospitallv48.ShowInWorld(1011);
+
+            var hospitallv49 = new DynamicObject(19433, new Vector3(1333.005981, 1524.939453, 3000.165527), new Vector3(0.000000, 0.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv49.SetMaterial(0, 18646, "matcolours", "grey-70-percent", 0x00000000);
+            hospitallv49.ShowInWorld(1011);
+
+            var hospitallv50 = new DynamicObject(1776, new Vector3(1346.802856, 1511.879516, 2998.185302), new Vector3(90.000000, -13.099831, 270.000000), 1011, 1, player, 50, 50);
+            hospitallv50.SetMaterial(0, -1, "none", "none", 0xFFFFFFFF);
+            hospitallv50.ShowInWorld(1011);
+
+            var hospitallv51 = new DynamicObject(1997, new Vector3(1334.600219, 1531.692871, 2999.234619), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv51.SetMaterial(0, -1, "none", "none", 0xFFFFFFFF);
+            hospitallv51.ShowInWorld(1011);
+
+            var hospitallv52 = new DynamicObject(1997, new Vector3(1334.600219, 1528.419677, 2999.234619), new Vector3(0.000000, 0.000000, 180.000000), 1011, 1, player, 50, 50);
+            hospitallv52.SetMaterial(0, -1, "none", "none", 0xFFFFFFFF);
+            hospitallv52.ShowInWorld(1011);
+
+            var hospitallv53 = new DynamicObject(932, new Vector3(1345.327026, 1524.247070, 2999.215576), new Vector3(0.000000, 0.000000, -41.800003), 1011, 1, player, 50, 50);
+            hospitallv53.SetMaterial(0, 2994, "trolex", "trolley03", 0x00000000);
+            hospitallv53.ShowInWorld(1011);
+
+            var hospitallv54 = new DynamicObject(2894, new Vector3(1343.106689, 1530.108398, 3000.175537), new Vector3(0.000000, 0.000000, -19.100013), 1011, 1, player, 50, 50);
+            hospitallv54.SetMaterial(0, -1, "none", "none", 0xFFFFFFFF);
+            hospitallv54.ShowInWorld(1011);
+
+            var hospitallv55 = new DynamicObject(19999, new Vector3(1343.345336, 1532.573242, 2999.244628), new Vector3(0.000000, 0.000000, 44.199821), 1011, 1, player, 50, 50);
+            hospitallv55.ShowInWorld(1011);
+
+            var hospitallv56 = new DynamicObject(19944, new Vector3(1351.189819, 1528.908325, 2999.255615), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv56.ShowInWorld(1011);
+
+            var hospitallv57 = new DynamicObject(19944, new Vector3(1352.132690, 1528.653320, 2999.255615), new Vector3(0.000000, 0.000000, -2.000000), 1011, 1, player, 50, 50);
+            hospitallv57.ShowInWorld(1011);
+
+            var hospitallv58 = new DynamicObject(2674, new Vector3(1348.533569, 1526.225952, 2999.264648), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv58.ShowInWorld(1011);
+
+            var hospitallv59 = new DynamicObject(2674, new Vector3(1343.571777, 1521.071899, 2999.264648), new Vector3(0.000000, 0.000000, -92.899986), 1011, 1, player, 50, 50);
+            hospitallv59.ShowInWorld(1011);
+
+            var hospitallv60 = new DynamicObject(2676, new Vector3(1346.586669, 1531.709960, 2999.375732), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv60.ShowInWorld(1011);
+
+            var hospitallv61 = new DynamicObject(2673, new Vector3(1339.261352, 1525.867797, 2999.334716), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv61.ShowInWorld(1011);
+
+            var hospitallv62 = new DynamicObject(2673, new Vector3(1345.951904, 1523.945922, 2999.334716), new Vector3(0.000000, 0.000000, -51.500007), 1011, 1, player, 50, 50);
+            hospitallv62.ShowInWorld(1011);
+
+            var hospitallv63 = new DynamicObject(2676, new Vector3(1343.215576, 1511.950561, 2997.904296), new Vector3(0.000000, 0.000000, -9.300002), 1011, 1, player, 50, 50);
+            hospitallv63.ShowInWorld(1011);
+
+            var hospitallv64 = new DynamicObject(14439, new Vector3(1344.593750, 1526.968383, 3006.182373), new Vector3(0.000000, 0.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv64.ShowInWorld(1011);
+
+            var hospitallv65 = new DynamicObject(1209, new Vector3(1347.828857, 1513.041503, 2997.792236), new Vector3(0.000000, 0.000000, -90.000000), 1011, 1, player, 50, 50);
+            hospitallv65.ShowInWorld(1011);
+
+            var hospitallv66 = new DynamicObject(11711, new Vector3(1344.088867, 1507.922729, 3001.445800), new Vector3(0.000000, 0.000000, 0.000000), 1011, 1, player, 50, 50);
+            hospitallv66.ShowInWorld(1011);
+
+            var hospitallv67 = new DynamicObject(2687, new Vector3(1340.315673, 1512.416503, 2999.453857), new Vector3(0.000000, 0.000000, 90.000000), 1011, 1, player, 50, 50);
+            hospitallv67.ShowInWorld(1011);
+
+            var hospitallv68 = new DynamicObject(1723, new Vector3(1340.857177, 1510.566650, 2997.792236), new Vector3(0.000000, 0.000000, 82.900100), 1011, 1, player, 50, 50);
+            hospitallv68.ShowInWorld(1011);
+
+            var hospitallv69 = new DynamicObject(19807, new Vector3(1342.547729, 1530.374877, 3000.235595), new Vector3(0.000000, 0.000000, 160.800018), 1011, 1, player, 50, 50);
+            hospitallv69.ShowInWorld(1011);
+
+            var hospitallv70 = new DynamicObject(2824, new Vector3(1344.063354, 1530.139038, 3000.175537), new Vector3(0.000000, 0.000000, -179.600173), 1011, 1, player, 50, 50);
+            hospitallv70.ShowInWorld(1011);
+
+            var hospitallv71 = new DynamicObject(1886, new Vector3(1334.455932, 1532.644287, 3004.411132), new Vector3(12.100009, 0.000000, 49.299991), 1011, 1, player, 50, 50);
+            hospitallv71.ShowInWorld(1011);
+
+            var hospitallv72 = new DynamicObject(960, new Vector3(1340.630981, 1528.466308, 2999.594970), new Vector3(0.000000, 0.000000, 29.900001), 1011, 1, player, 50, 50);
+            hospitallv72.ShowInWorld(1011);
+
+            var hospitallv73 = new DynamicObject(1448, new Vector3(1341.000366, 1518.196044, 2999.315673), new Vector3(0.000000, 0.000000, 59.099998), 1011, 1, player, 50, 50);
+            hospitallv73.ShowInWorld(1011);
+
+            var hospitallv74 = new DynamicObject(928, new Vector3(1339.883056, 1523.561279, 2999.514892), new Vector3(0.000000, 0.000000, 17.400001), 1011, 1, player, 50, 50);
+            hospitallv74.ShowInWorld(1011);
+
+            var hospitallv75 = new DynamicObject(16377, new Vector3(1341.751586, 1525.005615, 2999.568359), new Vector3(92.199951, 0.000000, -23.500055), 1011, 1, player, 50, 50);
+            hospitallv75.ShowInWorld(1011);
+
+            var hospitallv76 = new DynamicObject(2066, new Vector3(1350.370849, 1520.135253, 2999.736083), new Vector3(-90.000000, 0.000000, 114.300041), 1011, 1, player, 50, 50);
+            hospitallv76.ShowInWorld(1011);
+
+            var hospitallv77 = new DynamicObject(2713, new Vector3(1347.676147, 1508.243286, 2997.912353), new Vector3(0.000000, 0.000000, 34.400047), 1011, 1, player, 50, 50);
+            hospitallv77.ShowInWorld(1011);
+
+            
+            var bridgeb1 = new DynamicObject(3939, new Vector3(-964.803833, 2731.843994, 46.717041), new Vector3(0.000000, 0.000000, -41.699883), 0, 0, player, 200, 150);
+            bridgeb1.SetMaterial(2, 3085, "blkbrdx", "tatty_wood_1", 0);
+            bridgeb1.SetMaterial(1, 3085, "blkbrdx", "tatty_wood_1", 0);
+            bridgeb1.SetMaterial(0, 3085, "blkbrdx", "tatty_wood_1", 0);
+            bridgeb1.ShowInWorld(0);
+            
+            var bridgeb2 = new DynamicObject(19632, new Vector3(-964.098816, 2731.417725, 45.045353), new Vector3(0.000000, 0.000000, 20.299988), 0, 0, player, 200, 150);
+            bridgeb2.ShowInWorld(0);
+            
+            var bridgeb3 = new DynamicObject(1771, new Vector3(-966.463135, 2731.565674, 44.945370), new Vector3(0.000000, 0.000000, -26.199984), 0, 0, player, 200, 150);
+            bridgeb3.SetMaterial(1, 8487, "ballyswater", "waterclear256", 0);
+            bridgeb3.SetMaterial(0, 3945, "alpha_fence", "bistro_alpha", 0);
+            bridgeb3.ShowInWorld(0);
+            
+            var bridgeb4 = new DynamicObject(918, new Vector3(-964.519836, 2729.649414, 45.347031), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb4.ShowInWorld(0);
+            
+            var bridgeb5 = new DynamicObject(1431, new Vector3(-965.145081, 2729.263428, 45.521832), new Vector3(0.000000, 0.000000, -47.400005), 0, 0, player, 200, 150);
+            bridgeb5.ShowInWorld(0);
+            
+            var bridgeb6 = new DynamicObject(1271, new Vector3(-962.385071, 2732.186279, 45.400116), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb6.ShowInWorld(0);
+
+            var bridgeb7 = new DynamicObject(1771, new Vector3(-964.756226, 2733.989258, 44.965366), new Vector3(0.000000, 0.000000, -59.199993), 0, 0, player, 200, 150);
+            bridgeb7.SetMaterial(1, 8487, "ballyswater", "waterclear256", 0);
+            bridgeb7.SetMaterial(0, 3945, "alpha_fence", "bistro_alpha", 0);
+            bridgeb7.ShowInWorld(0);
+            
+            var bridgeb8 = new DynamicObject(930, new Vector3(-961.889404, 2731.383789, 45.544048), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb8.ShowInWorld(0);
+
+            var bridgeb9 = new DynamicObject(2036, new Vector3(-964.432373, 2728.512451, 45.534290), new Vector3(0.000000, -57.799969, 145.299988), 0, 0, player, 200, 150);
+            bridgeb9.ShowInWorld(0);
+            var bridgeb10 = new DynamicObject(19572, new Vector3(-961.679688, 2732.239014, 45.026691), new Vector3(0.000000, 0.000000, -21.499998), 0, 0, player, 200, 150);
+            bridgeb10.ShowInWorld(0);
+            var bridgeb11 = new DynamicObject(3005, new Vector3(-963.025085, 2727.239258, 45.045090), new Vector3(2.099998, 0.000000, -4.400011), 0, 0, player, 200, 150);
+            bridgeb11.ShowInWorld(0);
+            
+            var bridgeb12 = new DynamicObject(1238, new Vector3(-963.139221, 2725.521240, 45.315624), new Vector3(0.000000, 0.000000, 332.692017), 0, 0, player, 200, 150);
+            bridgeb12.ShowInWorld(0);
+            var bridgeb13 = new DynamicObject(967, new Vector3(-961.511597, 2725.198730, 45.697021), new Vector3(90.000000, -39.399998, 30.000000), 0, 0, player, 200, 150);
+            bridgeb13.ShowInWorld(0);
+            var bridgeb14 = new DynamicObject(820, new Vector3(-971.789917, 2730.077881, 44.923569), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb14.ShowInWorld(0);
+            
+            var bridgeb15 = new DynamicObject(3015, new Vector3(-961.035583, 2725.368408, 45.046391), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb15.ShowInWorld(0);
+            var bridgeb16 = new DynamicObject(11441, new Vector3(-960.525574, 2738.391113, 45.197006), new Vector3(0.000000, 0.000000, -146.000015), 0, 0, player, 200, 150);
+            bridgeb16.ShowInWorld(0);
+            var bridgeb17 = new DynamicObject(2599, new Vector3(-954.915283, 2731.691406, 45.550587), new Vector3(0.000000, 0.000000, 28.999994), 0, 0, player, 200, 150);
+            bridgeb17.ShowInWorld(0);
+            var bridgeb18 = new DynamicObject(2866, new Vector3(-953.144592, 2733.833984, 45.926510), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb18.ShowInWorld(0);
+            
+            var bridgeb19 = new DynamicObject(2856, new Vector3(-953.025269, 2733.206543, 45.918812), new Vector3(0.000000, 0.000000, 78.800003), 0, 0, player, 200, 150);
+            bridgeb19.ShowInWorld(0);
+            //CreateDynamicObject(2663, -953.117493, 2734.426514, 46.154842, 0.000000, 0.000000, -132.600006, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb20 = new DynamicObject(2663, new Vector3(-953.117493, 2734.426514, 46.154842), new Vector3(0.000000, 0.000000, -132.600006), 0, 0, player, 200, 150);
+            bridgeb20.ShowInWorld(0);
+            //CreateDynamicObject(2663, -953.190857, 2735.462891, 46.154842, 0.000000, 0.000000, -59.400009, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb21 = new DynamicObject(2663, new Vector3(-953.190857, 2735.462891, 46.154842), new Vector3(0.000000, 0.000000, -59.400009), 0, 0, player, 200, 150);
+            bridgeb21.ShowInWorld(0);
+            //CreateDynamicObject(19922, -952.949036, 2734.368896, 45.133797, 0.000000, 0.000000, -82.799988, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb22 = new DynamicObject(19922, new Vector3(-952.949036, 2734.368896, 45.133797), new Vector3(0.000000, 0.000000, -82.799988), 0, 0, player, 200, 150);
+            bridgeb22.ShowInWorld(0);
+            //CreateDynamicObject(1520, -952.608032, 2733.360840, 45.975117, 0.000000, 0.000000, -30.700005, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb23 = new DynamicObject(1520, new Vector3(-952.608032, 2733.360840, 45.975117), new Vector3(0.000000, 0.000000, -30.700005), 0, 0, player, 200, 150);
+            bridgeb23.ShowInWorld(0);
+            //CreateDynamicObject(1459, -965.035583, 2719.443848, 45.467186, 0.000000, 0.000000, 94.675293, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb24 = new DynamicObject(1459, new Vector3(-965.035583, 2719.443848, 45.467186), new Vector3(0.000000, 0.000000, 94.675293), 0, 0, player, 200, 150);
+            bridgeb24.ShowInWorld(0);
+            //CreateDynamicObject(1520, -952.446716, 2733.277100, 45.972847, 2.600000, 93.899986, -132.699966, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb25 = new DynamicObject(1520, new Vector3(-952.446716, 2733.277100, 45.972847), new Vector3(2.600000, 93.899986, -132.699966), 0, 0, player, 200, 150);
+            bridgeb25.ShowInWorld(0);
+            //CreateDynamicObject(2342, -952.622681, 2734.412842, 46.041187, 0.000000, 0.000000, -105.099976, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb26 = new DynamicObject(2342, new Vector3(-952.622681, 2734.412842, 46.041187), new Vector3(0.000000, 0.000000, -105.099976), 0, 0, player, 200, 150);
+            bridgeb26.ShowInWorld(0);
+            //CreateDynamicObject(2861, -952.778748, 2735.028564, 45.929363, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb27 = new DynamicObject(2861, new Vector3(-952.778748, 2735.028564, 45.929363), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb27.ShowInWorld(0);
+            //CreateDynamicObject(1520, -952.437927, 2733.541016, 45.975117, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb28 = new DynamicObject(1520, new Vector3(-952.437927, 2733.541016, 45.975117), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb28.ShowInWorld(0);
+            //CreateDynamicObject(19572, -952.664246, 2734.530762, 45.213470, 0.000000, 0.000000, -72.800003, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb29 = new DynamicObject(19572, new Vector3(-952.664246, 2734.530762, 45.213470), new Vector3(0.000000, 0.000000, -72.800003), 0, 0, player, 200, 150);
+            bridgeb29.ShowInWorld(0);
+            //CreateDynamicObject(19572, -952.475403, 2733.920654, 45.213470, 0.000000, 0.000000, -97.499985, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb30 = new DynamicObject(19572, new Vector3(-952.475403, 2733.920654, 45.213470), new Vector3(0.000000, 0.000000, -97.499985), 0, 0, player, 200, 150);
+            bridgeb30.ShowInWorld(0);
+            //CreateDynamicObject(2972, -953.085510, 2736.717041, 45.139622, 0.000000, 0.000000, -11.699987, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb31 = new DynamicObject(2972, new Vector3(-953.085510, 2736.717041, 45.139622), new Vector3(0.000000, 0.000000, -11.699987), 0, 0, player, 200, 150);
+            bridgeb31.ShowInWorld(0);
+            //CreateDynamicObject(3795, -969.715637, 2719.796875, 44.858509, 0.000000, 0.000000, 23.799999, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+
+            var bridgeb32 = new DynamicObject(3795, new Vector3(-969.715637, 2719.796875, 44.858509), new Vector3(0.000000, 0.000000, 23.799999), 0, 0, player, 200, 150);
+            bridgeb32.ShowInWorld(0);
+            //CreateDynamicObject(19944, -974.631653, 2722.887451, 44.997200, 0.000000, 0.000000, 8.099999, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb33 = new DynamicObject(19944, new Vector3(-974.631653, 2722.887451, 44.997200), new Vector3(0.000000, 0.000000, 8.099999), 0, 0, player, 200, 150);
+            bridgeb33.ShowInWorld(0);
+            //CreateDynamicObject(19996, -951.655273, 2733.862793, 45.162563, 0.000000, 0.000000, -98.899994, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb34 = new DynamicObject(19996, new Vector3(-951.655273, 2733.862793, 45.162563), new Vector3(0.000000, 0.000000, -98.899994), 0, 0, player, 200, 150);
+            bridgeb34.ShowInWorld(0);
+            //CreateDynamicObject(19996, -951.830078, 2735.130859, 45.162563, 0.000000, 0.000000, -64.399994, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb35 = new DynamicObject(19996, new Vector3(-951.830078, 2735.130859, 45.162563), new Vector3(0.000000, 0.000000, -64.399994), 0, 0, player, 200, 150);
+            bridgeb35.ShowInWorld(0);
+            
+            var bridgeb36 = new DynamicObject(3939, new Vector3(-951.177979, 2734.912842, 46.717041), new Vector3(0.000000, 0.000000, -91.399902), 0, 0, player, 200, 150);
+            bridgeb36.SetMaterial(2,3085,"blkbrdx","tatty_wood_1", 0);
+            bridgeb36.SetMaterial(1, 3085, "blkbrdx", "tatty_wood_1", 0);
+            bridgeb36.SetMaterial(0, 3085, "blkbrdx", "tatty_wood_1", 0);
+            bridgeb36.ShowInWorld(0);
+            //CreateDynamicObject(19944, -975.695129, 2722.671875, 44.997200, 0.000000, 0.000000, 18.200001, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb37 = new DynamicObject(19944, new Vector3(-975.695129, 2722.671875, 44.997200), new Vector3(0.000000, 0.000000, 18.200001), 0, 0, player, 200, 150);
+            bridgeb37.ShowInWorld(0);
+            
+            var bridgeb38 = new DynamicObject(3884, new Vector3(-968.991882, 2717.636230, 44.817200), new Vector3(0.000000, 0.000000, 86.400009), 0, 0, player, 200, 150);
+            bridgeb38.SetMaterial(2, 3085, "countrys", "rustc256128", 0);
+            bridgeb38.SetMaterial(1, 3085, "countrys", "rustc256128", 0);
+            bridgeb38.SetMaterial(0, 3085, "countrys", "rustc256128", 0);
+            bridgeb38.ShowInWorld(0);
+      
+            var bridgeb39 = new DynamicObject(18706, new Vector3(-969.336792, 2717.486816, 45.913876), new Vector3(15.100001, 32.300014, 0.000000), 0, 0, player, 200, 150);
+            bridgeb39.ShowInWorld(0);
+            
+            var bridgeb40 = new DynamicObject(19632, new Vector3(-949.639282, 2730.580322, 45.225334), new Vector3(0.000000, 0.000000, 20.299988), 0, 0, player, 200, 150);
+            bridgeb40.ShowInWorld(0);
+            
+            var bridgeb41 = new DynamicObject(3884, new Vector3(-968.991882, 2717.636230, 44.817200), new Vector3(0.000000, 0.000000, 86.400009), 0, 0, player, 200, 150);
+            bridgeb41.SetMaterial(1, 3115, "carrierxr", "ws_carrierdeckbase", 0);
+            bridgeb41.SetMaterial(0, 2956, "immcrax", "Metalox64", 0);
+            bridgeb41.ShowInWorld(0);
+            //CreateDynamicObject(19944, -976.930298, 2722.263672, 44.997200, 0.000000, 0.000000, 18.200001, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb42 = new DynamicObject(19944, new Vector3(-976.930298, 2722.263672, 44.997200), new Vector3(0.000000, 0.000000, 18.200001), 0, 0, player, 200, 150);
+            bridgeb42.ShowInWorld(0);
+            //CreateDynamicObject(19636, -949.654541, 2737.215332, 45.840946, 0.000000, 0.000000, -95.599998, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb43 = new DynamicObject(19636, new Vector3(-949.654541, 2737.215332, 45.840946), new Vector3(0.000000, 0.000000, -95.599998), 0, 0, player, 200, 150);
+            bridgeb43.ShowInWorld(0);
+            //CreateDynamicObject(1271, -949.661865, 2737.267334, 45.508606, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb44 = new DynamicObject(1271, new Vector3(-949.661865, 2737.267334, 45.508606), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb44.ShowInWorld(0);
+            //CreateDynamicObject(19573, -948.632324, 2732.265137, 45.192486, 0.000000, 0.000000, -87.799942, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb45 = new DynamicObject(19573, new Vector3(-948.632324, 2732.265137, 45.192486), new Vector3(0.000000, 0.000000, -87.799942), 0, 0, player, 200, 150);
+            bridgeb45.ShowInWorld(0);
+            //CreateDynamicObject(2690, -948.449280, 2732.721924, 46.005344, 0.000000, 0.000000, -80.199997, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb46 = new DynamicObject(2690, new Vector3(-948.449280, 2732.721924, 46.005344), new Vector3(0.000000, 0.000000, -80.199997), 0, 0, player, 200, 150);
+            bridgeb46.ShowInWorld(0);
+            //CreateDynamicObject(2690, -948.441589, 2733.027832, 46.005344, 0.000000, 0.000000, -80.199997, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb47 = new DynamicObject(2690, new Vector3(-948.441589, 2733.027832, 46.005344), new Vector3(0.000000, 0.000000, -80.199997), 0, 0, player, 200, 150);
+            bridgeb47.ShowInWorld(0);
+            //CreateDynamicObject(917, -948.675476, 2736.031250, 45.988518, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb48 = new DynamicObject(917, new Vector3(-948.675476, 2736.031250, 45.988518), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb48.ShowInWorld(0);
+            //CreateDynamicObject(1271, -948.902039, 2737.037109, 46.178589, 0.000000, 0.000000, -9.700000, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb49 = new DynamicObject(1271, new Vector3(-948.902039, 2737.037109, 46.178589), new Vector3(0.000000, 0.000000, -9.700000), 0, 0, player, 200, 150);
+            bridgeb49.ShowInWorld(0);
+            //CreateDynamicObject(917, -948.675476, 2736.351563, 45.988518, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb50 = new DynamicObject(917, new Vector3(-948.675476, 2736.351563, 45.988518), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb50.ShowInWorld(0);
+            //CreateDynamicObject(1271, -948.882019, 2737.037109, 45.508606, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb51 = new DynamicObject(1271, new Vector3(-948.882019, 2737.037109, 45.508606), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb51.ShowInWorld(0);
+            //CreateDynamicObject(19572, -948.641785, 2736.355713, 45.833454, 0.000000, 0.000000, -179.299866, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb52 = new DynamicObject(19572, new Vector3(-948.641785, 2736.355713, 45.833454), new Vector3(0.000000, 0.000000, -179.299866), 0, 0, player, 200, 150);
+            bridgeb42.ShowInWorld(0);
+            //CreateDynamicObject(1271, -948.611755, 2736.216309, 45.508606, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb53 = new DynamicObject(1271, new Vector3(-948.611755, 2736.216309, 45.508606), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb53.ShowInWorld(0);
+            //CreateDynamicObject(1025, -971.970032, 2716.560547, 45.073318, 0.000000, -29.300003, 148.199997, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb54 = new DynamicObject(1025, new Vector3(-971.970032, 2716.560547, 45.073318), new Vector3(0.000000, -29.300003, 148.199997), 0, 0, player, 200, 150);
+            bridgeb54.ShowInWorld(0);
+            //CreateDynamicObject(19917, -971.367371, 2715.813965, 45.127201, 0.000000, 0.000000, 36.500023, -1, -1, -1, STREAMER_OBJECT_SD, 100.0); // 0
+            var bridgeb55 = new DynamicObject(19917, new Vector3(-971.367371, 2715.813965, 45.127201), new Vector3(0.000000, 0.000000, 36.500023), 0, 0, player, 200, 150);
+            bridgeb55.ShowInWorld(0);
+            //CreateDynamicObject(18726, -971.294678, 2715.610596, 44.917191, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb56 = new DynamicObject(18726, new Vector3(-971.294678, 2715.610596, 44.917191), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb56.ShowInWorld(0);
+            //CreateDynamicObject(18688, -971.561462, 2715.677246, 44.187222, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb57 = new DynamicObject(18688, new Vector3(-971.561462, 2715.677246, 44.187222), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb57.ShowInWorld(0);
+            //CreateDynamicObject(1025, -970.933105, 2715.227539, 45.019413, 0.000000, -29.300003, -57.200043, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb58 = new DynamicObject(1025, new Vector3(-970.933105, 2715.227539, 45.019413), new Vector3(0.000000, -29.300003, -57.200043), 0, 0, player, 200, 150);
+            bridgeb58.ShowInWorld(0);
+            //CreateDynamicObject(850, -975.928589, 2717.470703, 44.977215, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var bridgeb59 = new DynamicObject(850, new Vector3(-975.928589, 2717.470703, 44.977215), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb59.ShowInWorld(0);
+            //CreateDynamicObject(930, -980.670959, 2722.913818, 45.477230, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 100.0); // 0
+            var bridgeb60 = new DynamicObject(930, new Vector3(-980.670959, 2722.913818, 45.477230), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb60.ShowInWorld(0);
+            
+            var bridgeb61 = new DynamicObject(3066, new Vector3(-946.354126, 2734.429443, 46.005978), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb61.SetMaterial(0,3945,"alpha_fence","bistro_alpha", 0xFFFFFFFF);
+            bridgeb61.ShowInWorld(0);
+            //CreateDynamicObject(2674, -981.424194, 2722.962402, 45.045631, 0.000000, 0.000000, 23.300003, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb62 = new DynamicObject(2674, new Vector3(-981.424194, 2722.962402, 45.045631), new Vector3(0.000000, 0.000000, 23.300003), 0, 0, player, 200, 150);
+            bridgeb62.ShowInWorld(0);
+            //CreateDynamicObject(1672, -982.158264, 2723.382813, 47.285625, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 50.0); // 0
+            var bridgeb63 = new DynamicObject(1672, new Vector3(-982.158264, 2723.382813, 47.285625), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb63.ShowInWorld(0);
+            //CreateDynamicObject(1672, -982.303589, 2723.351563, 47.268776, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 50.0); // 0
+            var bridgeb64 = new DynamicObject(1672, new Vector3(-982.303589, 2723.351563, 47.268776), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb64.ShowInWorld(0);
+            //CreateDynamicObject(1672, -982.273865, 2723.242920, 47.230839, 92.900017, -38.900005, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 50.0); // 0
+            var bridgeb65 = new DynamicObject(1672, new Vector3(-982.273865, 2723.242920, 47.230839), new Vector3(92.900017, -38.900005, 0.000000), 0, 0, player, 200, 150);
+            bridgeb65.ShowInWorld(0);
+            //CreateDynamicObject(1672, -982.453735, 2723.303467, 47.233894, 92.900017, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 50.0); // 0
+            var bridgeb66 = new DynamicObject(1672, new Vector3(-982.453735, 2723.303467, 47.233894), new Vector3(92.900017, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb66.ShowInWorld(0);
+            //CreateDynamicObject(19942, -982.434387, 2723.048096, 46.015648, -84.500031, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 50.0); // 0
+            var bridgeb67 = new DynamicObject(19942, new Vector3(-982.434387, 2723.048096, 46.015648), new Vector3(-84.500031, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb67.ShowInWorld(0);
+            //CreateDynamicObject(2977, -982.646790, 2722.816895, 44.825649, 0.000000, 0.000000, -54.000011, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb68 = new DynamicObject(2977, new Vector3(-982.646790, 2722.816895, 44.825649), new Vector3(0.000000, 0.000000, -54.000011), 0, 0, player, 200, 150);
+            bridgeb68.ShowInWorld(0);
+            //CreateDynamicObject(356, -982.803528, 2722.755371, 46.078144, -88.100006, 33.300014, 3.599999, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb69 = new DynamicObject(356, new Vector3(-982.803528, 2722.755371, 46.078144), new Vector3(-88.100006, 33.300014, 3.599999), 0, 0, player, 200, 150);
+            bridgeb69.ShowInWorld(0);
+            //fso_map = CreateDynamicObject(1464, -983.355896, 2722.670898, 46.117142, 0.000000, 0.000000, 188.300034, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 4
+            //SetDynamicObjectMaterial(fso_map, 3, 18845, "MickyTextures", "metal013", 0);
+            //SetDynamicObjectMaterial(fso_map, 2, 18845, "MickyTextures", "metal013", 0);
+            //SetDynamicObjectMaterial(fso_map, 1, 19272, "DMCages", "metaldrumold1", 0);
+            //SetDynamicObjectMaterial(fso_map, 0, 18886, "ElectroMagnet1", "metalox64", 0);
+            var bridgeb70 = new DynamicObject(1464, new Vector3(-983.355896, 2722.670898, 46.117142), new Vector3(0.000000, 0.000000, 188.300034), 0, 0, player, 200, 150);
+            bridgeb70.SetMaterial(3, 18845, "MickyTextures", "metal013", 0);
+            bridgeb70.SetMaterial(2, 18845, "MickyTextures", "metal013", 0);
+            bridgeb70.SetMaterial(1, 19272, "DMCages", "metaldrumold1", 0);
+            bridgeb70.SetMaterial(0, 18886, "ElectroMagnet1", "metalox64", 0);
+            bridgeb70.ShowInWorld(0);
+            //fso_map = CreateDynamicObject(2064, -979.181396, 2716.929688, 45.447182, 0.000000, 0.000000, -72.199989, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 1
+            //SetDynamicObjectMaterial(fso_map, 0, 17003, "countrys", "rustc256128", 0);
+            var bridgeb71 = new DynamicObject(2064, new Vector3(-979.181396, 2716.929688, 45.447182), new Vector3(0.000000, 0.000000, -72.199989), 0, 0, player, 200, 150);
+            bridgeb71.SetMaterial(0,17003,"countrys","rustc256128", 0);
+            bridgeb71.ShowInWorld(0);
+            //CreateDynamicObject(1428, -983.067383, 2721.514160, 45.867188, 0.000000, 0.000000, 8.399990, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb72 = new DynamicObject(1428, new Vector3(-983.067383, 2721.514160, 45.867188), new Vector3(0.000000, 0.000000, 8.399990), 0, 0, player, 200, 150);
+            bridgeb72.ShowInWorld(0);
+            //CreateDynamicObject(2061, -980.510254, 2717.974854, 45.139133, 25.500004, 0.000000, -99.300003, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb73 = new DynamicObject(2061, new Vector3(-980.510254, 2717.974854, 45.139133), new Vector3(25.500004, 0.000000, -99.300003), 0, 0, player, 200, 150);
+            bridgeb73.ShowInWorld(0);
+            //CreateDynamicObject(2060, -980.776917, 2717.820801, 44.987209, 0.000000, 0.000000, 87.699966, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb74 = new DynamicObject(2060, new Vector3(-980.776917, 2717.820801, 44.987209), new Vector3(0.000000, 0.000000, 87.699966), 0, 0, player, 200, 150);
+            bridgeb74.ShowInWorld(0);
+            //CreateDynamicObject(2060, -980.779480, 2717.760742, 45.177177, 0.000000, 0.000000, 87.699966, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb75 = new DynamicObject(2060, new Vector3(-980.779480, 2717.760742, 45.177177), new Vector3(0.000000, 0.000000, 87.699966), 0, 0, player, 200, 150);
+            bridgeb75.ShowInWorld(0);
+            //fso_map = CreateDynamicObject(3850, -984.465271, 2723.056396, 47.685593, 0.000000, 0.000000, 98.499992, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 2
+            //SetDynamicObjectMaterial(fso_map, 1, 3945, "alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            //SetDynamicObjectMaterial(fso_map, 0, 3945, "alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            var bridgeb76 = new DynamicObject(3850, new Vector3(-984.465271, 2723.056396, 47.685593), new Vector3(0.000000, 0.000000, 98.499992), 0, 0, player, 200, 150);
+            bridgeb76.SetMaterial(1,3945, "alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            bridgeb76.SetMaterial(0, 3945, "alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            bridgeb76.ShowInWorld(0);
+            //CreateDynamicObject(2977, -984.248474, 2722.687744, 44.807201, 0.000000, 0.000000, 13.499999, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb77 = new DynamicObject(2977, new Vector3(-984.248474, 2722.687744, 44.807201), new Vector3(0.000000, 0.000000, 13.499999), 0, 0, player, 200, 150);
+            bridgeb77.ShowInWorld(0);
+            //CreateDynamicObject(2060, -980.798340, 2717.310303, 45.467144, 0.000000, 0.000000, 87.699966, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb78 = new DynamicObject(2060, new Vector3(-980.798340, 2717.310303, 45.467144), new Vector3(0.000000, 0.000000, 87.699966), 0, 0, player, 200, 150);
+            bridgeb78.ShowInWorld(0);
+            //CreateDynamicObject(2060, -980.707031, 2716.825195, 44.987209, 0.000000, 0.000000, 110.399971, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb79 = new DynamicObject(2060, new Vector3(-980.707031, 2716.825195, 44.987209), new Vector3(0.000000, 0.000000, 110.399971), 0, 0, player, 200, 150);
+            bridgeb79.ShowInWorld(0);
+            //fso_map = CreateDynamicObject(2906, -981.251526, 2717.407959, 44.913361, 5.099997, 0.000000, 40.600117, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 1
+            //SetDynamicObjectMaterial(fso_map, 0, 3945, "alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            var bridgeb80 = new DynamicObject(2906, new Vector3(-981.251526, 2717.407959, 44.913361), new Vector3(5.099997, 0.000000, 40.600117), 0, 0, player, 200, 150);
+            bridgeb80.SetMaterial(0,3945,"alpha_fence","bistro_alpha", 0xFFFFFFFF);
+            bridgeb80.ShowInWorld(0);
+            // CreateDynamicObject(2060, -980.755615, 2716.753174, 45.627102, 0.000000, 0.000000, 98.799911, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb81 = new DynamicObject(2060, new Vector3(-980.755615, 2716.753174, 45.627102), new Vector3(0.000000, 0.000000, 98.799911), 0, 0, player, 200, 150);
+            bridgeb81.ShowInWorld(0);
+            //CreateDynamicObject(2040, -980.285522, 2716.241455, 45.007236, 0.000000, 95.299950, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb82 = new DynamicObject(2040, new Vector3(-980.285522, 2716.241455, 45.007236), new Vector3(0.000000, 95.299950, 0.000000), 0, 0, player, 200, 150);
+            bridgeb82.ShowInWorld(0);
+            //CreateDynamicObject(2060, -980.856567, 2716.767822, 45.207176, 0.000000, 0.000000, 105.200043, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb83 = new DynamicObject(2060, new Vector3(-980.856567, 2716.767822, 45.207176), new Vector3(0.000000, 0.000000, 105.200043), 0, 0, player, 200, 150);
+            bridgeb83.ShowInWorld(0);
+            //CreateDynamicObject(2040, -980.250732, 2716.074219, 45.127247, 0.000000, 0.000000, 13.600002, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb84 = new DynamicObject(2040, new Vector3(-980.250732, 2716.074219, 45.127247), new Vector3(0.000000, 0.000000, 13.600002), 0, 0, player, 200, 150);
+            bridgeb84.ShowInWorld(0);
+            //CreateDynamicObject(2060, -980.951416, 2716.736328, 44.987209, 0.000000, 0.000000, 110.399971, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb85 = new DynamicObject(2060, new Vector3(-980.951416, 2716.736328, 44.987209), new Vector3(0.000000, 0.000000, 110.399971), 0, 0, player, 200, 150);
+            bridgeb79.ShowInWorld(0);
+            //CreateDynamicObject(2040, -980.145508, 2715.810303, 44.947216, 0.000000, 0.000000, 34.299995, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb86 = new DynamicObject(2040, new Vector3(-980.145508, 2715.810303, 44.947216), new Vector3(0.000000, 0.000000, 34.299995), 0, 0, player, 200, 150);
+            bridgeb86.ShowInWorld(0);
+            //CreateDynamicObject(2060, -980.677795, 2716.250732, 45.457130, 0.000000, 0.000000, 117.299965, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb87 = new DynamicObject(2060, new Vector3(-980.677795, 2716.250732, 45.457130), new Vector3(0.000000, 0.000000, 117.299965), 0, 0, player, 200, 150);
+            bridgeb87.ShowInWorld(0);
+            //CreateDynamicObject(19101, -981.194397, 2716.755127, 45.974850, -11.199995, -91.899986, 96.500031, -1, -1, -1, STREAMER_OBJECT_SD, 50.0); // 0
+            var bridgeb88 = new DynamicObject(19101, new Vector3(-981.194397, 2716.755127, 45.974850), new Vector3(-11.199995, -91.899986, 96.500031), 0, 0, player, 200, 150);
+            bridgeb88.ShowInWorld(0);
+            //fso_map = CreateDynamicObject(2908, -981.200806, 2716.755371, 45.892227, -87.099983, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 50.0); // 1
+            //SetDynamicObjectMaterial(fso_map, 0, 3945, "alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            var bridgeb89 = new DynamicObject(2908, new Vector3(-981.200806, 2716.755371, 45.892227), new Vector3(-87.099983, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb89.SetMaterial(0,3945,"alpha_fence", "bistro_alpha",0xFFFFFFFF);
+            bridgeb89.ShowInWorld(0);
+            //fso_map = CreateDynamicObject(2907, -981.241272, 2716.702393, 45.354961, -78.500122, 0.000000, 105.600044, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 1
+            //SetDynamicObjectMaterial(fso_map, 0, 3945, "alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            var bridgeb90 = new DynamicObject(2907, new Vector3(-981.241272, 2716.702393, 45.354961), new Vector3(-78.500122, 0.000000, 105.600044), 0, 0, player, 200, 150);
+            bridgeb90.SetMaterial(0, 3945, "alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            bridgeb90.ShowInWorld(0);
+            //CreateDynamicObject(2060, -980.476257, 2715.857666, 45.197174, 0.000000, 0.000000, 117.299965, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb91 = new DynamicObject(2060, new Vector3(-980.476257, 2715.857666, 45.197174), new Vector3(0.000000, 0.000000, 117.299965), 0, 0, player, 200, 150);
+            bridgeb91.ShowInWorld(0);
+            //CreateDynamicObject(2036, -980.124207, 2715.485352, 45.380268, 0.000000, -100.900002, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb92 = new DynamicObject(2036, new Vector3(-980.124207, 2715.485352, 45.380268), new Vector3(0.000000, -100.900002, 0.000000), 0, 0, player, 200, 150);
+            bridgeb92.ShowInWorld(0);
+            //CreateDynamicObject(2060, -980.421326, 2715.751953, 44.987209, 0.000000, 0.000000, 117.299965, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb93 = new DynamicObject(2060, new Vector3(-980.421326, 2715.751953, 44.987209), new Vector3(0.000000, 0.000000, 117.299965), 0, 0, player, 200, 150);
+            bridgeb93.ShowInWorld(0);
+            //CreateDynamicObject(2675, -982.957947, 2718.582031, 44.937325, 0.000000, 0.000000, 94.899948, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb94 = new DynamicObject(2675, new Vector3(-982.957947, 2718.582031, 44.937325), new Vector3(0.000000, 0.000000, 94.899948), 0, 0, player, 200, 150);
+            bridgeb94.ShowInWorld(0);
+            //fso_map = CreateDynamicObject(2905, -981.744629, 2716.798096, 45.053528, -5.699998, 97.100021, 92.400192, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 1
+            //SetDynamicObjectMaterial(fso_map, 0, 3945, "alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            var bridgeb95 = new DynamicObject(2905, new Vector3(-981.744629, 2716.798096, 45.053528), new Vector3(-5.699998, 97.100021, 92.400192), 0, 0, player, 200, 150);
+            bridgeb95.SetMaterial(0,3945,"alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            bridgeb95.ShowInWorld(0);
+            //fso_map = CreateDynamicObject(1464, -985.388000, 2721.851318, 46.117142, 0.000000, 0.000000, -81.699966, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 4
+            //SetDynamicObjectMaterial(fso_map, 3, 18845, "MickyTextures", "metal013", 0);
+            //SetDynamicObjectMaterial(fso_map, 2, 18845, "MickyTextures", "metal013", 0);
+            //SetDynamicObjectMaterial(fso_map, 1, 19272, "DMCages", "metaldrumold1", 0);
+            //SetDynamicObjectMaterial(fso_map, 0, 18886, "ElectroMagnet1", "metalox64", 0);
+            var bridgeb96 = new DynamicObject(1464, new Vector3(-985.388000, 2721.851318, 46.117142), new Vector3(0.000000, 0.000000, -81.699966), 0, 0, player, 200, 150);
+            bridgeb96.SetMaterial(3, 18845, "MickyTextures", "metal013", 0);
+            bridgeb96.SetMaterial(2, 18845, "MickyTextures", "metal013", 0);
+            bridgeb96.SetMaterial(1, 19272, "DMCages", "metaldrumold1", 0);
+            bridgeb96.SetMaterial(0, 18886, "ElectroMagnet1", "metalox64", 0);
+            bridgeb96.ShowInWorld(0);
+            
+            var bridgeb97 = new DynamicObject(2674, new Vector3(-985.088440, 2721.218018, 45.025574), new Vector3(0.000000, 0.000000, -127.599998), 0, 0, player, 200, 150);
+            bridgeb97.ShowInWorld(0);
+            //fso_map = CreateDynamicObject(3850, -985.952087, 2721.437744, 47.685593, 0.000000, 0.000000, 8.499991, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 1
+            //SetDynamicObjectMaterial(fso_map, 0, 5114, "beach_las2", "Bow_meshfence", 0);
+            var bridgeb98 = new DynamicObject(3850, new Vector3(-985.952087, 2721.437744, 47.685593), new Vector3(0.000000, 0.000000, 8.499991), 0, 0, player, 200, 150);
+            bridgeb98.SetMaterial(0,5114,"beach_las2", "Bow_meshfence", 0);
+            bridgeb98.ShowInWorld(0);
+            //fso_map = CreateDynamicObject(2985, -985.559265, 2720.553467, 47.178844, 0.000000, 0.000000, -152.299988, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 1
+            //SetDynamicObjectMaterial(fso_map, 0, 3945, "alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            var bridgeb99 = new DynamicObject(2985, new Vector3(-985.559265, 2720.553467, 47.178844), new Vector3(0.000000, 0.000000, -152.299988), 0, 0, player, 200, 150);
+            bridgeb99.SetMaterial(0,3945,"alpha_fence","bistro_alpha", 0xFFFFFFFF);
+            bridgeb99.ShowInWorld(0);
+            //fso_map = CreateDynamicObject(1464, -984.979614, 2719.052734, 46.043327, 0.000000, 2.199999, -81.699966, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 4
+            //SetDynamicObjectMaterial(fso_map, 3, 18845, "MickyTextures", "metal013", 0);
+            //SetDynamicObjectMaterial(fso_map, 2, 18845, "MickyTextures", "metal013", 0);
+            //SetDynamicObjectMaterial(fso_map, 1, 19272, "DMCages", "metaldrumold1", 0);
+            //SetDynamicObjectMaterial(fso_map, 0, 18886, "ElectroMagnet1", "metalox64", 0);
+            var bridgeb100 = new DynamicObject(1464, new Vector3(-984.979614, 2719.052734, 46.043327), new Vector3(0.000000, 2.199999, -81.699966), 0, 0, player, 200, 150);
+            bridgeb100.SetMaterial(3,18845,"MickyTextures", "metal013",0);
+            bridgeb100.SetMaterial(2, 18845, "MickyTextures", "metal013", 0);
+            bridgeb100.SetMaterial(1, 19272, "DMCages", "metaldrumold1", 0);
+            bridgeb100.SetMaterial(0, 18886, "ElectroMagnet1", "metalox64", 0);
+            bridgeb100.ShowInWorld(0);
+            // CreateDynamicObject(1421, -984.991150, 2718.843750, 47.888760, 0.000000, 0.000000, -64.999985, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb101 = new DynamicObject(1421, new Vector3(-984.991150, 2718.843750, 47.888760), new Vector3(0.000000, 0.000000, -64.999985), 0, 0, player, 200, 150);
+            bridgeb101.ShowInWorld(0);
+            //CreateDynamicObject(2969, -984.867065, 2718.073975, 44.977200, 0.000000, 0.000000, 51.500011, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb102 = new DynamicObject(2969, new Vector3(-984.867065, 2718.073975, 44.977200), new Vector3(0.000000, 0.000000, 51.500011), 0, 0, player, 200, 150);
+            bridgeb102.ShowInWorld(0);
+            // CreateDynamicObject(2969, -985.155640, 2718.239990, 45.227177, 0.000000, 0.000000, -13.999976, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb103 = new DynamicObject(2969, new Vector3(-985.155640, 2718.239990, 45.227177), new Vector3(0.000000, 0.000000, -13.999976), 0, 0, player, 200, 150);
+            bridgeb103.ShowInWorld(0);
+            // CreateDynamicObject(2969, -985.383850, 2718.544189, 44.977200, 0.000000, 0.000000, 105.200027, -1, -1, -1, STREAMER_OBJECT_SD, 60.0); // 0
+            var bridgeb104 = new DynamicObject(2969, new Vector3(-985.383850, 2718.544189, 44.977200), new Vector3(0.000000, 0.000000, 105.200027), 0, 0, player, 200, 150);
+            bridgeb104.ShowInWorld(0);
+            // CreateDynamicObject(3594, -952.184570, 2710.490234, 45.237335, 0.000000, 0.000000, 103.399956, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb105 = new DynamicObject(3594, new Vector3(-952.184570, 2710.490234, 45.237335), new Vector3(0.000000, 0.000000, 103.399956), 0, 0, player, 200, 150);
+            bridgeb105.ShowInWorld(0);
+            // fso_map = CreateDynamicObject(2985, -984.647888, 2716.775391, 44.836342, -1.499993, 0.000000, -156.700089, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 1
+            // SetDynamicObjectMaterial(fso_map, 0, 3945, "alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            var bridgeb106 = new DynamicObject(2985, new Vector3(-984.647888, 2716.775391, 44.836342), new Vector3(-1.499993, 0.000000, -156.700089), 0, 0, player, 200, 150);
+            bridgeb106.SetMaterial(0,3945,"alpha_fence","bistro_alpha",  0xFFFFFFFF);
+            bridgeb106.ShowInWorld(0);
+            // CreateDynamicObject(1431, -985.218140, 2716.467773, 45.157211, 0.000000, 0.000000, 121.999985, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb107 = new DynamicObject(1431, new Vector3(-985.218140, 2716.467773, 45.157211), new Vector3(0.000000, 0.000000, 121.999985), 0, 0, player, 200, 150);
+            bridgeb107.ShowInWorld(0);
+            // CreateDynamicObject(3594, -943.025757, 2715.100830, 45.217339, 0.000000, 0.000000, 92.899971, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb108 = new DynamicObject(3594, new Vector3(-943.025757, 2715.100830, 45.217339), new Vector3(0.000000, 0.000000, 92.899971), 0, 0, player, 200, 150);
+            bridgeb108.ShowInWorld(0);
+            // CreateDynamicObject(3594, -990.573792, 2716.421631, 45.217339, 0.000000, 0.000000, 92.899971, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb109 = new DynamicObject(3594, new Vector3(-990.573792, 2716.421631, 45.217339), new Vector3(0.000000, 0.000000, 92.899971), 0, 0, player, 200, 150);
+            bridgeb109.ShowInWorld(0);
+            // CreateDynamicObject(2676, -991.538757, 2712.955322, 44.977226, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var bridgeb110 = new DynamicObject(2676, new Vector3(-991.538757, 2712.955322, 44.977226), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb110.ShowInWorld(0);
+            // CreateDynamicObject(3594, -934.224670, 2715.539551, 45.217339, 0.000000, 0.000000, 102.199921, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb111 = new DynamicObject(3594, new Vector3(-934.224670, 2715.539551, 45.217339), new Vector3(0.000000, 0.000000, 102.199921), 0, 0, player, 200, 150);
+            bridgeb111.ShowInWorld(0);
+            // fso_map = CreateDynamicObject(2899, -996.898010, 2716.911865, 44.957169, 0.000000, 0.000000, 78.499992, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 1
+            // SetDynamicObjectMaterial(fso_map, 0, 3945, "alpha_fence", "bistro_alpha", 0xFFFFFFFF);
+            var bridgeb112 = new DynamicObject(2899, new Vector3(-996.898010, 2716.911865, 44.957169), new Vector3(0.000000, 0.000000, 78.499992), 0, 0, player, 200, 150);
+            bridgeb112.SetMaterial(0,3945,"alpha_fence","bistro_alpha",0xFFFFFFFF);
+            bridgeb112.ShowInWorld(0);
+            // CreateDynamicObject(19587, -999.739685, 2719.936279, 45.027184, 0.000000, 0.000000, 65.300026, -1, -1, -1, STREAMER_OBJECT_SD, 100.0); // 0
+            var bridgeb113 = new DynamicObject(19587, new Vector3(-999.739685, 2719.936279, 45.027184), new Vector3(0.000000, 0.000000, 65.300026), 0, 0, player, 200, 150);
+            bridgeb113.ShowInWorld(0);
+            // CreateDynamicObject(2675, -998.266296, 2712.993164, 44.937325, 0.000000, 0.000000, 94.899948, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb114 = new DynamicObject(2675, new Vector3(-998.266296, 2712.993164, 44.937325), new Vector3(0.000000, 0.000000, 94.899948), 0, 0, player, 200, 150);
+            bridgeb114.ShowInWorld(0);
+            // CreateDynamicObject(19587, -1002.362427, 2719.953857, 45.027184, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 100.0); // 0
+            var bridgeb115 = new DynamicObject(19587, new Vector3(-1002.362427, 2719.953857, 45.027184), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb115.ShowInWorld(0);
+            // CreateDynamicObject(3594, -997.701660, 2708.005127, 45.217339, 0.000000, 0.000000, 106.800011, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb116 = new DynamicObject(3594, new Vector3(-997.701660, 2708.005127, 45.217339), new Vector3(0.000000, 0.000000, 106.800011), 0, 0, player, 200, 150);
+            bridgeb116.ShowInWorld(0);
+            //CreateDynamicObject(13591, -1003.630737, 2714.648438, 45.077362, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 350.0); // 0
+            var bridgeb117 = new DynamicObject(13591, new Vector3(-1003.630737, 2714.648438, 45.077362), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb117.ShowInWorld(0);
+            //CreateDynamicObject(1224, -1010.565857, 2718.281738, 45.577236, 0.000000, 0.000000, -22.500010, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb118 = new DynamicObject(1224, new Vector3(-1010.565857, 2718.281738, 45.577236), new Vector3(0.000000, 0.000000, -22.500010), 0, 0, player, 200, 150);
+            bridgeb118.ShowInWorld(0);
+            // CreateDynamicObject(935, -1024.815186, 2714.085938, 45.217293, 90.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 80.0); // 0
+            var bridgeb119 = new DynamicObject(935, new Vector3(-1024.815186, 2714.085938, 45.217293), new Vector3(90.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb119.ShowInWorld(0);
+            // CreateDynamicObject(3594, -1022.684814, 2705.780029, 45.217339, 0.000000, 0.000000, 106.800011, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb120 = new DynamicObject(3594, new Vector3(-1022.684814, 2705.780029, 45.217339), new Vector3(0.000000, 0.000000, 106.800011), 0, 0, player, 200, 150);
+            bridgeb120.ShowInWorld(0);
+            // CreateDynamicObject(3594, -1031.907227, 2704.779297, 45.217339, 0.000000, 0.000000, 96.299965, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb121 = new DynamicObject(3594, new Vector3(-1031.907227, 2704.779297, 45.217339), new Vector3(0.000000, 0.000000, 96.299965), 0, 0, player, 200, 150);
+            bridgeb121.ShowInWorld(0);
+            // CreateDynamicObject(3594, -1044.441528, 2703.402100, 45.217339, 0.000000, 0.000000, 96.299965, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb122 = new DynamicObject(3594, new Vector3(-1044.441528, 2703.402100, 45.217339), new Vector3(0.000000, 0.000000, 96.299965), 0, 0, player, 200, 150);
+            bridgeb122.ShowInWorld(0);
+            // CreateDynamicObject(3594, -1063.626831, 2707.023682, 45.217339, 0.000000, 0.000000, 96.299965, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb123 = new DynamicObject(3594, new Vector3(-1063.626831, 2707.023682, 45.217339), new Vector3(0.000000, 0.000000, 96.299965), 0, 0, player, 200, 150);
+            bridgeb123.ShowInWorld(0);
+            // CreateDynamicObject(3594, -1078.862183, 2700.135742, 45.217339, 0.000000, 0.000000, 96.299965, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb124 = new DynamicObject(3594, new Vector3(-1078.862183, 2700.135742, 45.217339), new Vector3(0.000000, 0.000000, 96.299965), 0, 0, player, 200, 150);
+            bridgeb124.ShowInWorld(0);
+            // CreateDynamicObject(3594, -1092.697998, 2698.611084, 45.217339, 0.000000, 0.000000, 96.299965, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb125 = new DynamicObject(3594, new Vector3(-1092.697998, 2698.611084, 45.217339), new Vector3(0.000000, 0.000000, 96.299965), 0, 0, player, 200, 150);
+            bridgeb125.ShowInWorld(0);
+            // CreateDynamicObject(3594, -1094.719482, 2694.032227, 45.787243, -12.899998, 0.000000, 52.399990, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb126 = new DynamicObject(3594, new Vector3(-1094.719482, 2694.032227, 45.787243), new Vector3(-12.899998, 0.000000, 52.399990), 0, 0, player, 200, 150);
+            bridgeb126.ShowInWorld(0);
+            // CreateDynamicObject(3594, -1102.326294, 2701.704590, 45.217339, 0.000000, 0.000000, 70.799980, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb127 = new DynamicObject(3594, new Vector3(-1102.326294, 2701.704590, 45.217339), new Vector3(0.000000, 0.000000, 70.799980), 0, 0, player, 200, 150);
+            bridgeb127.ShowInWorld(0);
+            // CreateDynamicObject(865, -1102.378906, 2699.855469, 45.277264, 0.000000, 0.000000, 24.900000, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var bridgeb128 = new DynamicObject(865, new Vector3(-1102.378906, 2699.855469, 45.277264), new Vector3(0.000000, 0.000000, 24.900000), 0, 0, player, 200, 150);
+            bridgeb128.ShowInWorld(0);
+            // CreateDynamicObject(3594, -1104.606323, 2697.298828, 45.217339, 0.000000, 0.000000, 134.999985, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb129 = new DynamicObject(3594, new Vector3(-1104.606323, 2697.298828, 45.217339), new Vector3(0.000000, 0.000000, 134.999985), 0, 0, player, 200, 150);
+            bridgeb129.ShowInWorld(0);
+            // CreateDynamicObject(3594, -1113.847046, 2699.843506, 45.217339, 0.000000, 0.000000, 102.500008, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb130 = new DynamicObject(3594, new Vector3(-1113.847046, 2699.843506, 45.217339), new Vector3(0.000000, 0.000000, 102.500008), 0, 0, player, 200, 150);
+            bridgeb130.ShowInWorld(0);
+            // CreateDynamicObject(1219, -1114.538330, 2696.202881, 45.069405, 0.000000, 0.000000, -46.800003, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb131 = new DynamicObject(1219, new Vector3(-1114.538330, 2696.202881, 45.069405), new Vector3(0.000000, 0.000000, -46.800003), 0, 0, player, 200, 150);
+            bridgeb131.ShowInWorld(0);
+            // CreateDynamicObject(3593, -1121.934814, 2696.129395, 45.384132, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb132 = new DynamicObject(3593, new Vector3(-1121.934814, 2696.129395, 45.384132), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            bridgeb132.ShowInWorld(0);
+            // CreateDynamicObject(3593, -1135.326782, 2704.253174, 45.827618, 1.999997, 14.099998, -54.099987, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var bridgeb133 = new DynamicObject(3593, new Vector3(-1135.326782, 2704.253174, 45.827618), new Vector3(1.999997, 14.099998, -54.099987), 0, 0, player, 200, 150);
+            bridgeb133.ShowInWorld(0);
+            // CreateDynamicObject(933, -1149.420044, 2702.374023, 44.977207, 0.000000, 0.000000, 51.499992, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var bridgeb134 = new DynamicObject(933, new Vector3(-1149.420044, 2702.374023, 44.977207), new Vector3(0.000000, 0.000000, 51.499992), 0, 0, player, 200, 150);
+            bridgeb134.ShowInWorld(0);
+            //fso_map = CreateDynamicObject(12957, -969.894165, 2717.279785, 45.457191, 0.000000, 0.000000, -55.000008, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 2
+            //SetDynamicObjectMaterial(fso_map, 1, 3115, "carrierxr", "ws_carrierdeckbase", 0);
+            //SetDynamicObjectMaterial(fso_map, 0, 2956, "immcrax", "Metalox64", 0);
+            var bridgeb135 = new DynamicObject(12957, new Vector3(-969.894165, 2717.279785, 45.457191), new Vector3(0.000000, 0.000000, -55.000008), 0, 0, player, 200, 150);
+            bridgeb135.SetMaterial(1,3115,"carrierxr","ws_carrierdeckbase", 0);
+            bridgeb135.SetMaterial(0, 2956, "immcrax", "Metalox64", 0);
+            bridgeb135.ShowInWorld(0);
+
+            //CreateDynamicObject(18269, 584.691345, 139.058365, 29.488359, -10.900004, -11.899983, 110.500153, -1, -1, -1, STREAMER_OBJECT_SD, 500.0); // 0
+            var waterfall1 = new DynamicObject(18269, new Vector3(584.691345, 139.058365, 29.488359), new Vector3(-10.900004, -11.899983, 110.500153), 0, 0, player, 200, 150);
+            waterfall1.ShowInWorld(0);
+            //CreateDynamicObject(18268, 632.580566, 128.976120, 32.572262, 0.000000, 0.000000, 112.700043, -1, -1, -1, STREAMER_OBJECT_SD, 550.0); // 0
+            var waterfall2 = new DynamicObject(18268, new Vector3(632.580566, 128.976120, 32.572262), new Vector3(0.000000, 0.000000, 112.700043), 0, 0, player, 200, 150);
+            waterfall2.ShowInWorld(0);
+            //CreateDynamicObject(747, 636.809143, 111.383476, 7.198639, 0.000000, 0.000000, 101.100105, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall3 = new DynamicObject(747, new Vector3(636.809143, 111.383476, 7.198639), new Vector3(0.000000, 0.000000, 101.100105), 0, 0, player, 200, 150);
+            waterfall3.ShowInWorld(0);
+            //CreateDynamicObject(873, 608.037415, 135.089325, 8.404539, 6.599977, 0.000000, 1.000000, -1, -1, -1, STREAMER_OBJECT_SD, 350.0); // 0
+            var waterfall4 = new DynamicObject(873, new Vector3(608.037415, 135.089325, 8.404539), new Vector3(6.599977, 0.000000, 1.000000), 0, 0, player, 200, 150);
+            waterfall4.ShowInWorld(0);
+            //CreateDynamicObject(819, 603.273193, 131.819519, 7.663627, 0.000000, 0.000000, 53.999947, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall5 = new DynamicObject(819, new Vector3(603.273193, 131.819519, 7.663627), new Vector3(0.000000, 0.000000, 53.999947), 0, 0, player, 200, 150);
+            waterfall5.ShowInWorld(0);
+            //CreateDynamicObject(18568, 606.114929, 125.994530, 7.630869, -2.500003, -4.999997, 87.500053, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall6 = new DynamicObject(18568, new Vector3(606.114929, 125.994530, 7.630869), new Vector3(-2.500003, -4.999997, 87.500053), 0, 0, player, 200, 150);
+            waterfall6.ShowInWorld(0);
+            //CreateDynamicObject(873, 608.760315, 144.729675, 8.841343, 10.999979, 0.000000, 1.000000, -1, -1, -1, STREAMER_OBJECT_SD, 350.0); // 0
+            var waterfall7 = new DynamicObject(873, new Vector3(608.760315, 144.729675, 8.841343), new Vector3(10.999979, 0.000000, 1.000000), 0, 0, player, 200, 150);
+            waterfall7.ShowInWorld(0);
+            //CreateDynamicObject(12986, 607.096191, 123.792526, 8.280583, 3.600008, 0.000000, -2.600002, -1, -1, -1, STREAMER_OBJECT_SD, 350.0); // 0
+            var waterfall8 = new DynamicObject(12986, new Vector3(607.096191, 123.792526, 8.280583), new Vector3(3.600008, 0.000000, -2.600002), 0, 0, player, 200, 150);
+            waterfall8.ShowInWorld(0);
+            //CreateDynamicObject(873, 620.225952, 139.902786, 8.697538, 6.899972, 0.000000, 1.000000, -1, -1, -1, STREAMER_OBJECT_SD, 350.0); // 0
+            var waterfall9 = new DynamicObject(873, new Vector3(620.225952, 139.902786, 8.697538), new Vector3(6.899972, 0.000000, 1.000000), 0, 0, player, 200, 150);
+            waterfall9.ShowInWorld(0);
+            // CreateDynamicObject(819, 599.420105, 123.963882, 7.353628, 0.000000, 0.000000, 53.999947, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall10 = new DynamicObject(819, new Vector3(599.420105, 123.963882, 7.353628), new Vector3(0.000000, 0.000000, 53.999947), 0, 0, player, 200, 150);
+            waterfall10.ShowInWorld(0);
+            // CreateDynamicObject(810, 610.618835, 120.646385, 6.473177, 0.000000, 0.000000, -53.199989, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var waterfall11 = new DynamicObject(810, new Vector3(610.618835, 120.646385, 6.473177), new Vector3(0.000000, 0.000000, -53.199989), 0, 0, player, 200, 150);
+            waterfall11.ShowInWorld(0);
+            // CreateDynamicObject(745, 635.041565, 109.403000, 6.009204, 0.000000, 0.000000, 43.900009, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall12 = new DynamicObject(745, new Vector3(635.041565, 109.403000, 6.009204), new Vector3(0.000000, 0.000000, 43.900009), 0, 0, player, 200, 150);
+            waterfall12.ShowInWorld(0);
+            // CreateDynamicObject(747, 638.941040, 112.225151, 7.298641, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall13 = new DynamicObject(747, new Vector3(638.941040, 112.225151, 7.298641), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            waterfall13.ShowInWorld(0);
+            // CreateDynamicObject(819, 606.219421, 118.178474, 6.243624, 0.000000, 0.000000, 152.099884, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall14 = new DynamicObject(819, new Vector3(606.219421, 118.178474, 6.243624), new Vector3(0.000000, 0.000000, 152.099884), 0, 0, player, 200, 150);
+            waterfall14.ShowInWorld(0);
+            // CreateDynamicObject(819, 599.434448, 116.721138, 6.455822, 0.000000, -10.799983, 53.999947, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall15 = new DynamicObject(819, new Vector3(599.434448, 116.721138, 6.455822), new Vector3(0.000000, -10.799983, 53.999947), 0, 0, player, 200, 150);
+            waterfall15.ShowInWorld(0);
+            // CreateDynamicObject(831, 608.061584, 112.483994, 6.386795, 4.999999, 0.000000, -33.500046, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall16 = new DynamicObject(831, new Vector3(608.061584, 112.483994, 6.386795), new Vector3(4.999999, 0.000000, -33.500046), 0, 0, player, 200, 150);
+            waterfall16.ShowInWorld(0);
+            // CreateDynamicObject(811, 632.107483, 135.785629, 10.476581, 0.000000, -2.900000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall17 = new DynamicObject(811, new Vector3(632.107483, 135.785629, 10.476581), new Vector3(0.000000, -2.900000, 0.000000), 0, 0, player, 200, 150);
+            waterfall17.ShowInWorld(0);
+            // CreateDynamicObject(19842, 636.680908, 100.705933, 6.184311, -9.800001, 0.000000, 50.999989, -1, -1, -1, STREAMER_OBJECT_SD, 400.0); // 0
+            var waterfall18 = new DynamicObject(19842, new Vector3(636.680908, 100.705933, 6.184311), new Vector3(-9.800001, 0.000000, 50.999989), 0, 0, player, 200, 150);
+            waterfall18.ShowInWorld(0);
+            // CreateDynamicObject(900, 629.041443, 94.328903, 5.874938, 0.000000, 0.000000, 158.800217, -1, -1, -1, STREAMER_OBJECT_SD, 450.0); // 0
+            var waterfall19 = new DynamicObject(900, new Vector3(629.041443, 94.328903, 5.874938), new Vector3(0.000000, 0.000000, 158.800217), 0, 0, player, 200, 150);
+            waterfall19.ShowInWorld(0);
+            //  CreateDynamicObject(748, 644.973389, 105.738647, 7.058135, 0.000000, 0.000000, -31.999998, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall20 = new DynamicObject(748, new Vector3(644.973389, 105.738647, 7.058135), new Vector3(0.000000, 0.000000, -31.999998), 0, 0, player, 200, 150);
+            waterfall20.ShowInWorld(0);
+            //  CreateDynamicObject(873, 592.004517, 112.057312, 5.772486, 6.599977, 0.000000, 1.000000, -1, -1, -1, STREAMER_OBJECT_SD, 350.0); // 0
+            var waterfall21 = new DynamicObject(873, new Vector3(592.004517, 112.057312, 5.772486), new Vector3(6.599977, 0.000000, 1.000000), 0, 0, player, 200, 150);
+            waterfall21.ShowInWorld(0);
+            // CreateDynamicObject(748, 644.510254, 102.656044, 7.038139, 0.000000, 0.000000, -31.999998, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall22 = new DynamicObject(748, new Vector3(644.510254, 102.656044, 7.038139), new Vector3(0.000000, 0.000000, -31.999998), 0, 0, player, 200, 150);
+            waterfall22.ShowInWorld(0);
+            //  CreateDynamicObject(819, 645.988586, 103.295326, 7.664309, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall23 = new DynamicObject(819, new Vector3(645.988586, 103.295326, 7.664309), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            waterfall23.ShowInWorld(0);
+            //  CreateDynamicObject(823, 650.331909, 105.921837, 9.952043, 16.300013, 0.000000, -53.699982, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall24 = new DynamicObject(823, new Vector3(650.331909, 105.921837, 9.952043), new Vector3(16.300013, 0.000000, -53.699982), 0, 0, player, 200, 150);
+            waterfall24.ShowInWorld(0);
+            //  CreateDynamicObject(18271, 600.672302, 111.478630, 27.372145, 0.000000, 0.000000, -169.300247, -1, -1, -1, STREAMER_OBJECT_SD, 500.0); // 0
+            var waterfall25 = new DynamicObject(18271, new Vector3(600.672302, 111.478630, 27.372145), new Vector3(0.000000, 0.000000, -169.300247), 0, 0, player, 200, 150);
+            waterfall25.ShowInWorld(0);
+            //  CreateDynamicObject(19840, 646.483948, 97.932259, 5.989109, -12.400012, 0.000000, -129.200180, -1, -1, -1, STREAMER_OBJECT_SD, 400.0); // 0
+            var waterfall26 = new DynamicObject(19840, new Vector3(646.483948, 97.932259, 5.989109), new Vector3(-12.400012, 0.000000, -129.200180), 0, 0, player, 200, 150);
+            waterfall26.ShowInWorld(0);
+            //  CreateDynamicObject(18269, 584.691345, 139.058365, 29.488359, -10.900004, -11.899983, 110.500153, -1, -1, -1, STREAMER_OBJECT_SD, 500.0); // 0
+            var waterfall27 = new DynamicObject(18269, new Vector3(584.691345, 139.058365, 29.488359), new Vector3(-10.900004, -11.899983, 110.500153), 0, 0, player, 200, 150);
+            waterfall27.ShowInWorld(0);
+            //  CreateDynamicObject(19840, 652.128540, 95.422844, 7.495713, -28.100065, 0.000000, -139.400162, -1, -1, -1, STREAMER_OBJECT_SD, 400.0); // 0
+            var waterfall28 = new DynamicObject(19840, new Vector3(652.128540, 95.422844, 7.495713), new Vector3(-28.100065, 0.000000, -139.400162), 0, 0, player, 200, 150);
+            waterfall28.ShowInWorld(0);
+            //  CreateDynamicObject(18271, 670.058167, 162.202118, 33.902176, 0.000000, 0.000000, 139.899689, -1, -1, -1, STREAMER_OBJECT_SD, 500.0); // 0
+            var waterfall29 = new DynamicObject(18271, new Vector3(670.058167, 162.202118, 33.902176), new Vector3(0.000000, 0.000000, 139.899689), 0, 0, player, 200, 150);
+            waterfall29.ShowInWorld(0);
+            //  CreateDynamicObject(823, 627.671509, 108.917091, 7.372014, 0.000000, 0.000000, -53.699982, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall30 = new DynamicObject(823, new Vector3(627.671509, 108.917091, 7.372014), new Vector3(0.000000, 0.000000, -53.699982), 0, 0, player, 200, 150);
+            waterfall30.ShowInWorld(0);
+            //  CreateDynamicObject(18268, 632.580566, 128.976120, 32.572262, 0.000000, 0.000000, 112.700043, -1, -1, -1, STREAMER_OBJECT_SD, 550.0); // 0
+            var waterfall31 = new DynamicObject(18268, new Vector3(632.580566, 128.976120, 32.572262), new Vector3(0.000000, 0.000000, 112.700043), 0, 0, player, 200, 150);
+            waterfall31.ShowInWorld(0);
+            // CreateDynamicObject(823, 638.846802, 114.074333, 8.292024, 0.000000, 0.000000, -53.699982, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall32 = new DynamicObject(823, new Vector3(638.846802, 114.074333, 8.292024), new Vector3(0.000000, 0.000000, -53.699982), 0, 0, player, 200, 150);
+            waterfall32.ShowInWorld(0);
+            //  CreateDynamicObject(747, 636.809143, 111.383476, 7.198639, 0.000000, 0.000000, 101.100105, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall33 = new DynamicObject(747, new Vector3(636.809143, 111.383476, 7.198639), new Vector3(0.000000, 0.000000, 101.100105), 0, 0, player, 200, 150);
+            waterfall33.ShowInWorld(0);
+            //  CreateDynamicObject(745, 635.041565, 109.403000, 6.009204, 0.000000, 0.000000, 43.900009, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall34 = new DynamicObject(745, new Vector3(635.041565, 109.403000, 6.009204), new Vector3(0.000000, 0.000000, 43.900009), 0, 0, player, 200, 150);
+            waterfall34.ShowInWorld(0);
+            //  CreateDynamicObject(747, 638.941040, 112.225151, 7.298641, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall35 = new DynamicObject(747, new Vector3(638.941040, 112.225151, 7.298641), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            waterfall35.ShowInWorld(0);
+            // CreateDynamicObject(744, 633.984619, 105.421783, 5.541283, 0.000000, 0.000000, -119.399979, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall36 = new DynamicObject(744, new Vector3(633.984619, 105.421783, 5.541283), new Vector3(0.000000, 0.000000, -119.399979), 0, 0, player, 200, 150);
+            waterfall36.ShowInWorld(0);
+            // CreateDynamicObject(744, 641.451172, 109.985519, 6.651288, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall37 = new DynamicObject(744, new Vector3(641.451172, 109.985519, 6.651288), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            waterfall37.ShowInWorld(0);
+            // CreateDynamicObject(19840, 636.959656, 104.741341, 3.660635, 0.000000, 0.000000, -54.600075, -1, -1, -1, STREAMER_OBJECT_SD, 400.0); // 0
+            var waterfall38 = new DynamicObject(19840, new Vector3(636.959656, 104.741341, 3.660635), new Vector3(0.000000, 0.000000, -54.600075), 0, 0, player, 200, 150);
+            waterfall38.ShowInWorld(0);
+            // CreateDynamicObject(19840, 637.219604, 103.746078, 3.926028, -10.600004, 0.000000, -84.200264, -1, -1, -1, STREAMER_OBJECT_SD, 400.0); // 0
+            var waterfall39 = new DynamicObject(19840, new Vector3(637.219604, 103.746078, 3.926028), new Vector3(-10.600004, 0.000000, -84.200264), 0, 0, player, 200, 150);
+            waterfall39.ShowInWorld(0);
+            //CreateDynamicObject(18741, 639.034180, 104.104660, 5.966312, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var waterfall40 = new DynamicObject(18741, new Vector3(639.034180, 104.104660, 5.966312), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            waterfall40.ShowInWorld(0);
+            //CreateDynamicObject(19840, 640.478577, 104.649033, 3.910635, 0.000000, 0.000000, 30.599873, -1, -1, -1, STREAMER_OBJECT_SD, 400.0); // 0
+            var waterfall41 = new DynamicObject(19840, new Vector3(640.478577, 104.649033, 3.910635), new Vector3(0.000000, 0.000000, 30.599873), 0, 0, player, 200, 150);
+            waterfall41.ShowInWorld(0);
+            // CreateDynamicObject(19840, 640.478577, 104.649033, 3.660635, 0.000000, 0.000000, 88.499878, -1, -1, -1, STREAMER_OBJECT_SD, 400.0); // 0
+            var waterfall42 = new DynamicObject(19840, new Vector3(640.478577, 104.649033, 3.660635), new Vector3(0.000000, 0.000000, 88.499878), 0, 0, player, 200, 150);
+            waterfall42.ShowInWorld(0);
+            // CreateDynamicObject(19842, 636.680908, 100.705933, 6.184311, -9.800001, 0.000000, 50.999989, -1, -1, -1, STREAMER_OBJECT_SD, 400.0); // 0
+            var waterfall43 = new DynamicObject(19842, new Vector3(636.680908, 100.705933, 6.184311), new Vector3(-9.800001, 0.000000, 50.999989), 0, 0, player, 200, 150);
+            waterfall43.ShowInWorld(0);
+            //CreateDynamicObject(748, 644.600159, 107.633759, 7.268137, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall44 = new DynamicObject(748, new Vector3(644.600159, 107.633759, 7.268137), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            waterfall44.ShowInWorld(0);
+            // CreateDynamicObject(900, 629.041443, 94.328903, 5.874938, 0.000000, 0.000000, 158.800217, -1, -1, -1, STREAMER_OBJECT_SD, 450.0); // 0
+            var waterfall45 = new DynamicObject(900, new Vector3(629.041443, 94.328903, 5.874938), new Vector3(0.000000, 0.000000, 158.800217), 0, 0, player, 200, 150);
+            waterfall45.ShowInWorld(0);
+            // CreateDynamicObject(748, 644.973389, 105.738647, 7.058135, 0.000000, 0.000000, -31.999998, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall46 = new DynamicObject(748, new Vector3(644.973389, 105.738647, 7.058135), new Vector3(0.000000, 0.000000, -31.999998), 0, 0, player, 200, 150);
+            waterfall46.ShowInWorld(0);
+            // CreateDynamicObject(748, 645.023743, 104.044678, 7.058135, 0.000000, 0.000000, -31.999998, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall47 = new DynamicObject(748, new Vector3(645.023743, 104.044678, 7.058135), new Vector3(0.000000, 0.000000, -31.999998), 0, 0, player, 200, 150);
+            waterfall47.ShowInWorld(0);
+            // CreateDynamicObject(748, 644.510254, 102.656044, 7.038139, 0.000000, 0.000000, -31.999998, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall48 = new DynamicObject(748, new Vector3(644.510254, 102.656044, 7.038139), new Vector3(0.000000, 0.000000, -31.999998), 0, 0, player, 200, 150);
+            waterfall48.ShowInWorld(0);
+            // CreateDynamicObject(819, 645.988586, 103.295326, 7.664309, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall49 = new DynamicObject(819, new Vector3(645.988586, 103.295326, 7.664309), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            waterfall49.ShowInWorld(0);
+            // CreateDynamicObject(823, 650.331909, 105.921837, 9.952043, 16.300013, 0.000000, -53.699982, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall50 = new DynamicObject(823, new Vector3(650.331909, 105.921837, 9.952043), new Vector3(16.300013, 0.000000, -53.699982), 0, 0, player, 200, 150);
+            waterfall50.ShowInWorld(0);
+            // CreateDynamicObject(18269, 621.041382, 90.476845, 30.704412, 0.000000, 0.000000, -174.700058, -1, -1, -1, STREAMER_OBJECT_SD, 500.0); // 0
+            var waterfall51 = new DynamicObject(18269, new Vector3(621.041382, 90.476845, 30.704412), new Vector3(0.000000, 0.000000, -174.700058), 0, 0, player, 200, 150);
+            waterfall51.ShowInWorld(0);
+            // CreateDynamicObject(748, 645.930847, 100.306152, 6.978138, 0.000000, 0.000000, -31.999998, -1, -1, -1, STREAMER_OBJECT_SD, 250.0); // 0
+            var waterfall52 = new DynamicObject(748, new Vector3(645.930847, 100.306152, 6.978138), new Vector3(0.000000, 0.000000, -31.999998), 0, 0, player, 200, 150);
+            waterfall52.ShowInWorld(0);
+            // CreateDynamicObject(19840, 646.483948, 97.932259, 5.989109, -12.400012, 0.000000, -129.200180, -1, -1, -1, STREAMER_OBJECT_SD, 400.0); // 0
+            var waterfall53 = new DynamicObject(19840, new Vector3(646.483948, 97.932259, 5.989109), new Vector3(-12.400012, 0.000000, -129.200180), 0, 0, player, 200, 150);
+            waterfall53.ShowInWorld(0);
+            // CreateDynamicObject(823, 649.201599, 99.978813, 8.922026, 0.000000, 0.000000, -53.699982, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall54 = new DynamicObject(823, new Vector3(649.201599, 99.978813, 8.922026), new Vector3(0.000000, 0.000000, -53.699982), 0, 0, player, 200, 150);
+            waterfall54.ShowInWorld(0);
+            // CreateDynamicObject(819, 650.978943, 97.405319, 9.524314, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall55 = new DynamicObject(819, new Vector3(650.978943, 97.405319, 9.524314), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            waterfall55.ShowInWorld(0);
+            // CreateDynamicObject(19840, 652.128540, 95.422844, 7.495713, -28.100065, 0.000000, -139.400162, -1, -1, -1, STREAMER_OBJECT_SD, 400.0); // 0
+            var waterfall56 = new DynamicObject(19840, new Vector3(652.128540, 95.422844, 7.495713), new Vector3(-28.100065, 0.000000, -139.400162), 0, 0, player, 200, 150);
+            waterfall56.ShowInWorld(0);
+            // CreateDynamicObject(19840, 652.078430, 93.522972, 8.327264, -13.100025, 0.000000, -121.299965, -1, -1, -1, STREAMER_OBJECT_SD, 400.0); // 0
+            var waterfall57 = new DynamicObject(19840, new Vector3(652.078430, 93.522972, 8.327264), new Vector3(-13.100025, 0.000000, -121.299965), 0, 0, player, 200, 150);
+            waterfall57.ShowInWorld(0);
+            // CreateDynamicObject(745, 648.537109, 89.582680, 8.577349, 0.000000, -28.699997, -56.899994, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall58 = new DynamicObject(745, new Vector3(648.537109, 89.582680, 8.577349), new Vector3(0.000000, -28.699997, -56.899994), 0, 0, player, 200, 150);
+            waterfall58.ShowInWorld(0);
+            // CreateDynamicObject(18747, 652.719421, 92.898064, 8.374566, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var waterfall59 = new DynamicObject(18747, new Vector3(652.719421, 92.898064, 8.374566), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            waterfall59.ShowInWorld(0);
+            // CreateDynamicObject(744, 650.184875, 89.637444, 8.200315, 0.000000, 0.000000, -178.099869, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall60 = new DynamicObject(744, new Vector3(650.184875, 89.637444, 8.200315), new Vector3(0.000000, 0.000000, -178.099869), 0, 0, player, 200, 150);
+            waterfall60.ShowInWorld(0);
+            // CreateDynamicObject(18742, 651.894226, 91.012543, 6.507471, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 200.0); // 0
+            var waterfall61 = new DynamicObject(18742, new Vector3(651.894226, 91.012543, 6.507471), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            waterfall61.ShowInWorld(0);
+            // CreateDynamicObject(744, 655.182434, 93.622955, 10.470328, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall62 = new DynamicObject(744, new Vector3(655.182434, 93.622955, 10.470328), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            waterfall62.ShowInWorld(0);
+            // CreateDynamicObject(19840, 653.643555, 91.464394, 9.986589, 9.899991, 0.000000, -113.299881, -1, -1, -1, STREAMER_OBJECT_SD, 400.0); // 0
+            var waterfall63 = new DynamicObject(19840, new Vector3(653.643555, 91.464394, 9.986589), new Vector3(9.899991, 0.000000, -113.299881), 0, 0, player, 200, 150);
+            waterfall63.ShowInWorld(0);
+            // CreateDynamicObject(745, 657.156555, 92.852562, 12.624348, -26.899965, 0.000000, 59.799984, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall64 = new DynamicObject(745, new Vector3(657.156555, 92.852562, 12.624348), new Vector3(-26.899965, 0.000000, 59.799984), 0, 0, player, 200, 150);
+            waterfall64.ShowInWorld(0);
+            // CreateDynamicObject(745, 653.838135, 88.058426, 12.017090, 0.000000, -28.699997, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall65 = new DynamicObject(745, new Vector3(653.838135, 88.058426, 12.017090), new Vector3(0.000000, -28.699997, 0.000000), 0, 0, player, 200, 150);
+            waterfall65.ShowInWorld(0);
+            // CreateDynamicObject(745, 656.569214, 90.938438, 12.855083, -26.899965, 0.000000, 59.799984, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall66 = new DynamicObject(745, new Vector3(656.569214, 90.938438, 12.855083), new Vector3(-26.899965, 0.000000, 59.799984), 0, 0, player, 200, 150);
+            waterfall66.ShowInWorld(0);
+            // CreateDynamicObject(744, 656.749573, 88.653137, 13.441802, 0.000000, -42.800026, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 0
+            var waterfall67 = new DynamicObject(744, new Vector3(656.749573, 88.653137, 13.441802), new Vector3(0.000000, -42.800026, 0.000000), 0, 0, player, 200, 150);
+            waterfall67.ShowInWorld(0);
+            // CreateDynamicObject(719, 679.415710, 134.655609, 9.822523, 0.000000, 0.000000, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 500.0); // 0
+            var waterfall68 = new DynamicObject(719, new Vector3(679.415710, 134.655609, 9.822523), new Vector3(0.000000, 0.000000, 0.000000), 0, 0, player, 200, 150);
+            waterfall68.ShowInWorld(0);
+            // CreateDynamicObject(18271, 670.058167, 162.202118, 33.902176, 0.000000, 0.000000, 139.899689, -1, -1, -1, STREAMER_OBJECT_SD, 500.0); // 0
+            var waterfall69 = new DynamicObject(18271, new Vector3(670.058167, 162.202118, 33.902176), new Vector3(0.000000, 0.000000, 139.899689), 0, 0, player, 200, 150);
+            waterfall69.ShowInWorld(0);
+
+
+
         }
         public void Remove()
         {

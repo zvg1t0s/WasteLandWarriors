@@ -319,7 +319,7 @@ namespace WasteLandWarriors.WorldObjects
             //  CreateDynamicObject(3014, 855.084167, -1390.168091, -0.701461, 0.000000, 0.000000, 0.000000, -1, -1);
             GlobalObject vdnhp101 = new GlobalObject(3014, new Vector3(855.084167, -1390.168091, -0.701461), new Vector3(0.000000, 0.000000, 0.000000), 300.0f); //
 
-
+            /*
             //METRO END
 
             //ТЕРАААААА
@@ -426,10 +426,10 @@ namespace WasteLandWarriors.WorldObjects
             GlobalObject terrv49 = new GlobalObject(1412, new Vector3(-346.567200, 2244.403809, 42.762001), new Vector3(0.000000, 2.000000, -58.820000), 300.0f);
             //CreateDynamicObject(874, -371.288788, 2218.344238, 41.321098, 0.000000, 0.000000, 0.000000, -1, -1);
             GlobalObject terrv50 = new GlobalObject(874, new Vector3(-371.288788, 2218.344238, 41.321098), new Vector3(0.000000, 0.000000, 0.000000), 300.0f);
-            /*
+            
             fso_map = CreateDynamicObject(19993, -382.810913, 2202.516357, 44.651901, 0.000000, 0.000000, 0.000000, -1, -1);
             SetDynamicObjectMaterial(fso_map, 0, 1453, "break_farm", "CJ_HAY", 0);
-            */
+            
             GlobalObject terrvtexture1 = new GlobalObject(19993, new Vector3(-382.810913, 2202.516357, 44.651901), new Vector3(0.000000, 0.000000, 0.000000), 300.0f);
             terrvtexture1.SetMaterial(0, 1453, "break_farm", "CJ_HAY", 0);
             //CreateDynamicObject(1412, -350.751099, 2248.326416, 41.520000, 90.000000, 0.000000, -53.540031, -1, -1);
@@ -661,10 +661,10 @@ namespace WasteLandWarriors.WorldObjects
 
             //CreateDynamicObject(734, -454.487274, 2203.406250, 41.245300, 0.000000, 0.000000, 75.959999, -1, -1);
             GlobalObject terrz58 = new GlobalObject(734, new Vector3(-454.487274, 2203.406250, 41.245300), new Vector3(0.000000, 0.000000, 75.959999), 300.0f);
-            /*
+            
             fso_map = CreateDynamicObject(19993, -440.157104, 2227.749023, 42.093102, 0.000000, 0.000000, 0.000000, -1, -1);
             SetDynamicObjectMaterial(fso_map, 0, 1453, "break_farm", "CJ_HAY", 0);
-            */
+            
             GlobalObject terrztexture1 = new GlobalObject(19993, new Vector3(-440.157104, 2227.749023, 42.093102), new Vector3(0.000000, 0.000000, 0.000000), 300.0f);
             terrztexture1.SetMaterial(0, 1453, "break_farm", "CJ_HAY", 0);
             //CreateDynamicObject(1412, -408.233704, 2268.669922, 42.222000, 0.000000, 2.000000, 13.440000, -1, -1);
@@ -735,6 +735,7 @@ namespace WasteLandWarriors.WorldObjects
 
             //CreateDynamicObject(1950, -394.001587, 2241.227539, 41.912399, 0.000000, 360.000000, 300.000000, -1, -1);
             GlobalObject terrz81 = new GlobalObject(1950, new Vector3(-394.001587, 2241.227539, 41.912399), new Vector3(0.000000, 360.000000, 300.000000), 300.0f);
+            */
             //RemoveBuildingForPlayer(playerid, 3425, -466.429688, 2190.273438, 55.992199, 0.250000);
             //  RemoveBuildingForPlayer(playerid, 3396, 275.312500, 1874.242188, 7.750000, 0.250000);
             //GlobalObject.Remove(player, 3396, new Vector3(275.312500f, 1874.242188f, 7.750000f), 0.25f);//

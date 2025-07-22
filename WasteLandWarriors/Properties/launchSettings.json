@@ -6,8 +6,8 @@
     },
     "samp-server": {
       "commandName": "Executable",
-      "executablePath": "F:\\projects\\wastelandWarriors\\samp-server.exe",
-      "workingDirectory": "F:\\projects\\wastelandWarriors"
+      "executablePath": "E:\\Wasteland Warriors\\samp-server.exe",
+      "workingDirectory": "E:\\Wasteland Warriors"
     }
   }
 }

@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SampSharp.GameMode.Tools;
 using SampSharp.GameMode.SAMP;
+using SampSharp.GameMode.Events;
+using WasteLandWarriors.Others;
+using WasteLandWarriors.WorldObjects;
 
 namespace WasteLandWarriors.Display
 {
@@ -15,55 +18,64 @@ namespace WasteLandWarriors.Display
         private Player p;
         private PlayerTextDraw inventoryBackPlate;
         private PlayerTextDraw playerButton;
-        private PlayerTextDraw helmetbutton;
-        private PlayerTextDraw backpackButton;
-        private PlayerTextDraw armourButton;
+        public PlayerTextDraw helmetbutton;
+        public PlayerTextDraw backpackButton;
+        public PlayerTextDraw armourButton;
         private PlayerTextDraw pagerButton;
         private PlayerTextDraw achievementsButton;
-        private PlayerTextDraw woodLine;
-        private PlayerTextDraw woodInvTxd;
-        private PlayerTextDraw rockLine;
-        private PlayerTextDraw rockInvTxd;
-        private PlayerTextDraw ironLine;
-        private PlayerTextDraw ironInvTxd;
-        private PlayerTextDraw tcanLine;
-        private PlayerTextDraw tkanInvTxd;
+        private PlayerTextDraw capacityNum;
+        private PlayerTextDraw capacityPng;
+        private PlayerTextDraw capacityBar;
+        private PlayerTextDraw clothNum;
+        private PlayerTextDraw clothPng;
+        private PlayerTextDraw clothBar;
+        private PlayerTextDraw batteryNum;
+        private PlayerTextDraw batteryPng;
+        private PlayerTextDraw batteryBar;
+
 
         private PlayerTextDraw useButton;
         private PlayerTextDraw dropButton;
         private PlayerTextDraw sellButton;
         private PlayerTextDraw infoButton;
-        private PlayerTextDraw closeinv;
-        private PlayerTextDraw[] weaponslots = new PlayerTextDraw[6];
+        public PlayerTextDraw closeinv;
+        public PlayerTextDraw[] weaponslots = new PlayerTextDraw[6];
         /**
         private PlayerTextDraw[] slots = new PlayerTextDraw[42];
         **/
-        private PlayerTextDraw[] weaponslotsAmmo = new PlayerTextDraw[6];
+        public PlayerTextDraw[] weaponslotsAmmo = new PlayerTextDraw[6];
         public Slot[] slots { get; set; } = new Slot[42];
 
 
-        private int[] weaponslotsAmmoNum = new int[6];
-        private PlayerTextDraw woodnum;
-        private PlayerTextDraw rocknum;
-        private PlayerTextDraw ironnum;
-        private PlayerTextDraw tkannum;
-        private int[] weaponSlotsInfo = new int[6];
+        public int[] weaponslotsAmmoNum = new int[6];
+
+        public int[] weaponSlotsInfo = new int[6];
+
         private bool[] isSlotSelected = new bool[42];
 
         public int[] slotsinfo = new int[42];
 
-        private int helmetSlot = 0;
-        private int ArmorSlot = 0;
-        private int backpackSlot = 0;
-        
+        public int helmetSlot = 0;
+        public int ArmorSlot = 0;
+        public int backpackSlot = 0;
+
+        private int selectedSlot = -1;
+        public int currentWeight = 0;
+        public int maxWeight = 20000;
+
         public Inventory(Player player)
         {
             //________________________INVENTORY_________________________________________________________________________
             this.p = player;
-
-            for(int i = 0; i < 42; i++)
+            weaponslotsAmmoNum[0] = 0;
+            weaponslotsAmmoNum[1] = 0;
+            weaponslotsAmmoNum[2] = 0;
+            weaponslotsAmmoNum[3] = 0;
+            weaponslotsAmmoNum[4] = 0;
+            weaponslotsAmmoNum[5] = 0;
+            for (int i = 0; i < 42; i++)
             {
-                slots[i] = new Slot();
+                slots[i] = new Slot(p);
             }
 
             inventoryBackPlate = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(476.0f, 110.0f), "_");
@@ -189,241 +201,6 @@ namespace WasteLandWarriors.Display
             achievementsButton.PreviewRotation = new SampSharp.GameMode.Vector3(-81.0, 0.0, -179.0);
             achievementsButton.PreviewZoom = 1;
 
-            woodLine = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(533.0f, 127.0f), "_");
-            woodLine.Font = TextDrawFont.Normal;
-            woodLine.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 0.550001f);
-            woodLine.Width = 298.5f;
-            woodLine.Height = 75.0f;
-            woodLine.Outline = 1;
-            woodLine.Shadow = 0;
-            woodLine.Alignment = TextDrawAlignment.Center;
-            woodLine.ForeColor = -1;
-            woodLine.BackColor = 255;
-            woodLine.BoxColor = 1783367679;
-            woodLine.UseBox = true;
-            woodLine.Proportional = true;
-            woodLine.Selectable = false;
-
-
-
-            woodInvTxd = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(476.0f, 111.0f), "Preview_Model");
-            woodInvTxd.Font = TextDrawFont.PreviewModel;
-            woodInvTxd.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
-            woodInvTxd.Width = 30.0f;
-            woodInvTxd.Height = 35.0f;
-            woodInvTxd.Outline = 0;
-            woodInvTxd.Shadow = 0;
-            woodInvTxd.Alignment = TextDrawAlignment.Left;
-            woodInvTxd.ForeColor = -1;
-            woodInvTxd.BackColor = 0;
-            woodInvTxd.BoxColor = -16777103;
-            woodInvTxd.UseBox = false;
-            woodInvTxd.Proportional = true;
-            woodInvTxd.Selectable = false;
-            woodInvTxd.PreviewModel = 1463;
-            woodInvTxd.PreviewRotation = new SampSharp.GameMode.Vector3(-12.0, 2.0, 44.0);
-            woodInvTxd.PreviewZoom = 1;
-
-
-
-
-            /**
-RockInvTXD[playerid] = CreatePlayerTextDraw(playerid, 478.000000, 139.000000, "Preview_Model");
-PlayerTextDrawFont(playerid, RockInvTXD[playerid], 5);
-PlayerTextDrawLetterSize(playerid, RockInvTXD[playerid], 0.600000, 2.000000);
-PlayerTextDrawTextSize(playerid, RockInvTXD[playerid], 23.500000, 21.500000);
-PlayerTextDrawSetOutline(playerid, RockInvTXD[playerid], 0);
-PlayerTextDrawSetShadow(playerid, RockInvTXD[playerid], 0);
-PlayerTextDrawAlignment(playerid, RockInvTXD[playerid], 1);
-PlayerTextDrawColor(playerid, RockInvTXD[playerid], -1);
-PlayerTextDrawBackgroundColor(playerid, RockInvTXD[playerid], 0);
-PlayerTextDrawBoxColor(playerid, RockInvTXD[playerid], -16777103);
-PlayerTextDrawUseBox(playerid, RockInvTXD[playerid], 0);
-PlayerTextDrawSetProportional(playerid, RockInvTXD[playerid], 1);
-PlayerTextDrawSetSelectable(playerid, RockInvTXD[playerid], 0);
-PlayerTextDrawSetPreviewModel(playerid, RockInvTXD[playerid], 3929);
-PlayerTextDrawSetPreviewRot(playerid, RockInvTXD[playerid], -12.000000, 2.000000, 44.000000, 1.000000);
-PlayerTextDrawSetPreviewVehCol(playerid, RockInvTXD[playerid], 1, 1);
-**/
-            /**
-rockline[playerid] = CreatePlayerTextDraw(playerid, 533.000000, 147.000000, "_");
-PlayerTextDrawFont(playerid, rockline[playerid], 1);
-PlayerTextDrawLetterSize(playerid, rockline[playerid], 0.600000, 0.550001);
-PlayerTextDrawTextSize(playerid, rockline[playerid], 298.500000, 75.000000);
-PlayerTextDrawSetOutline(playerid, rockline[playerid], 1);
-PlayerTextDrawSetShadow(playerid, rockline[playerid], 0);
-PlayerTextDrawAlignment(playerid, rockline[playerid], 2);
-PlayerTextDrawColor(playerid, rockline[playerid], -1);
-PlayerTextDrawBackgroundColor(playerid, rockline[playerid], 255);
-PlayerTextDrawBoxColor(playerid, rockline[playerid], -741092353);
-PlayerTextDrawUseBox(playerid, rockline[playerid], 1);
-PlayerTextDrawSetProportional(playerid, rockline[playerid], 1);
-PlayerTextDrawSetSelectable(playerid, rockline[playerid], 0);
-**/
-            rockLine = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(533.0f, 147.0f), "_");
-            rockLine.Font = TextDrawFont.Normal;
-            rockLine.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 0.550001f);
-            rockLine.Width = 298.5f;
-            rockLine.Height = 75.0f;
-            rockLine.Outline = 1;
-            rockLine.Shadow = 0;
-            rockLine.Alignment = TextDrawAlignment.Center;
-            rockLine.ForeColor = -1;
-            rockLine.BackColor = 255;
-            rockLine.BoxColor = -741092353;
-            rockLine.UseBox = true;
-            rockLine.Proportional = true;
-            rockLine.Selectable = false;
-
-            rockInvTxd = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(478.0f, 139.0f), "Preview_Model");
-            rockInvTxd.Font = TextDrawFont.PreviewModel;
-            rockInvTxd.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
-            rockInvTxd.Width = 23.5f;
-            rockInvTxd.Height = 21.5f;
-            rockInvTxd.Outline = 0;
-            rockInvTxd.Shadow = 0;
-            rockInvTxd.Alignment = TextDrawAlignment.Left;
-            rockInvTxd.ForeColor = -1;
-            rockInvTxd.BackColor = 0;
-            rockInvTxd.BoxColor = -16777103;
-            rockInvTxd.UseBox = false;
-            rockInvTxd.Proportional = true;
-            rockInvTxd.Selectable = false;
-            rockInvTxd.PreviewModel = 3929;
-            rockInvTxd.PreviewRotation = new SampSharp.GameMode.Vector3(-12.0, 2.0, 44.0);
-            rockInvTxd.PreviewZoom = 1;
-
-            /**
-IronInvTXD[playerid] = CreatePlayerTextDraw(playerid, 475.000000, 153.000000, "Preview_Model");
-PlayerTextDrawFont(playerid, IronInvTXD[playerid], 5);
-PlayerTextDrawLetterSize(playerid, IronInvTXD[playerid], 0.600000, 2.000000);
-PlayerTextDrawTextSize(playerid, IronInvTXD[playerid], 31.500000, 32.500000);
-PlayerTextDrawSetOutline(playerid, IronInvTXD[playerid], 0);
-PlayerTextDrawSetShadow(playerid, IronInvTXD[playerid], 0);
-PlayerTextDrawAlignment(playerid, IronInvTXD[playerid], 1);
-PlayerTextDrawColor(playerid, IronInvTXD[playerid], -1);
-PlayerTextDrawBackgroundColor(playerid, IronInvTXD[playerid], 0);
-PlayerTextDrawBoxColor(playerid, IronInvTXD[playerid], -16777103);
-PlayerTextDrawUseBox(playerid, IronInvTXD[playerid], 0);
-PlayerTextDrawSetProportional(playerid, IronInvTXD[playerid], 1);
-PlayerTextDrawSetSelectable(playerid, IronInvTXD[playerid], 0);
-PlayerTextDrawSetPreviewModel(playerid, IronInvTXD[playerid], 2936);
-PlayerTextDrawSetPreviewRot(playerid, IronInvTXD[playerid], -12.000000, 2.000000, 44.000000, 1.000000);
-PlayerTextDrawSetPreviewVehCol(playerid, IronInvTXD[playerid], 1, 1);
-**/
-            /**
-ironline[playerid] = CreatePlayerTextDraw(playerid, 533.000000, 168.000000, "_");
-PlayerTextDrawFont(playerid, ironline[playerid], 1);
-PlayerTextDrawLetterSize(playerid, ironline[playerid], 0.600000, 0.550001);
-PlayerTextDrawTextSize(playerid, ironline[playerid], 298.500000, 75.000000);
-PlayerTextDrawSetOutline(playerid, ironline[playerid], 1);
-PlayerTextDrawSetShadow(playerid, ironline[playerid], 0);
-PlayerTextDrawAlignment(playerid, ironline[playerid], 2);
-PlayerTextDrawColor(playerid, ironline[playerid], -1);
-PlayerTextDrawBackgroundColor(playerid, ironline[playerid], 255);
-PlayerTextDrawBoxColor(playerid, ironline[playerid], -764862721);
-PlayerTextDrawUseBox(playerid, ironline[playerid], 1);
-PlayerTextDrawSetProportional(playerid, ironline[playerid], 1);
-PlayerTextDrawSetSelectable(playerid, ironline[playerid], 0);
-**/
-            ironLine = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(533.0f, 168.0f), "_");
-            ironLine.Font = TextDrawFont.Normal;
-            ironLine.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 0.550001f);
-            ironLine.Width = 298.5f;
-            ironLine.Height = 75.0f;
-            ironLine.Outline = 1;
-            ironLine.Shadow = 0;
-            ironLine.Alignment = TextDrawAlignment.Center;
-            ironLine.ForeColor = -1;
-            ironLine.BackColor = 255;
-            ironLine.BoxColor = -764862721;
-            ironLine.UseBox = true;
-            ironLine.Proportional = true;
-            ironLine.Selectable = false;
-            ironInvTxd = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(475.0f, 153.0f), "Preview_Model");
-            ironInvTxd.Font = TextDrawFont.PreviewModel;
-            ironInvTxd.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
-            ironInvTxd.Width = 31.5f;
-            ironInvTxd.Height = 32.5f;
-            ironInvTxd.Outline = 0;
-            ironInvTxd.Shadow = 0;
-            ironInvTxd.Alignment = TextDrawAlignment.Left;
-            ironInvTxd.ForeColor = -1;
-            ironInvTxd.BackColor = 0;
-            ironInvTxd.BoxColor = -16777103;
-            ironInvTxd.UseBox = false;
-            ironInvTxd.Proportional = true;
-            ironInvTxd.Selectable = false;
-            ironInvTxd.PreviewModel = 2936;
-            ironInvTxd.PreviewRotation = new SampSharp.GameMode.Vector3(-12.0, 2.0, 44.0);
-            ironInvTxd.PreviewZoom = 1;
-
-            /**
-tcanline[playerid] = CreatePlayerTextDraw(playerid, 533.000000, 188.000000, "_");
-PlayerTextDrawFont(playerid, tcanline[playerid], 1);
-PlayerTextDrawLetterSize(playerid, tcanline[playerid], 0.600000, 0.550001);
-PlayerTextDrawTextSize(playerid, tcanline[playerid], 298.500000, 75.000000);
-PlayerTextDrawSetOutline(playerid, tcanline[playerid], 1);
-PlayerTextDrawSetShadow(playerid, tcanline[playerid], 0);
-PlayerTextDrawAlignment(playerid, tcanline[playerid], 2);
-PlayerTextDrawColor(playerid, tcanline[playerid], -1);
-PlayerTextDrawBackgroundColor(playerid, tcanline[playerid], -2016478465);
-PlayerTextDrawBoxColor(playerid, tcanline[playerid], 1687547391);
-PlayerTextDrawUseBox(playerid, tcanline[playerid], 1);
-PlayerTextDrawSetProportional(playerid, tcanline[playerid], 1);
-PlayerTextDrawSetSelectable(playerid, tcanline[playerid], 0);
-**/
-            tcanLine = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(533.0f, 188.0f), "_");
-            tcanLine.Font = TextDrawFont.Normal;
-            tcanLine.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 0.550001f);
-            tcanLine.Width = 298.5f;
-            tcanLine.Height = 75.0f;
-            tcanLine.Outline = 1;
-            tcanLine.Shadow = 0;
-            tcanLine.Alignment = TextDrawAlignment.Center;
-            tcanLine.ForeColor = -1;
-            tcanLine.BackColor = -2016478465;
-            tcanLine.BoxColor = 1687547391;
-            tcanLine.UseBox = true;
-            tcanLine.Proportional = true;
-            tcanLine.Selectable = false;
-
-            /**
-tkaninvtxd[playerid] = CreatePlayerTextDraw(playerid, 473.000000, 173.000000, "Preview_Model");
-PlayerTextDrawFont(playerid, tkaninvtxd[playerid], 5);
-PlayerTextDrawLetterSize(playerid, tkaninvtxd[playerid], 0.600000, 2.000000);
-PlayerTextDrawTextSize(playerid, tkaninvtxd[playerid], 36.500000, 31.500000);
-PlayerTextDrawSetOutline(playerid, tkaninvtxd[playerid], 0);
-PlayerTextDrawSetShadow(playerid, tkaninvtxd[playerid], 0);
-PlayerTextDrawAlignment(playerid, tkaninvtxd[playerid], 1);
-PlayerTextDrawColor(playerid, tkaninvtxd[playerid], -1);
-PlayerTextDrawBackgroundColor(playerid, tkaninvtxd[playerid], 0);
-PlayerTextDrawBoxColor(playerid, tkaninvtxd[playerid], -16777103);
-PlayerTextDrawUseBox(playerid, tkaninvtxd[playerid], 0);
-PlayerTextDrawSetProportional(playerid, tkaninvtxd[playerid], 1);
-PlayerTextDrawSetSelectable(playerid, tkaninvtxd[playerid], 0);
-PlayerTextDrawSetPreviewModel(playerid, tkaninvtxd[playerid], 19518);
-PlayerTextDrawSetPreviewRot(playerid, tkaninvtxd[playerid], 79.000000, 2.000000, 17.000000, 1.000000);
-PlayerTextDrawSetPreviewVehCol(playerid, tkaninvtxd[playerid], 1, 1);
-**/
-            tkanInvTxd = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(473.0f, 173.0f), "Preview_Model");
-            tkanInvTxd.Font = TextDrawFont.PreviewModel;
-            tkanInvTxd.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
-            tkanInvTxd.Width = 36.5f;
-            tkanInvTxd.Height = 31.5f;
-            tkanInvTxd.Outline = 0;
-            tkanInvTxd.Shadow = 0;
-            tkanInvTxd.Alignment = TextDrawAlignment.Left;
-            tkanInvTxd.ForeColor = -1;
-            tkanInvTxd.BackColor = 0;
-            tkanInvTxd.BoxColor = -16777103;
-            tkanInvTxd.UseBox = false;
-            tkanInvTxd.Proportional = true;
-            tkanInvTxd.Selectable = false;
-            tkanInvTxd.PreviewModel = 19518;
-            tkanInvTxd.PreviewRotation = new SampSharp.GameMode.Vector3(79.0, 2.0, 17.0);
-            tkanInvTxd.PreviewZoom = 1;
-
             /**
 weapon1[playerid] = CreatePlayerTextDraw(playerid, 375.000000, 210.000000, "Preview_Model");
 PlayerTextDrawFont(playerid, weapon1[playerid], 5);
@@ -456,7 +233,7 @@ PlayerTextDrawSetPreviewVehCol(playerid, weapon1[playerid], 1, 1);
             weaponslots[0].UseBox = false;
             weaponslots[0].Proportional = true;
             weaponslots[0].Selectable = true;
-            weaponslots[0].PreviewModel = 348;
+            weaponslots[0].PreviewModel = 19478;
             weaponslots[0].PreviewRotation = new SampSharp.GameMode.Vector3(3.0, 0.0, -131.0);
             weaponslots[0].PreviewZoom = 1;
 
@@ -492,7 +269,7 @@ PlayerTextDrawSetPreviewVehCol(playerid, weapon2[playerid], 1, 1);
             weaponslots[1].UseBox = false;
             weaponslots[1].Proportional = true;
             weaponslots[1].Selectable = true;
-            weaponslots[1].PreviewModel = 351;
+            weaponslots[1].PreviewModel = 19478;
             weaponslots[1].PreviewRotation = new SampSharp.GameMode.Vector3(3.0, 0.0, -131.0);
             weaponslots[1].PreviewZoom = 1;
 
@@ -529,7 +306,7 @@ PlayerTextDrawSetPreviewVehCol(playerid, weapon3[playerid], 1, 1);
             weaponslots[2].UseBox = false;
             weaponslots[2].Proportional = true;
             weaponslots[2].Selectable = true;
-            weaponslots[2].PreviewModel = 353;
+            weaponslots[2].PreviewModel = 19478;
             weaponslots[2].PreviewRotation = new SampSharp.GameMode.Vector3(3.0, 0.0, -131.0);
             weaponslots[2].PreviewZoom = 1;
 
@@ -565,7 +342,7 @@ PlayerTextDrawSetPreviewVehCol(playerid, weapon4[playerid], 1, 1);
             weaponslots[3].UseBox = false;
             weaponslots[3].Proportional = true;
             weaponslots[3].Selectable = true;
-            weaponslots[3].PreviewModel = 366;
+            weaponslots[3].PreviewModel = 19478;
             weaponslots[3].PreviewRotation = new SampSharp.GameMode.Vector3(3.0, 0.0, -131.0);
             weaponslots[3].PreviewZoom = 1;
 
@@ -601,7 +378,7 @@ PlayerTextDrawSetPreviewVehCol(playerid, weapon5[playerid], 1, 1);
             weaponslots[4].UseBox = false;
             weaponslots[4].Proportional = true;
             weaponslots[4].Selectable = true;
-            weaponslots[4].PreviewModel = 356;
+            weaponslots[4].PreviewModel = 19478;
             weaponslots[4].PreviewRotation = new SampSharp.GameMode.Vector3(3.0, 0.0, -131.0);
             weaponslots[4].PreviewZoom = 1;
 
@@ -638,7 +415,7 @@ PlayerTextDrawSetPreviewVehCol(playerid, weapon6[playerid], 1, 1);
             weaponslots[5].UseBox = false;
             weaponslots[5].Proportional = true;
             weaponslots[5].Selectable = true;
-            weaponslots[5].PreviewModel = 349;
+            weaponslots[5].PreviewModel = 19478;
             weaponslots[5].PreviewRotation = new SampSharp.GameMode.Vector3(3.0, 0.0, -131.0);
             weaponslots[5].PreviewZoom = 1;
 
@@ -746,173 +523,379 @@ TextDrawSetSelectable(use, 1);
             closeinv.Proportional = true;
             closeinv.Selectable = true;
 
-            slots[0].Create(p,375.0f,257.0f);
-
-            slots[1].Create(p,404.0f, 257.0f);
-            slots[2].Create(p,433.0f,257.0f);
-
-            slots[3].Create(p,462.0f, 257.0f);
-
-            slots[4].Create(p,491.0f,257.0f);
-
-
-            slots[5].Create(p,520.0f,257.0f);
-            
-
-            slots[6].Create(p,548.0f,257.0f);
-
-
-            slots[7].Create(p,375.0f, 287.0f);
-            
-            slots[8].Create(p,404.0f, 287.0f);
-            
-
-            slots[9].Create(p,433.0f, 287.0f);
-            
-            slots[10].Create(p,462.0f, 287.0f);
-            
-            slots[11].Create(p,491.0f, 287.0f);
-            
-            slots[12].Create(p,520.0f, 287.0f);
-            
-            slots[13].Create(p,548.0f, 287.0f);
-            
-            slots[14].Create(p,375.0f, 317.0f);
-            
-            slots[15].Create(p,404.0f, 317.0f);
-            
-            slots[16].Create(p,433.0f, 317.0f);
-            
-            slots[17].Create(p,462.0f, 317.0f);
-            
-            slots[18].Create(p,491.0f, 317.0f);
-            
-            slots[19].Create(p,520.0f, 317.0f);
-            
-
-            slots[20].Create(p,548.0f, 317.0f);
-            
-            slots[21].Create(p,375.0f, 348.0f);
-            
-
-            slots[22].Create(p,404.0f, 348.0f);
-            
-            slots[23].Create(p,433.0f, 348.0f);
-            
-            slots[24].Create(p,462.0f, 348.0f);
-            
-            slots[25].Create(p,491.0f, 348.0f);
-            
-            slots[26].Create(p,520.0f, 348.0f);
-            
-            slots[27].Create(p,548.0f, 348.0f);
-            
-            slots[28].Create(p,375.0f, 379.0f);
-            
-            slots[29].Create(p,404.0f, 379.0f);
-            
-            slots[30].Create(p,433.0f, 379.0f);
-
-            slots[31].Create(p,462.0f, 379.0f);
-            slots[32].Create(p,491.0f, 379.0f);
-            
-            slots[33].Create(p,520.0f, 379.0f);
-            
-            slots[34].Create(p,548.0f, 379.0f);
-            
-            slots[35].Create(p,375.0f, 410.0f);
-           
-            slots[36].Create(p,404.0f, 410.0f);
-            
-            slots[37].Create(p,433.0f, 410.0f);
-            
-            slots[38].Create(p,462.0f, 410.0f);
-          
-            slots[39].Create(p,491.0f, 410.0f);
-          
-            slots[40].Create(p,520.0f, 410.0f);
-           
-            slots[41].Create(p,548.0f, 410.0f);
-           
-              
-             
-            ironnum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(530.0f, 164.0f), "3");
-            ironnum.Font = TextDrawFont.Slim;
-            ironnum.LetterSize = new SampSharp.GameMode.Vector2(0.287499, 1.149999);
-            ironnum.Width = 400.0f;
-            ironnum.Height = 17.0f;
-            ironnum.Outline = 1;
-            ironnum.Shadow = 0;
-            ironnum.Alignment = TextDrawAlignment.Left;
-            ironnum.ForeColor = -1;
-            ironnum.BackColor = 255;
-            ironnum.BoxColor = 50;
-            ironnum.UseBox = false;
-            ironnum.Proportional = true;
-            ironnum.Selectable = false;
-
-            /**
-             * woodnum[playerid] = CreatePlayerTextDraw(playerid, 530.000000, 123.000000, "35000");
-PlayerTextDrawFont(playerid, woodnum[playerid], 2);
-PlayerTextDrawLetterSize(playerid, woodnum[playerid], 0.287499, 1.149999);
-PlayerTextDrawTextSize(playerid, woodnum[playerid], 400.000000, 17.000000);
-PlayerTextDrawSetOutline(playerid, woodnum[playerid], 1);
-PlayerTextDrawSetShadow(playerid, woodnum[playerid], 0);
-PlayerTextDrawAlignment(playerid, woodnum[playerid], 1);
-PlayerTextDrawColor(playerid, woodnum[playerid], -1);
-PlayerTextDrawBackgroundColor(playerid, woodnum[playerid], 255);
-PlayerTextDrawBoxColor(playerid, woodnum[playerid], 50);
-PlayerTextDrawUseBox(playerid, woodnum[playerid], 0);
-PlayerTextDrawSetProportional(playerid, woodnum[playerid], 1);
-PlayerTextDrawSetSelectable(playerid, woodnum[playerid], 1);
-             **/
-
-            woodnum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(530.0f, 123.0f), "1");
-            woodnum.Font = TextDrawFont.Slim;
-            woodnum.LetterSize = new SampSharp.GameMode.Vector2(0.287499, 1.149999);
-            woodnum.Width = 400.0f;
-            woodnum.Height = 17.0f;
-            woodnum.Outline = 1;
-            woodnum.Shadow = 0;
-            woodnum.Alignment = TextDrawAlignment.Left;
-            woodnum.ForeColor = -1;
-            woodnum.BackColor = 255;
-            woodnum.BoxColor = 50;
-            woodnum.UseBox = false;
-            woodnum.Proportional = true;
-            woodnum.Selectable = false;
+            /*
+             * capacitynum = TextDrawCreate(502.000000, 127.000000, "0/50");
+TextDrawFont(capacitynum, 1);
+TextDrawLetterSize(capacitynum, 0.233333, 0.800000);
+TextDrawTextSize(capacitynum, 400.000000, 17.000000);
+TextDrawSetOutline(capacitynum, 1);
+TextDrawSetShadow(capacitynum, 0);
+TextDrawAlignment(capacitynum, 1);
+TextDrawColor(capacitynum, -1);
+TextDrawBackgroundColor(capacitynum, 255);
+TextDrawBoxColor(capacitynum, 50);
+TextDrawUseBox(capacitynum, 0);
+TextDrawSetProportional(capacitynum, 1);
+TextDrawSetSelectable(capacitynum, 0);
+             */
+            capacityNum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(502.000000, 127.000000), "0/50");
+            capacityNum.Font = TextDrawFont.Normal;
+            capacityNum.LetterSize = new SampSharp.GameMode.Vector2(0.233333, 0.800000);
+            capacityNum.Width = 400.0f;
+            capacityNum.Height = 17.0f;
+            capacityNum.Outline = 1;
+            capacityNum.Shadow = 0;
+            capacityNum.Alignment = TextDrawAlignment.Left;
+            capacityNum.ForeColor = -1;
+            capacityNum.BackColor = 255;
+            capacityNum.BoxColor = 50;
+            capacityNum.UseBox = false;
+            capacityNum.Proportional = true;
+            capacityNum.Selectable = false;
+            /*
+rukzakline = TextDrawCreate(531.000000, 128.000000, "_");
+TextDrawFont(rukzakline, 1);
+TextDrawLetterSize(rukzakline, 0.570833, 0.600000);
+TextDrawTextSize(rukzakline, 298.500000, 57.000000);
+TextDrawSetOutline(rukzakline, 1);
+TextDrawSetShadow(rukzakline, 0);
+TextDrawAlignment(rukzakline, 2);
+TextDrawColor(rukzakline, -1);
+TextDrawBackgroundColor(rukzakline, 255);
+TextDrawBoxColor(rukzakline, -1962934137);
+TextDrawUseBox(rukzakline, 1);
+TextDrawSetProportional(rukzakline, 1);
+TextDrawSetSelectable(rukzakline, 0);
+*/
+            capacityBar = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(531.000000, 128.000000), "_");
+            capacityBar.Font = TextDrawFont.Normal;
+            capacityBar.LetterSize = new SampSharp.GameMode.Vector2(0.570833, 0.600000);
+            capacityBar.Width = 298.5f;
+            capacityBar.Height = 57.0f;
+            capacityBar.Outline = 1;
+            capacityBar.Shadow = 0;
+            capacityBar.Alignment = TextDrawAlignment.Center;
+            capacityBar.ForeColor = -1;
+            capacityBar.BackColor = 255;
+            capacityBar.BoxColor = -1962934137;
+            capacityBar.UseBox = true;
+            capacityBar.Proportional = true;
+            capacityBar.Selectable = false;
+            /*
+capacitybanner[playerid] = CreatePlayerTextDraw(playerid, 478.000000, 113.000000, "Preview_Model");
+PlayerTextDrawFont(playerid, capacitybanner[playerid], 5);
+PlayerTextDrawLetterSize(playerid, capacitybanner[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, capacitybanner[playerid], 25.500000, 27.500000);
+PlayerTextDrawSetOutline(playerid, capacitybanner[playerid], 0);
+PlayerTextDrawSetShadow(playerid, capacitybanner[playerid], 0);
+PlayerTextDrawAlignment(playerid, capacitybanner[playerid], 1);
+PlayerTextDrawColor(playerid, capacitybanner[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, capacitybanner[playerid], -1378294272);
+PlayerTextDrawBoxColor(playerid, capacitybanner[playerid], -16777216);
+PlayerTextDrawUseBox(playerid, capacitybanner[playerid], 0);
+PlayerTextDrawSetProportional(playerid, capacitybanner[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, capacitybanner[playerid], 0);
+PlayerTextDrawSetPreviewModel(playerid, capacitybanner[playerid], 371);
+PlayerTextDrawSetPreviewRot(playerid, capacitybanner[playerid], -6.000000, -1.000000, 7.000000, 1.000000);
+PlayerTextDrawSetPreviewVehCol(playerid, capacitybanner[playerid], 1, 1);
+*/
+            capacityPng = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(478.000000, 113.000000), "Preview_Model");
+            capacityPng.Font = TextDrawFont.PreviewModel;
+            capacityPng.LetterSize = new SampSharp.GameMode.Vector2(0.600000, 2.000000);
+            capacityPng.Width = 25.5f;
+            capacityPng.Height = 27.5f;
+            capacityPng.Outline = 0;
+            capacityPng.Shadow = 0;
+            capacityPng.Alignment = TextDrawAlignment.Left;
+            capacityPng.ForeColor = -1;
+            capacityPng.BackColor = -1378294272;
+            capacityPng.BoxColor = -16777216;
+            capacityPng.UseBox = false;
+            capacityPng.Proportional = true;
+            capacityPng.Selectable = false;
+            capacityPng.PreviewModel = 371;
+            capacityPng.PreviewRotation = new SampSharp.GameMode.Vector3(-6.0f, -1.0f, 7.0f);
+            capacityPng.PreviewZoom = 1.0f;
 
 
+            /*
+odejdanum = TextDrawCreate(502.000000, 144.000000, "80/100");
+TextDrawFont(odejdanum, 1);
+TextDrawLetterSize(odejdanum, 0.233333, 0.800000);
+TextDrawTextSize(odejdanum, 400.000000, 17.000000);
+TextDrawSetOutline(odejdanum, 1);
+TextDrawSetShadow(odejdanum, 0);
+TextDrawAlignment(odejdanum, 1);
+TextDrawColor(odejdanum, -1);
+TextDrawBackgroundColor(odejdanum, 255);
+TextDrawBoxColor(odejdanum, 50);
+TextDrawUseBox(odejdanum, 0);
+TextDrawSetProportional(odejdanum, 1);
+TextDrawSetSelectable(odejdanum, 0);
+*/
+            clothNum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(502.000000, 144.000000), "80/100");
+            clothNum.Font = TextDrawFont.Normal;
+            clothNum.LetterSize = new SampSharp.GameMode.Vector2(0.233333, 0.800000);
+            clothNum.Width = 400.0f;
+            clothNum.Height = 17.0f;
+            clothNum.Outline = 1;
+            clothNum.Shadow = 0;
+            clothNum.Alignment = TextDrawAlignment.Left;
+            clothNum.ForeColor = -1;
+            clothNum.BackColor = 255;
+            clothNum.BoxColor = 50;
+            clothNum.UseBox = false;
+            clothNum.Proportional = true;
+            clothNum.Selectable = false;
+            /*
+clothline = TextDrawCreate(531.000000, 145.000000, "_");
+TextDrawFont(clothline, 1);
+TextDrawLetterSize(clothline, 0.570833, 0.600000);
+TextDrawTextSize(clothline, 298.500000, 57.000000);
+TextDrawSetOutline(clothline, 1);
+TextDrawSetShadow(clothline, 0);
+TextDrawAlignment(clothline, 2);
+TextDrawColor(clothline, -1);
+TextDrawBackgroundColor(clothline, 255);
+TextDrawBoxColor(clothline, 1687547271);
+TextDrawUseBox(clothline, 1);
+TextDrawSetProportional(clothline, 1);
+TextDrawSetSelectable(clothline, 0);
+*/
+            clothBar = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(531.000000, 145.000000), "_");
+            clothBar.Font = TextDrawFont.Normal;
+            clothBar.LetterSize = new SampSharp.GameMode.Vector2(0.570833, 0.600000);
+            clothBar.Width = 298.5f;
+            clothBar.Height = 57.0f;
+            clothBar.Outline = 1;
+            clothBar.Shadow = 0;
+            clothBar.Alignment = TextDrawAlignment.Center;
+            clothBar.ForeColor = -1;
+            clothBar.BackColor = 255;
+            clothBar.BoxColor = 1687547271;
+            clothBar.UseBox = true;
+            clothBar.Proportional = true;
+            clothBar.Selectable = false;
+            /*
+odejdapng[playerid] = CreatePlayerTextDraw(playerid, 478.000000, 132.000000, "Preview_Model");
+PlayerTextDrawFont(playerid, odejdapng[playerid], 5);
+PlayerTextDrawLetterSize(playerid, odejdapng[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, odejdapng[playerid], 25.500000, 27.500000);
+PlayerTextDrawSetOutline(playerid, odejdapng[playerid], 0);
+PlayerTextDrawSetShadow(playerid, odejdapng[playerid], 0);
+PlayerTextDrawAlignment(playerid, odejdapng[playerid], 1);
+PlayerTextDrawColor(playerid, odejdapng[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, odejdapng[playerid], -1378294272);
+PlayerTextDrawBoxColor(playerid, odejdapng[playerid], -16777216);
+PlayerTextDrawUseBox(playerid, odejdapng[playerid], 0);
+PlayerTextDrawSetProportional(playerid, odejdapng[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, odejdapng[playerid], 0);
+PlayerTextDrawSetPreviewModel(playerid, odejdapng[playerid], 1275);
+PlayerTextDrawSetPreviewRot(playerid, odejdapng[playerid], -6.000000, -1.000000, 7.000000, 1.000000);
+PlayerTextDrawSetPreviewVehCol(playerid, odejdapng[playerid], 1, 1);
+*/
+            clothPng = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(478.000000, 132.000000), "Preview_Model");
+            clothPng.Font = TextDrawFont.PreviewModel;
+            clothPng.LetterSize = new SampSharp.GameMode.Vector2(0.600000, 2.000000);
+            clothPng.Width = 25.5f;
+            clothPng.Height = 27.5f;
+            clothPng.Outline = 0;
+            clothPng.Shadow = 0;
+            clothPng.Alignment = TextDrawAlignment.Left;
+            clothPng.ForeColor = -1;
+            clothPng.BackColor = -1378294272;
+            clothPng.BoxColor = -16777216;
+            clothPng.UseBox = false;
+            clothPng.Proportional = true;
+            clothPng.Selectable = false;
+            clothPng.PreviewModel = 1275;
+            clothPng.PreviewRotation = new SampSharp.GameMode.Vector3(-6.0f, -1.0f, 7.0f);
+            clothPng.PreviewZoom = 1.0f;
+            /*
+PublicTD[2] = TextDrawCreate(502.000000, 161.000000, "100/100%");
+TextDrawFont(PublicTD[2], 1);
+TextDrawLetterSize(PublicTD[2], 0.233333, 0.800000);
+TextDrawTextSize(PublicTD[2], 400.000000, 17.000000);
+TextDrawSetOutline(PublicTD[2], 1);
+TextDrawSetShadow(PublicTD[2], 0);
+TextDrawAlignment(PublicTD[2], 1);
+TextDrawColor(PublicTD[2], -1);
+TextDrawBackgroundColor(PublicTD[2], 255);
+TextDrawBoxColor(PublicTD[2], 50);
+TextDrawUseBox(PublicTD[2], 0);
+TextDrawSetProportional(PublicTD[2], 1);
+TextDrawSetSelectable(PublicTD[2], 0);
+*/
+            batteryNum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(502.000000, 161.000000), "100/100%");
+            batteryNum.Font = TextDrawFont.Normal;
+            batteryNum.LetterSize = new SampSharp.GameMode.Vector2(0.233333, 0.800000);
+            batteryNum.Width = 400.0f;
+            batteryNum.Height = 17.0f;
+            batteryNum.Outline = 1;
+            batteryNum.Shadow = 0;
+            batteryNum.Alignment = TextDrawAlignment.Left;
+            batteryNum.ForeColor = -1;
+            batteryNum.BackColor = 255;
+            batteryNum.BoxColor = 50;
+            batteryNum.UseBox = false;
+            batteryNum.Proportional = true;
+            batteryNum.Selectable = false;
+            /*
+batteryline = TextDrawCreate(531.000000, 162.000000, "_");
+TextDrawFont(batteryline, 1);
+TextDrawLetterSize(batteryline, 0.570833, 0.600000);
+TextDrawTextSize(batteryline, 298.500000, 57.000000);
+TextDrawSetOutline(batteryline, 1);
+TextDrawSetShadow(batteryline, 0);
+TextDrawAlignment(batteryline, 2);
+TextDrawColor(batteryline, -1);
+TextDrawBackgroundColor(batteryline, 255);
+TextDrawBoxColor(batteryline, 16711815);
+TextDrawUseBox(batteryline, 1);
+TextDrawSetProportional(batteryline, 1);
+TextDrawSetSelectable(batteryline, 0);
+*/
+            batteryBar = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(531.000000, 162.000000), "_");
+            batteryBar.Font = TextDrawFont.Normal;
+            batteryBar.LetterSize = new SampSharp.GameMode.Vector2(0.570833, 0.600000);
+            batteryBar.Width = 298.5f;
+            batteryBar.Height = 57.0f;
+            batteryBar.Outline = 1;
+            batteryBar.Shadow = 0;
+            batteryBar.Alignment = TextDrawAlignment.Center;
+            batteryBar.ForeColor = -1;
+            batteryBar.BackColor = 255;
+            batteryBar.BoxColor = 16711815;
+            batteryBar.UseBox = true;
+            batteryBar.Proportional = true;
+            batteryBar.Selectable = false;
+            /*
+batterypng[playerid] = CreatePlayerTextDraw(playerid, 478.000000, 152.000000, "Preview_Model");
+PlayerTextDrawFont(playerid, batterypng[playerid], 5);
+PlayerTextDrawLetterSize(playerid, batterypng[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, batterypng[playerid], 25.500000, 27.500000);
+PlayerTextDrawSetOutline(playerid, batterypng[playerid], 0);
+PlayerTextDrawSetShadow(playerid, batterypng[playerid], 0);
+PlayerTextDrawAlignment(playerid, batterypng[playerid], 1);
+PlayerTextDrawColor(playerid, batterypng[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, batterypng[playerid], -1378294272);
+PlayerTextDrawBoxColor(playerid, batterypng[playerid], -16777216);
+PlayerTextDrawUseBox(playerid, batterypng[playerid], 0);
+PlayerTextDrawSetProportional(playerid, batterypng[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, batterypng[playerid], 0);
+PlayerTextDrawSetPreviewModel(playerid, batterypng[playerid], 18876);
+PlayerTextDrawSetPreviewRot(playerid, batterypng[playerid], -6.000000, 0.000000, -43.000000, 1.189998);
+PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
+*/
+            batteryPng = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(478.000000, 152.000000), "Preview_Model");
+            batteryPng.Font = TextDrawFont.PreviewModel;
+            batteryPng.LetterSize = new SampSharp.GameMode.Vector2(0.600000, 2.000000);
+            batteryPng.Width = 25.5f;
+            batteryPng.Height = 27.5f;
+            batteryPng.Outline = 0;
+            batteryPng.Shadow = 0;
+            batteryPng.Alignment = TextDrawAlignment.Left;
+            batteryPng.ForeColor = -1;
+            batteryPng.BackColor = -1378294272;
+            batteryPng.BoxColor = -16777216;
+            batteryPng.UseBox = false;
+            batteryPng.Proportional = true;
+            batteryPng.Selectable = false;
+            batteryPng.PreviewModel = 18876;
+            batteryPng.PreviewRotation = new SampSharp.GameMode.Vector3(-6.0f, 0.0f, -43.0f);
+            batteryPng.PreviewZoom = 1.189998f;
 
-            tkannum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(530.0f, 184.0f), "4");
-            tkannum.Font = TextDrawFont.Slim;
-            tkannum.LetterSize = new SampSharp.GameMode.Vector2(0.287499, 1.149999);
-            tkannum.Width = 400.0f;
-            tkannum.Height = 17.0f;
-            tkannum.Outline = 1;
-            tkannum.Shadow = 0;
-            tkannum.Alignment = TextDrawAlignment.Left;
-            tkannum.ForeColor = -1;
-            tkannum.BackColor = 255;
-            tkannum.BoxColor = 50;
-            tkannum.UseBox = false;
-            tkannum.Proportional = true;
-            tkannum.Selectable = false;
+            slots[0].Create(p, 375.0f, 257.0f);
 
-            rocknum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(530.0f, 143.0f), "2");
-            rocknum.Font = TextDrawFont.Slim;
-            rocknum.LetterSize = new SampSharp.GameMode.Vector2(0.287499, 1.149999);
-            rocknum.Width = 400.0f;
-            rocknum.Height = 17.0f;
-            rocknum.Outline = 1;
-            rocknum.Shadow = 0;
-            rocknum.Alignment = TextDrawAlignment.Left;
-            rocknum.ForeColor = -1;
-            rocknum.BackColor = 255;
-            rocknum.BoxColor = 50;
-            rocknum.UseBox = false;
-            rocknum.Proportional = true;
-            rocknum.Selectable = false;
+            slots[1].Create(p, 404.0f, 257.0f);
+            slots[2].Create(p, 433.0f, 257.0f);
+
+            slots[3].Create(p, 462.0f, 257.0f);
+
+            slots[4].Create(p, 491.0f, 257.0f);
+
+
+            slots[5].Create(p, 520.0f, 257.0f);
+
+
+            slots[6].Create(p, 548.0f, 257.0f);
+
+
+            slots[7].Create(p, 375.0f, 287.0f);
+
+            slots[8].Create(p, 404.0f, 287.0f);
+
+
+            slots[9].Create(p, 433.0f, 287.0f);
+
+            slots[10].Create(p, 462.0f, 287.0f);
+
+            slots[11].Create(p, 491.0f, 287.0f);
+
+            slots[12].Create(p, 520.0f, 287.0f);
+
+            slots[13].Create(p, 548.0f, 287.0f);
+
+            slots[14].Create(p, 375.0f, 317.0f);
+
+            slots[15].Create(p, 404.0f, 317.0f);
+
+            slots[16].Create(p, 433.0f, 317.0f);
+
+            slots[17].Create(p, 462.0f, 317.0f);
+
+            slots[18].Create(p, 491.0f, 317.0f);
+
+            slots[19].Create(p, 520.0f, 317.0f);
+
+
+            slots[20].Create(p, 548.0f, 317.0f);
+
+            slots[21].Create(p, 375.0f, 348.0f);
+
+
+            slots[22].Create(p, 404.0f, 348.0f);
+
+            slots[23].Create(p, 433.0f, 348.0f);
+
+            slots[24].Create(p, 462.0f, 348.0f);
+
+            slots[25].Create(p, 491.0f, 348.0f);
+
+            slots[26].Create(p, 520.0f, 348.0f);
+
+            slots[27].Create(p, 548.0f, 348.0f);
+
+            slots[28].Create(p, 375.0f, 379.0f);
+
+            slots[29].Create(p, 404.0f, 379.0f);
+
+            slots[30].Create(p, 433.0f, 379.0f);
+
+            slots[31].Create(p, 462.0f, 379.0f);
+            slots[32].Create(p, 491.0f, 379.0f);
+
+            slots[33].Create(p, 520.0f, 379.0f);
+
+            slots[34].Create(p, 548.0f, 379.0f);
+
+            slots[35].Create(p, 375.0f, 410.0f);
+
+            slots[36].Create(p, 404.0f, 410.0f);
+
+            slots[37].Create(p, 433.0f, 410.0f);
+
+            slots[38].Create(p, 462.0f, 410.0f);
+
+            slots[39].Create(p, 491.0f, 410.0f);
+
+            slots[40].Create(p, 520.0f, 410.0f);
+
+            slots[41].Create(p, 548.0f, 410.0f);
+
+
+
+
 
             weaponslotsAmmo[0] = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(376.0f, 220.0f), "0");
             weaponslotsAmmo[0].Font = TextDrawFont.Slim;
@@ -1011,20 +994,24 @@ PlayerTextDrawSetSelectable(playerid, woodnum[playerid], 1);
             inventoryBackPlate.Show();
             playerButton.PreviewModel = p.Skin;
             playerButton.Show();
-            helmetbutton.Show();
-            backpackButton.Show();
 
-            armourButton.Show();
+
+
+
             pagerButton.Show();
             achievementsButton.Show();
-            woodLine.Show();
-            woodInvTxd.Show();
-            rockLine.Show();
-            rockInvTxd.Show();
-            ironLine.Show();
-            ironInvTxd.Show();
-            tcanLine.Show();
-            tkanInvTxd.Show();
+
+            capacityPng.Show();
+            clothPng.Show();
+            batteryPng.Show();
+            capacityBar.Show();
+            clothBar.Show();
+            batteryBar.Show();
+            capacityNum.Text = $"{Convert.ToDouble(currentWeight) / 1000}/{maxWeight / 1000}_KG";
+            capacityNum.Show();
+            clothNum.Show();
+            batteryNum.Show();
+
             weaponslots[0].Show();
             weaponslots[1].Show();
             weaponslots[2].Show();
@@ -1036,20 +1023,43 @@ PlayerTextDrawSetSelectable(playerid, woodnum[playerid], 1);
             sellButton.Show();
             infoButton.Show();
             closeinv.Show();
-            
-            woodnum.Show();
-            rocknum.Show();
-            ironnum.Show();
-            tkannum.Show();
-            foreach(Slot s in slots)
+
+            if (helmetSlot == 0)
+            {
+                helmetbutton.PreviewModel = 19478;
+
+            }
+            helmetbutton.Show();
+            if (ArmorSlot == 0)
+            {
+                armourButton.PreviewModel = 19478;
+
+            }
+            armourButton.Show();
+            if (backpackSlot == 0)
+            {
+                backpackButton.PreviewModel = 19478;
+
+            }
+            backpackButton.Show();
+            for (int i = 0; i <= 5; i++)
+            {
+                if (weaponSlotsInfo[i] != 0)
+                {
+                    weaponslotsAmmo[i].Text = weaponslotsAmmoNum[i].ToString();
+                    weaponslotsAmmo[i].Show();
+                }
+            }
+            foreach (Slot s in slots)
             {
                 s.Show();
             }
+
         }
         public void Close()
         {
             inventoryBackPlate.Hide();
-            
+
             playerButton.Hide();
             helmetbutton.Hide();
             backpackButton.Hide();
@@ -1057,38 +1067,285 @@ PlayerTextDrawSetSelectable(playerid, woodnum[playerid], 1);
             armourButton.Hide();
             pagerButton.Hide();
             achievementsButton.Hide();
-            woodLine.Hide();
-            woodInvTxd.Hide();
-            rockLine.Hide();
-            rockInvTxd.Hide();
-            ironLine.Hide();
-            ironInvTxd.Hide();
-            tcanLine.Hide();
-            tkanInvTxd.Hide();
+
+            capacityPng.Hide();
+            clothPng.Hide();
+            batteryPng.Hide();
+            capacityBar.Hide();
+            clothBar.Hide();
+            batteryBar.Hide();
+            capacityNum.Hide();
+            clothNum.Hide();
+            batteryNum.Hide();
+
             weaponslots[0].Hide();
             weaponslots[1].Hide();
             weaponslots[2].Hide();
             weaponslots[3].Hide();
             weaponslots[4].Hide();
             weaponslots[5].Hide();
+            weaponslotsAmmo[0].Hide();
+            weaponslotsAmmo[1].Hide();
+            weaponslotsAmmo[2].Hide();
+            weaponslotsAmmo[3].Hide();
+            weaponslotsAmmo[4].Hide();
+            weaponslotsAmmo[5].Hide();
             useButton.Hide();
             dropButton.Hide();
             sellButton.Hide();
             infoButton.Hide();
             closeinv.Hide();
 
-            woodnum.Hide();
-            rocknum.Hide();
-            ironnum.Hide();
-            tkannum.Hide();
             foreach (Slot s in slots)
             {
                 s.Hide();
             }
         }
+        public void Clear()
+        {
+            foreach (var s in slots)
+            {
+                s.ItemId = 0;
+                s.Td.PreviewModel = 19478;
+
+            }
+            foreach (var ws in weaponslots)
+            {
+                ws.PreviewModel = 19478;
+            }
+            weaponSlotsInfo = weaponSlotsInfo.Select(x => 0).ToArray();
+
+            foreach (var wsa in weaponslotsAmmo)
+            {
+                wsa.Text = "0";
+            }
+            ArmorSlot = 0;
+            armourButton.PreviewModel = 19478;
+            helmetSlot = 0;
+            helmetbutton.PreviewModel = 19478;
+            backpackSlot = 0;
+            backpackButton.PreviewModel = 19478;
+
+
+        }
+        public void Select(ClickPlayerTextDrawEventArgs e)
+        {
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (e.PlayerTextDraw == slots[i].Td)
+                {
+                    selectedSlot = i;
+
+                }
+                else
+                {
+                    slots[i].Unselect();
+                }
+            }
+            // selectedSlot = Array.FindIndex(slots, slot => slot.Td == e.PlayerTextDraw);
+            if (selectedSlot != -1)
+            {
+                slots[selectedSlot].Select();
+            }
+            return;
+        }
         public void Update()
         {
 
+        }
+        public void Use(ClickPlayerTextDrawEventArgs e)
+        {
+
+            if (e.PlayerTextDraw == useButton)
+            {
+
+                if (selectedSlot > -1)
+                {
+                    Loot.Use(slots[selectedSlot].ItemId, selectedSlot, p);
+                    slots[selectedSlot].Unselect();
+                    selectedSlot = -1;
+                    p.CancelSelectTextDraw();
+                    Close();
+
+                    return;
+                }
+            }
+        }
+
+        public void Info(ClickPlayerTextDrawEventArgs e)
+        {
+            if (e.PlayerTextDraw == infoButton)
+            {
+                if (selectedSlot > -1 && slots[selectedSlot].ItemId != 0)
+                {
+                    Loot.Info(slots[selectedSlot].ItemId, p);
+                    return;
+                }
+            }
+        }
+        public void Drop(ClickPlayerTextDrawEventArgs e)
+        {
+            if (e.PlayerTextDraw == dropButton)
+            {
+                if (selectedSlot > -1 && slots[selectedSlot].ItemId != 0)
+                {
+                    Loot.Drop(slots[selectedSlot].ItemId, selectedSlot, p);
+                    slots[selectedSlot].Unselect();
+                    selectedSlot = -1;
+                    Close();
+                }
+            }
+        }
+        public void OnClickHelmet(ClickPlayerTextDrawEventArgs e)
+        {
+            if (e.PlayerTextDraw == helmetbutton)
+            {
+                if (helmetSlot != 0)
+                {
+                    p.ApplyAnimation("GOGGLES", "GOGGLES_PUT_ON", 4.1f, false, true, true, false, 0, true);
+                    foreach (var slot in slots)
+                    {
+                        if (slot.ItemId == 0)
+                        {
+                            slot.ItemId = helmetSlot;
+                            slot.Td.PreviewModel = Loot.loots.Find(l => l.Id == helmetSlot).previewModelId;
+                            currentWeight += Loot.loots.Find(l => l.Id == helmetSlot).weight;
+                            helmetSlot = 0;
+                            helmetbutton.PreviewModel = 19478;
+                            p.SendClientMessage("{708090}Вы сняли свой шлем.");
+                            p.RemoveAttachedObject(1);
+
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        public void OnclickArmour(ClickPlayerTextDrawEventArgs e)
+        {
+            if (e.PlayerTextDraw == armourButton)
+            {
+                p.Armour = 0;
+                p.ApplyAnimation("PLAYIDLES", "TIME", 4.1f, false, true, true, false, 2000, true);
+                p.PlaySound(5602);
+                if (ArmorSlot == Loot.loots.Find(l => l.Name == "Лёгкий бронежилет").Id)
+                {
+                    if (p.Armour < 50)
+                    {
+                        p.SendClientMessage("{708090}Ваш бронежилет слишком потрёпан, вы его выбросили.");
+                    }
+                    else
+                    {
+                        p.SendClientMessage("{708090}Вы сняли лёгкий бронежилет.");
+                        foreach (var slot in slots)
+                        {
+                            if (slot.ItemId == 0)
+                            {
+                                slot.ItemId = ArmorSlot;
+                                slot.Td.PreviewModel = Loot.loots.Find(l => l.Id == ArmorSlot).previewModelId;
+                                currentWeight += Loot.loots.Find(l => l.Id == ArmorSlot).weight;
+                                ArmorSlot = 0;
+                                armourButton.PreviewModel = 19478;
+
+                                break;
+                            }
+                        }
+
+                    }
+
+                }
+
+                if (ArmorSlot == Loot.loots.Find(l => l.Name == "Бронежилет").Id)
+                {
+                    if (p.Armour < 100)
+                    {
+                        p.SendClientMessage("{708090}Ваш бронежилет слишком потрёпан, вы его выбросили.");
+                        ArmorSlot = 0;
+                        armourButton.PreviewModel = 19478;
+                    }
+                    else
+                    {
+                        p.SendClientMessage("{708090}Вы сняли бронежилет.");
+                        foreach (var slot in slots)
+                        {
+                            if (slot.ItemId == 0)
+                            {
+                                slot.ItemId = ArmorSlot;
+                                slot.Td.PreviewModel = Loot.loots.Find(l => l.Id == ArmorSlot).previewModelId;
+                                currentWeight += Loot.loots.Find(l => l.Id == ArmorSlot).weight;
+                                ArmorSlot = 0;
+                                armourButton.PreviewModel = 19478;
+
+                                break;
+                            }
+                        }
+
+                    }
+
+                }
+            }
+        }
+        public void OnClickBackpack(ClickPlayerTextDrawEventArgs e)
+        {
+            if(e.PlayerTextDraw == backpackButton)
+            {
+                if(backpackSlot != 0)
+                {
+                    foreach (var slot in slots)
+                    {
+                        if (slot.ItemId == 0)
+                        {
+                            slot.ItemId = backpackSlot;
+                            slot.Td.PreviewModel = Loot.loots.Find(l => l.Id == backpackSlot).previewModelId;
+                            currentWeight += Loot.loots.Find(l => l.Id == backpackSlot).weight;
+                            backpackSlot = 0;
+                            backpackButton.PreviewModel = 19478;
+                            p.SendClientMessage("{708090}Вы сняли свой рюкзак.");
+                            maxWeight = 20000;
+                            p.RemoveAttachedObject(0);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        public void DropAllLoot()
+        {
+            foreach(var sl in slots)
+            {
+                if(sl.ItemId != 0)
+                {
+                    PlayerLootObject.Create(Loot.loots.Find(l => l.Id == sl.ItemId),p.Position,p.VirtualWorld);
+                    
+                }
+            }
+            foreach(var ws in weaponSlotsInfo)
+            {
+                if(ws != 0)
+                {
+                    PlayerLootObject.Create(Loot.loots.Find(l => l.Id == ws), p.Position, p.VirtualWorld);
+                    
+                }
+            }
+            if(backpackSlot != 0)
+            {
+                PlayerLootObject.Create(Loot.loots.Find(l => l.Id == backpackSlot), p.Position, p.VirtualWorld);
+            }
+        }
+        public void DeleteItem(int slotId)
+        {
+            slots[slotId].ItemId = 0;
+            slots[slotId].Td.PreviewModel = 19478;
+        }
+        
+        public void CloseButton(ClickPlayerTextDrawEventArgs e)
+        {
+            if(e.PlayerTextDraw == closeinv)
+            {
+                Close();
+                p.CancelSelectTextDraw();
+            }
+            return;
         }
         
 
@@ -1097,15 +1354,11 @@ PlayerTextDrawSetSelectable(playerid, woodnum[playerid], 1);
         public PlayerTextDraw Td;
         public int ItemId = 0;
         public bool IsPressed = false;
+
         
-        public Slot()
+        public Slot(Player p)
         {
-            
-        }
-        
-        public void Create(Player p,float posx, float posy)
-        {
-            Td = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(posx, posy), "Preview_Model");
+            Td = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(0,0), "Preview_Model");
             Td.Font = TextDrawFont.PreviewModel;
             Td.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
             Td.Width = 24.0f;
@@ -1123,13 +1376,31 @@ PlayerTextDrawSetSelectable(playerid, woodnum[playerid], 1);
             Td.PreviewRotation = new SampSharp.GameMode.Vector3(3.0, 0.0, -131.0);
             Td.PreviewZoom = 1;
         }
+        
+        public void Create(Player p,float posx, float posy)
+        {
+            Td.Position = new SampSharp.GameMode.Vector2(posx, posy);
+        }
         public void Show()
         {
             Td.Show();
         }
+        
         public void Hide()
         {
             Td.Hide();
+        }
+        public void Select()
+        {
+            
+            Td.BackColor = -764862878;
+            Td.BoxColor = -764862878;
+            IsPressed = true;
+        }
+        public void Unselect()
+        {
+            Td.BackColor = -1094795651;
+            Td.BoxColor = -16777103;
         }
 
     }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SampSharp.GameMode;
 using SampSharp.GameMode.Events;
+using WasteLandWarriors.Display;
 
 
 
@@ -27,11 +28,16 @@ namespace WasteLandWarriors.WorldObjects
             var ShelterPickUpEnter = Pickup.Create(1318, 1, new Vector3(-123.73604, 1116.3884, 19.8), 0);
             var ShelterPickUpExit = Pickup.Create(1318, 1, new Vector3(2205.5872, 1551.649, 1008.3), 1010);
             TextLabel terminalTl = new TextLabel("{ffffff}Терминал {268bf0}[F]", 0, new Vector3(2216.2234, 1578.7838, 1000), 5, 1010);
+            var HospitallvEnter = Pickup.Create(1318,1,new Vector3(1607.3867, 1816.0675, 10.8203125),0);
+            TextLabel tlhospitlalv = new TextLabel("{f2e82c}Больница", 0, new Vector3(-1607.3867, 1816.0675, 10.8203125), 15.0f, 0);
+            var HospitallvExit = Pickup.Create(1318, 1, new Vector3(1344.1179, 1509.212, 2998.7922), 1011);
+
         }
         public void OnPickUp(BasePlayer player, PickUpPickupEventArgs e)
         {
             if (e.Pickup.Id == 0)
             {
+                Time.SetTimeTo(player);
                 player.Interior = 0;
                 player.VirtualWorld = 0;
                 // player.SetTime(hours, minutes);
@@ -40,6 +46,7 @@ namespace WasteLandWarriors.WorldObjects
             }
             if (e.Pickup.Id == 1)
             {
+                player.SetTime(12,0);
                 player.VirtualWorld = 1001;
                 player.Interior = 1;
                 player.Angle = 318.07553f;
@@ -49,6 +56,7 @@ namespace WasteLandWarriors.WorldObjects
             }
             if (e.Pickup.Id == 2)
             {
+                player.SetTime(12, 0);
                 player.VirtualWorld = 1003;
                 player.Interior = 1;
                 player.Angle = 132.94858f;
@@ -58,6 +66,7 @@ namespace WasteLandWarriors.WorldObjects
             }
             if (e.Pickup.Id == 3)
             {
+                Time.SetTimeTo(player);
                 player.VirtualWorld = 0;
                 player.Interior = 0;
                 player.Angle = 177.61566f;
@@ -67,6 +76,8 @@ namespace WasteLandWarriors.WorldObjects
             }
             if (e.Pickup.Id == 4)
             {
+
+                player.SetTime(12, 0);
                 player.VirtualWorld = 1002;
                 player.Interior = 11;
                 player.Angle = 176.73378f;
@@ -76,6 +87,7 @@ namespace WasteLandWarriors.WorldObjects
             }
             if (e.Pickup.Id == 5)
             {
+                Time.SetTimeTo(player);
                 player.VirtualWorld = 0;
                 player.Interior = 0;
                 player.Angle = 92.65823f;
@@ -85,6 +97,7 @@ namespace WasteLandWarriors.WorldObjects
             }
             if (e.Pickup.Id == 6)
             {
+                player.SetTime(12, 0);
                 player.VirtualWorld = 1010;
                 player.Interior = 1;
                 player.Angle = 270;
@@ -93,10 +106,29 @@ namespace WasteLandWarriors.WorldObjects
             }
             if (e.Pickup.Id == 7)
             {
+                Time.SetTimeTo(player);
                 player.VirtualWorld = 0;
                 player.Interior = 0;
                 player.Angle = 90;
                 player.Position = new Vector3(-126.51506, 1121.0647, 19.8);
+                player.PutCameraBehindPlayer();
+            }
+            if(e.Pickup.Id == 8)
+            {
+                player.SetTime(12,0);
+                player.VirtualWorld = 1011;
+                player.Interior = 1;
+                player.Angle = 270;
+                player.Position = new Vector3(1343.8586, 1512.859, 2998.7922);
+                player.PutCameraBehindPlayer();
+            }
+            if (e.Pickup.Id == 9)
+            {
+                Time.SetTimeTo(player);
+                player.VirtualWorld = 0;
+                player.Interior = 0;
+                player.Angle = 90;
+                player.Position = new Vector3(1607.3867, 1821.0675, 10.8203125);
                 player.PutCameraBehindPlayer();
             }
         }// -126.51506, 1121.0647, 19.8, 90
