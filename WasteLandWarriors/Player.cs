@@ -6,9 +6,14 @@ using SampSharp.GameMode.SAMP.Commands;
 using SampSharp.GameMode.World;
 using System;
 using System.IO;
+using System.Threading.Tasks;
+using System.Timers;
 using WasteLandWarriors.Display;
+using WasteLandWarriors.Entities;
+using WasteLandWarriors.NPC.WorldNPCs;
 using WasteLandWarriors.Others;
 using WasteLandWarriors.WorldObjects;
+using WasteLandWarriors.Services;
 
 
 namespace WasteLandWarriors
@@ -16,6 +21,7 @@ namespace WasteLandWarriors
     [PooledType]
     public class Player : BasePlayer
     {
+        ConstuctionsService constructor = new ConstuctionsService();
         public Inventory inventory;
         PlayerMappingObjects mapping;
         Logo logo;
@@ -33,9 +39,10 @@ namespace WasteLandWarriors
             mapping = new PlayerMappingObjects(this);
             mapping.Remove();
             mapping.CreateNShow();
-
-            
+            this.ClearAnimations();
         }
+        
+        
         public override void OnSpawned(SpawnEventArgs e)
         {
             base.OnSpawned(e);
@@ -45,6 +52,12 @@ namespace WasteLandWarriors
             this.Interior = 1;
             this.VirtualWorld = 1010;
             this.PutCameraBehindPlayer();
+            
+        }
+        [Command("Music")]
+        public void GetMusic()
+        {
+            this.PlayAudioStream("https://rux.muzmo.cc/get/cuts/b2/6e/b26e7775a9bc5277897608fca18c3250/64348877/John_Murphy_-_28_Theme_b128f0d211.mp3");
         }
         public override void OnDisconnected(DisconnectEventArgs e)
         {
@@ -60,6 +73,11 @@ namespace WasteLandWarriors
             this.Interior = interior;
             this.SetTime(12, 00);
             this.SetWeather(20);
+        }
+        [Command("Construction")]
+        public void CreateItem(ConstructionType type)
+        {
+            constructor.Create(this,type , this.Position, new Vector3(0,0,0));
         }
         [Command("getpos")]
         public void getpos(string info)

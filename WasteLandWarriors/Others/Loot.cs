@@ -81,7 +81,7 @@ namespace WasteLandWarriors.Others
         {
             Loot current = loots.Find(l => l.Id == id);
 
-            switch (current.Name)
+            switch (current?.Name)
             {
                 case "Яблоко":
                     p.SetAttachedObject(0,current.modelId,SampSharp.GameMode.Definitions.Bone.RightHand, new Vector3(0.1,0.02,0), new Vector3(0,0,0), new Vector3(0,0,0), SampSharp.GameMode.SAMP.Color.Tomato, SampSharp.GameMode.SAMP.Color.Tomato);
@@ -94,7 +94,7 @@ namespace WasteLandWarriors.Others
                     p.ApplyAnimation("PED", "GUM_EAT", 4.3f, false, true, true, false,3000,true);
                     p.PlaySound(20802);
                     p.inventory.DeleteItem(slotid);
-                    p.inventory.currentWeight -= loots.Find(l => l.Name == "Яблоко").weight;
+                    p.inventory.currentWeight -= loots.Find(l => l.Name == "Бинт").weight;
                     break;
                 case "M4":
                     if (p.inventory.weaponSlotsInfo[5] == 0)
@@ -112,7 +112,7 @@ namespace WasteLandWarriors.Others
                         p.inventory.weaponslotsAmmoNum[5] += 50;
                         p.GiveWeapon(SampSharp.GameMode.Definitions.Weapon.M4, 50);
                         p.inventory.DeleteItem(slotid);
-                        p.inventory.currentWeight -= loots.Find(p => p.Name == "M4").weight;
+                        p.inventory.currentWeight -= loots.Find(p => p.Name == "Патроны 5.56").weight;
                         p.inventory.Close();
                         p.ApplyAnimation("RIFLE", "RIFLE_LOAD", 4.1f, false, true,true,false,0,true);
                         p.PlaySound(36401);
@@ -136,7 +136,7 @@ namespace WasteLandWarriors.Others
                         p.inventory.weaponslotsAmmoNum[0] += 7;
                         p.GiveWeapon(SampSharp.GameMode.Definitions.Weapon.Deagle, 7);
                         p.inventory.DeleteItem(slotid);
-                        p.inventory.currentWeight -= loots.Find(p => p.Name == "Пустынный орел").weight;
+                        p.inventory.currentWeight -= loots.Find(p => p.Name == ".44 Magnum").weight;
                         p.inventory.Close();
                         p.ApplyAnimation("COLT45", "COLT45_RELOAD", 4.1f, false, true, true, false, 0, true);
                         p.PlaySound(36401);
