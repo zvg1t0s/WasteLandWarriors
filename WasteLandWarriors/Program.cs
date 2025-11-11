@@ -1,5 +1,6 @@
 ﻿using SampSharp.Core;
 using System.Text;
+using SampSharp.Streamer;
 
 
 namespace WasteLandWarriors
@@ -11,6 +12,7 @@ namespace WasteLandWarriors
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             new GameModeBuilder()
                 .Use<GameMode>()
+                
                 .UseEncoding(encoding: Encoding.GetEncoding(1251))
                 .Run();
         }

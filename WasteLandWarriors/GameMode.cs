@@ -7,17 +7,21 @@ using SampSharp.GameMode.Events;
 using SampSharp.GameMode.World;
 using SampSharpGameMode1.Physics;
 using System;
-
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Timers;
+using WasteLandWarriors.AC;
 using WasteLandWarriors.Display;
+using WasteLandWarriors.Entities;
 using WasteLandWarriors.NPC;
 using WasteLandWarriors.NPC.Definitions;
-using WasteLandWarriors.Others;
-using WasteLandWarriors.WorldObjects;
 using WasteLandWarriors.NPC.Events;
 using WasteLandWarriors.NPC.WorldNPCs;
-using System.Collections.Generic;
+using WasteLandWarriors.Others;
+using WasteLandWarriors.Systems;
+using WasteLandWarriors.Systems.BiomeGenerator;
+using WasteLandWarriors.WorldObjects;
 
 namespace WasteLandWarriors
 {
@@ -25,13 +29,15 @@ namespace WasteLandWarriors
     {
         WorldPickUps PickUps;
         WorldActors Actors;
+        public static Biome biom;
 
         public static List<CommonZombieNPC> zombies = new List<CommonZombieNPC>();
         
         protected override void OnInitialized(EventArgs e)
         {
-            ColAndreas.Init();
             
+            ColAndreas.Init();
+            RakcheatNatives.AC_DisableInteriorEnterExits();
             base.OnInitialized(e);
             
             Console.WriteLine("\n----------------------------------");
@@ -40,7 +46,7 @@ namespace WasteLandWarriors
 
             LimitGlobalChatRadius(0);
             EnableStuntBonusForAll(false);
-            DisableInteriorEnterExits();
+          //  DisableInteriorEnterExits();
             
             SetGameModeText("Wasteland Warriors");
             PickUps = new WorldPickUps();
@@ -49,9 +55,18 @@ namespace WasteLandWarriors
             Loot.Create();
             Time.Create();
             WorldLootSpawnpoints.Create();
-            CreateZombies();
-            SpawnZombies();
+           //BiomeObject.Create();
+            //Biome.Create();
+           //  biom = Biome.biomes.First();
+            // CreateZombies();
+            // SpawnZombies();
             this.UsePlayerPedAnimations();
+            CraftTables.CreateCraftTables(new Vector3(-172.83745, 1214.4686, 21.030312));
+            CraftRecipe.CreateRecipes();
+            CookingRecipe.CreateRecipes();
+            
+            VehicleManager.UpdateFuel();
+            VehicleManager.CreateWorldCars();
             
             /**
 SetPlayerAttachedObject(playerid, 0, 2908, 2, 0.0649, 0.0609, 0.0099, -175.0001, 4.0999, 96.2998, 1.4110, 1.1290, 1.5080, 0, 0); // "zombiedildo" by BOMB0CLAT (Skin:0)
@@ -78,7 +93,7 @@ SetPlayerAttachedObject(playerid, 1, 19086, 1, -0.1620, 0.0120, -0.0579, -4.6999
         public void CreateZombies()
         {
             
-                zombies.Add(new CommonZombieNPC($"ZOMBIE_1", 162, new SampSharp.GameMode.Vector3(253.37198, 1211.3707, 15.60604)));
+                zombies.Add(new CommonZombieNPC($"ZOMBIE_1", 200, new SampSharp.GameMode.Vector3(2154.829, 2521.728, 10.8203125)));
             //596,52094, 1645,4122, 6,5599513
             /**
 (784,7288, 1662,6646, 5,218836) ammozm
@@ -107,6 +122,8 @@ SetPlayerAttachedObject(playerid, 1, 19086, 1, -0.1620, 0.0120, -0.0579, -4.6999
             zombies.Add(new CommonZombieNPC($"ZOMBIE_14", 61, new SampSharp.GameMode.Vector3(1390.8749, 691.0026, 10.385381)));
             zombies.Add(new CommonZombieNPC($"ZOMBIE_15", 61, new SampSharp.GameMode.Vector3(1390.8749, 691.0026, 10.385381)));
         }
+            
+        
         public void SpawnZombies()
         {
             foreach (var zombie in zombies) { 
@@ -127,7 +144,7 @@ SetPlayerAttachedObject(playerid, 1, 19086, 1, -0.1620, 0.0120, -0.0579, -4.6999
         {
             PickUps.OnPickUp(player, e);
         }
-       
+        
         protected override void OnPlayerText(BasePlayer player, TextEventArgs e)
         {
             e.SendToPlayers = false;

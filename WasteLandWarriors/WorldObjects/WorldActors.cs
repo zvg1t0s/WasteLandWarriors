@@ -69,7 +69,9 @@ namespace WasteLandWarriors.WorldObjects
             technicue.VirtualWorld = 0;
             technicue.IsInvulnerable = true;
 
-            
+            var witch = Actor.Create(196, new Vector3(-793.816, -1976.6213, 6.860173), 30f);
+            TextLabel witchTD = new TextLabel("{FFFFFF}Ведьма {268bf0}[F]", 0, new Vector3(-793.816, -1976.6213, 6.860173), 20.0f, 0);
+            witch.IsInvulnerable = true;
             //var soldierCenterRight = Actor.Create(286, new Vector3(-145.98532, 1129.9305, 35.72811), 325);
             //soldierCenterRight.VirtualWorld = 0;
             //soldierCenterRight.IsInvulnerable= true;

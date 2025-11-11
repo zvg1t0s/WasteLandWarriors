@@ -14,7 +14,7 @@ namespace WasteLandWarriors.Entities
 
         public string Email { get; set; }
 
-        public string Password { get; set; }
+        public string Password { get; set; } = "password";
 
         public bool Sex { get; set; }
 
@@ -28,9 +28,17 @@ namespace WasteLandWarriors.Entities
 
         public double LastPosZ { get; set; } = 0;
 
+        public List<VehicleEntity> cars { get; set; } = new List<VehicleEntity>();
 
+        public VehicleEntity current { get; set; } = null;
 
         public User() { }
+
+        public void AddCar(VehicleEntity car)
+        {
+            car.Owner = this;
+            cars.Add(car);
+        }
 
     }
 }

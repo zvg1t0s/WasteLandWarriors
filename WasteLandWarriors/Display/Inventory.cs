@@ -10,14 +10,15 @@ using SampSharp.GameMode.SAMP;
 using SampSharp.GameMode.Events;
 using WasteLandWarriors.Others;
 using WasteLandWarriors.WorldObjects;
+using WasteLandWarriors.Systems;
 
 namespace WasteLandWarriors.Display
 {
     public class Inventory
     {
         private Player p;
-        private PlayerTextDraw inventoryBackPlate;
-        private PlayerTextDraw playerButton;
+        public PlayerTextDraw inventoryBackPlate;
+        public PlayerTextDraw playerButton;
         public PlayerTextDraw helmetbutton;
         public PlayerTextDraw backpackButton;
         public PlayerTextDraw armourButton;
@@ -33,54 +34,85 @@ namespace WasteLandWarriors.Display
         private PlayerTextDraw batteryPng;
         private PlayerTextDraw batteryBar;
 
+        public int currentPage = 1;
 
         private PlayerTextDraw useButton;
         private PlayerTextDraw dropButton;
         private PlayerTextDraw sellButton;
         private PlayerTextDraw infoButton;
         public PlayerTextDraw closeinv;
+        public PlayerTextDraw pageNum;
+        public PlayerTextDraw backPage;
+        public PlayerTextDraw forwardPage;
         public PlayerTextDraw[] weaponslots = new PlayerTextDraw[6];
+
+        public PlayerTextDraw craftbackPlate;
+
+        public PlayerTextDraw[,] craftsSlots = new PlayerTextDraw[3,3];
+        
+        public PlayerTextDraw craftSign;
+        public PlayerTextDraw craftButton;
+        public PlayerTextDraw craftingItemSlot;
+        public PlayerTextDraw craftingItemName;
         /**
         private PlayerTextDraw[] slots = new PlayerTextDraw[42];
         **/
         public PlayerTextDraw[] weaponslotsAmmo = new PlayerTextDraw[6];
-        public Slot[] slots { get; set; } = new Slot[42];
+        public Slot[] slots { get; set; } = new Slot[28];
 
 
         public int[] weaponslotsAmmoNum = new int[6];
 
         public int[] weaponSlotsInfo = new int[6];
 
-        private bool[] isSlotSelected = new bool[42];
+        private bool[] isSlotSelected = new bool[28];
 
-        public int[] slotsinfo = new int[42];
+        public InventoryLoot[] slotsItem = new InventoryLoot[84];
 
         public int helmetSlot = 0;
         public int ArmorSlot = 0;
         public int backpackSlot = 0;
 
+        public Loot[,] craftSlotsInfo = new Loot[3,3];
+        
+
         private int selectedSlot = -1;
         public int currentWeight = 0;
         public int maxWeight = 20000;
-
+        public bool isOpen
+        {
+            get; private set;
+        }
+        public bool isCraftMenu
+        {
+            get; private set;
+        }
+        public bool isCookingMenu
+        {
+            get; private set;
+        }
         public Inventory(Player player)
         {
             //________________________INVENTORY_________________________________________________________________________
             this.p = player;
-            weaponslotsAmmoNum[0] = 0;
-            weaponslotsAmmoNum[1] = 0;
-            weaponslotsAmmoNum[2] = 0;
-            weaponslotsAmmoNum[3] = 0;
-            weaponslotsAmmoNum[4] = 0;
-            weaponslotsAmmoNum[5] = 0;
-            for (int i = 0; i < 42; i++)
+            this.p.GetWeaponData(1, out _,out weaponslotsAmmoNum[0]);
+            this.p.GetWeaponData(2, out _, out weaponslotsAmmoNum[1]);
+            this.p.GetWeaponData(3, out _, out weaponslotsAmmoNum[2]);
+            this.p.GetWeaponData(4, out _, out weaponslotsAmmoNum[3]);
+            this.p.GetWeaponData(5, out _, out weaponslotsAmmoNum[4]);
+            this.p.GetWeaponData(6, out _, out weaponslotsAmmoNum[5]);
+            for (int i = 0; i < 28; i++)
             {
                 slots[i] = new Slot(p);
+            }
+            for(int i = 0; i < 84; i++)
+            {
+                slotsItem[i] = new InventoryLoot();
             }
 
             inventoryBackPlate = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(476.0f, 110.0f), "_");
             inventoryBackPlate.Font = TextDrawFont.Normal;
-            inventoryBackPlate.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 36.599918f);
+            inventoryBackPlate.LetterSize = new SampSharp.GameMode.Vector2(0.587499, 31.199970);
             inventoryBackPlate.Width = 298.5f;
             inventoryBackPlate.Height = 208.5f;
             inventoryBackPlate.Outline = 1;
@@ -805,6 +837,97 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
             batteryPng.PreviewRotation = new SampSharp.GameMode.Vector3(-6.0f, 0.0f, -43.0f);
             batteryPng.PreviewZoom = 1.189998f;
 
+            /**
+pageNum[playerid] = CreatePlayerTextDraw(playerid, 472.000000, 378.000000, "1");
+PlayerTextDrawFont(playerid, pageNum[playerid], 1);
+PlayerTextDrawLetterSize(playerid, pageNum[playerid], 0.320832, 1.049998);
+PlayerTextDrawTextSize(playerid, pageNum[playerid], 400.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, pageNum[playerid], 1);
+PlayerTextDrawSetShadow(playerid, pageNum[playerid], 0);
+PlayerTextDrawAlignment(playerid, pageNum[playerid], 1);
+PlayerTextDrawColor(playerid, pageNum[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, pageNum[playerid], 255);
+PlayerTextDrawBoxColor(playerid, pageNum[playerid], 50);
+PlayerTextDrawUseBox(playerid, pageNum[playerid], 0);
+PlayerTextDrawSetProportional(playerid, pageNum[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, pageNum[playerid], 0);
+**/
+            pageNum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(472,378), "1");
+            pageNum.Font = TextDrawFont.Normal;
+            pageNum.LetterSize = new SampSharp.GameMode.Vector2(0.320832, 1.049998);
+            pageNum.Width = 400;
+            pageNum.Height = 17;
+            pageNum.Outline = 1;
+            pageNum.Shadow = 0;
+            pageNum.Alignment = TextDrawAlignment.Left;
+            pageNum.ForeColor = -1;
+            pageNum.BackColor = 255;
+            pageNum.BoxColor = 50;
+            pageNum.UseBox = false;
+            pageNum.Proportional = true;
+            pageNum.Selectable = false;
+
+            /**
+backPage[playerid] = CreatePlayerTextDraw(playerid, 433.000000, 378.000000, "<");
+PlayerTextDrawFont(playerid, backPage[playerid], 1);
+PlayerTextDrawLetterSize(playerid, backPage[playerid], 0.320832, 1.049998);
+PlayerTextDrawTextSize(playerid, backPage[playerid], 443.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, backPage[playerid], 1);
+PlayerTextDrawSetShadow(playerid, backPage[playerid], 0);
+PlayerTextDrawAlignment(playerid, backPage[playerid], 1);
+PlayerTextDrawColor(playerid, backPage[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, backPage[playerid], 255);
+PlayerTextDrawBoxColor(playerid, backPage[playerid], 50);
+PlayerTextDrawUseBox(playerid, backPage[playerid], 1);
+PlayerTextDrawSetProportional(playerid, backPage[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, backPage[playerid], 1);
+**/
+            backPage = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(433, 378), "<");
+            backPage.Font = TextDrawFont.Normal;
+            backPage.LetterSize = new SampSharp.GameMode.Vector2(0.320832, 1.049998);
+            backPage.Width = 443.0f;
+            backPage.Height = 17;
+            backPage.Outline = 1;
+            backPage.Shadow = 0;
+            backPage.Alignment = TextDrawAlignment.Left;
+            backPage.ForeColor = -1;
+            backPage.BackColor = 255;
+            backPage.BoxColor = 50;
+            backPage.UseBox = true;
+            backPage.Proportional = true;
+            backPage.Selectable = true;
+
+
+            /**
+ForwardPager[playerid] = CreatePlayerTextDraw(playerid, 508.000000, 378.000000, ">");
+PlayerTextDrawFont(playerid, ForwardPager[playerid], 1);
+PlayerTextDrawLetterSize(playerid, ForwardPager[playerid], 0.320832, 1.049998);
+PlayerTextDrawTextSize(playerid, ForwardPager[playerid], 518.500000, 17.000000);
+PlayerTextDrawSetOutline(playerid, ForwardPager[playerid], 1);
+PlayerTextDrawSetShadow(playerid, ForwardPager[playerid], 0);
+PlayerTextDrawAlignment(playerid, ForwardPager[playerid], 1);
+PlayerTextDrawColor(playerid, ForwardPager[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, ForwardPager[playerid], 255);
+PlayerTextDrawBoxColor(playerid, ForwardPager[playerid], 50);
+PlayerTextDrawUseBox(playerid, ForwardPager[playerid], 1);
+PlayerTextDrawSetProportional(playerid, ForwardPager[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, ForwardPager[playerid], 1);
+**/
+            forwardPage = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(508, 378), ">");
+            forwardPage.Font = TextDrawFont.Normal;
+            forwardPage.LetterSize = new SampSharp.GameMode.Vector2(0.320832, 1.049998);
+            forwardPage.Width = 518.5f;
+            forwardPage.Height = 17;
+            forwardPage.Outline = 1;
+            forwardPage.Shadow = 0;
+            forwardPage.Alignment = TextDrawAlignment.Left;
+            forwardPage.ForeColor = -1;
+            forwardPage.BackColor = 255;
+            forwardPage.BoxColor = 50;
+            forwardPage.UseBox = true;
+            forwardPage.Proportional = true;
+            forwardPage.Selectable = true;
+
             slots[0].Create(p, 375.0f, 257.0f);
 
             slots[1].Create(p, 404.0f, 257.0f);
@@ -865,7 +988,7 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
             slots[26].Create(p, 520.0f, 348.0f);
 
             slots[27].Create(p, 548.0f, 348.0f);
-
+            /**
             slots[28].Create(p, 375.0f, 379.0f);
 
             slots[29].Create(p, 404.0f, 379.0f);
@@ -893,7 +1016,7 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
 
             slots[41].Create(p, 548.0f, 410.0f);
 
-
+            **/
 
 
 
@@ -986,6 +1109,376 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
             weaponslotsAmmo[5].UseBox = false;
             weaponslotsAmmo[5].Proportional = true;
             weaponslotsAmmo[5].Selectable = false;
+
+            /**
+craftslotsBackPlate[playerid] = CreatePlayerTextDraw(playerid, 435.000000, 127.000000, "_");
+PlayerTextDrawFont(playerid, craftslotsBackPlate[playerid], 1);
+PlayerTextDrawLetterSize(playerid, craftslotsBackPlate[playerid], 0.587499, 10.749962);
+PlayerTextDrawTextSize(playerid, craftslotsBackPlate[playerid], 298.500000, 90.500000);
+PlayerTextDrawSetOutline(playerid, craftslotsBackPlate[playerid], 1);
+PlayerTextDrawSetShadow(playerid, craftslotsBackPlate[playerid], 0);
+PlayerTextDrawAlignment(playerid, craftslotsBackPlate[playerid], 2);
+PlayerTextDrawColor(playerid, craftslotsBackPlate[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, craftslotsBackPlate[playerid], 255);
+PlayerTextDrawBoxColor(playerid, craftslotsBackPlate[playerid], -1094795595);
+PlayerTextDrawUseBox(playerid, craftslotsBackPlate[playerid], 1);
+PlayerTextDrawSetProportional(playerid, craftslotsBackPlate[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, craftslotsBackPlate[playerid], 0);
+**/
+
+            /**
+craftbackplate[playerid] = CreatePlayerTextDraw(playerid, 388.000000, 126.000000, "Preview_Model");
+PlayerTextDrawFont(playerid, craftbackplate[playerid], 5);
+PlayerTextDrawLetterSize(playerid, craftbackplate[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, craftbackplate[playerid], 93.500000, 99.500000);
+PlayerTextDrawSetOutline(playerid, craftbackplate[playerid], 0);
+PlayerTextDrawSetShadow(playerid, craftbackplate[playerid], 0);
+PlayerTextDrawAlignment(playerid, craftbackplate[playerid], 1);
+PlayerTextDrawColor(playerid, craftbackplate[playerid], -764862721);
+PlayerTextDrawBackgroundColor(playerid, craftbackplate[playerid], 1097458045);
+PlayerTextDrawBoxColor(playerid, craftbackplate[playerid], 1097458033);
+PlayerTextDrawUseBox(playerid, craftbackplate[playerid], 0);
+PlayerTextDrawSetProportional(playerid, craftbackplate[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, craftbackplate[playerid], 0);
+PlayerTextDrawSetPreviewModel(playerid, craftbackplate[playerid], 3096);
+PlayerTextDrawSetPreviewRot(playerid, craftbackplate[playerid], 0.000000, 0.000000, 0.000000, 1.000000);
+PlayerTextDrawSetPreviewVehCol(playerid, craftbackplate[playerid], 1, 1);
+**/
+            craftbackPlate = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(388.000000, 126.000000), "Preview_Model");
+
+            //19478
+            craftbackPlate.Font = TextDrawFont.PreviewModel;
+            craftbackPlate.LetterSize = new SampSharp.GameMode.Vector2(0.600000, 2.000000);
+            craftbackPlate.Outline = 0;
+            craftbackPlate.Width = 93.5f;
+            craftbackPlate.Height = 99.5f;
+            craftbackPlate.Shadow = 0;
+            craftbackPlate.Alignment = TextDrawAlignment.Left;
+            craftbackPlate.ForeColor = -764862721;
+            craftbackPlate.BackColor = 1097458045;
+            craftbackPlate.BoxColor = 1094795595;
+            craftbackPlate.UseBox = false;
+            craftbackPlate.Proportional = true;
+            craftbackPlate.Selectable = false;
+            craftbackPlate.PreviewModel = 3096;
+            craftbackPlate.PreviewRotation = new SampSharp.GameMode.Vector3(0,0,0);
+            craftbackPlate.PreviewZoom = 1;
+
+            /**
+craftslot1[playerid] = CreatePlayerTextDraw(playerid, 393.000000, 131.000000, "Preview_Model");
+PlayerTextDrawFont(playerid, craftslot1[playerid], 5);
+PlayerTextDrawLetterSize(playerid, craftslot1[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, craftslot1[playerid], 24.000000, 26.500000);
+PlayerTextDrawSetOutline(playerid, craftslot1[playerid], 0);
+PlayerTextDrawSetShadow(playerid, craftslot1[playerid], 0);
+PlayerTextDrawAlignment(playerid, craftslot1[playerid], 1);
+PlayerTextDrawColor(playerid, craftslot1[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, craftslot1[playerid], -1094795651);
+PlayerTextDrawBoxColor(playerid, craftslot1[playerid], -16777103);
+PlayerTextDrawUseBox(playerid, craftslot1[playerid], 0);
+PlayerTextDrawSetProportional(playerid, craftslot1[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, craftslot1[playerid], 1);
+PlayerTextDrawSetPreviewModel(playerid, craftslot1[playerid], 19843);
+PlayerTextDrawSetPreviewRot(playerid, craftslot1[playerid], -90.000000, 0.000000, 0.000000, 1.000000);
+PlayerTextDrawSetPreviewVehCol(playerid, craftslot1[playerid], 1, 1);
+**/
+
+            craftsSlots[0,0] = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(393, 131), "Preview_Model");
+            craftsSlots[0,0].Font = TextDrawFont.PreviewModel;
+            craftsSlots[0,0].LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            craftsSlots[0,0].Width = 24.0f;
+            craftsSlots[0,0].Height = 26.5f;
+            craftsSlots[0,0].Outline = 0;
+            craftsSlots[0,0].Shadow = 0;
+            craftsSlots[0,0].Alignment = TextDrawAlignment.Left;
+            craftsSlots[0,0].ForeColor = -1;
+            craftsSlots[0,0].BackColor = -1094795651;
+            craftsSlots[0,0].BoxColor = -16777103;
+            craftsSlots[0,0].UseBox = false;
+            craftsSlots[0,0].Proportional = true;
+            craftsSlots[0,0].Selectable = true;
+            craftsSlots[0,0].PreviewModel = 19478;
+            craftsSlots[0,0].PreviewRotation = new SampSharp.GameMode.Vector3(90, 0, 0);
+            craftsSlots[0,0].PreviewZoom = 1;
+
+            craftsSlots[0,1] = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(423.000000, 131.000000), "Preview_Model");
+            craftsSlots[0,1].Font = TextDrawFont.PreviewModel;
+            craftsSlots[0,1].LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            craftsSlots[0,1].Width = 24.0f;
+            craftsSlots[0,1].Height = 26.5f;
+            craftsSlots[0,1].Outline = 0;
+            craftsSlots[0,1].Shadow = 0;
+            craftsSlots[0,1].Alignment = TextDrawAlignment.Left;
+            craftsSlots[0,1].ForeColor = -1;
+            craftsSlots[0,1].BackColor = -1094795651;
+            craftsSlots[0,1].BoxColor = -16777103;
+            craftsSlots[0,1].UseBox = false;
+            craftsSlots[0,1].Proportional = true;
+            craftsSlots[0,1].Selectable = true;
+            craftsSlots[0,1].PreviewModel = 19478;
+            craftsSlots[0,1].PreviewRotation = new SampSharp.GameMode.Vector3(90, 0, 0);
+            craftsSlots[0,1].PreviewZoom = 1;
+
+            craftsSlots[0,2] = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(453.000000, 131.000000), "Preview_Model");
+            craftsSlots[0,2].Font = TextDrawFont.PreviewModel;
+            craftsSlots[0, 2].LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            craftsSlots[0, 2].Width = 24.0f;
+            craftsSlots[0, 2].Height = 26.5f;
+            craftsSlots[0, 2].Outline = 0;
+            craftsSlots[0, 2].Shadow = 0;
+            craftsSlots[0, 2].Alignment = TextDrawAlignment.Left;
+            craftsSlots[0, 2].ForeColor = -1;
+            craftsSlots[0, 2].BackColor = -1094795651;
+            craftsSlots[0, 2].BoxColor = -16777103;
+            craftsSlots[0, 2].UseBox = false;
+            craftsSlots[0, 2].Proportional = true;
+            craftsSlots[0, 2].Selectable = true;
+            craftsSlots[0, 2].PreviewModel = 19478;
+            craftsSlots[0, 2].PreviewRotation = new SampSharp.GameMode.Vector3(90, 0, 0);
+            craftsSlots[0, 2].PreviewZoom = 1;
+
+            craftsSlots[1, 0] = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(393.000000, 163.000000), "Preview_Model");
+            craftsSlots[1, 0].Font = TextDrawFont.PreviewModel;
+            craftsSlots[1, 0].LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            craftsSlots[1, 0].Width = 24.0f;
+            craftsSlots[1, 0].Height = 26.5f;
+            craftsSlots[1, 0].Outline = 0;
+            craftsSlots[1, 0].Shadow = 0;
+            craftsSlots[1, 0].Alignment = TextDrawAlignment.Left;
+            craftsSlots[1, 0].ForeColor = -1;
+            craftsSlots[1, 0].BackColor = -1094795651;
+            craftsSlots[1, 0].BoxColor = -16777103;
+            craftsSlots[1, 0].UseBox = false;
+            craftsSlots[1, 0].Proportional = true;
+            craftsSlots[1, 0].Selectable = true;
+            craftsSlots[1, 0].PreviewModel = 19478;
+            craftsSlots[1, 0].PreviewRotation = new SampSharp.GameMode.Vector3(90, 0, 0);
+            craftsSlots[1, 0].PreviewZoom = 1;
+
+            craftsSlots[1,1] = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(423.000000, 163.000000), "Preview_Model");
+            craftsSlots[1,1].Font = TextDrawFont.PreviewModel;
+            craftsSlots[1,1].LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            craftsSlots[1,1].Width = 24.0f;
+            craftsSlots[1,1].Height = 26.5f;
+            craftsSlots[1,1].Outline = 0;
+            craftsSlots[1,1].Shadow = 0;
+            craftsSlots[1,1].Alignment = TextDrawAlignment.Left;
+            craftsSlots[1,1].ForeColor = -1;
+            craftsSlots[1,1].BackColor = -1094795651;
+            craftsSlots[1,1].BoxColor = -16777103;
+            craftsSlots[1,1].UseBox = false;
+            craftsSlots[1,1].Proportional = true;
+            craftsSlots[1,1].Selectable = true;
+            craftsSlots[1,1].PreviewModel = 19478;
+            craftsSlots[1,1].PreviewRotation = new SampSharp.GameMode.Vector3(90, 0, 0);
+            craftsSlots[1,1].PreviewZoom = 1;
+
+            craftsSlots[1,2] = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(453.000000, 163.000000), "Preview_Model");
+            craftsSlots[1,2].Font = TextDrawFont.PreviewModel;
+            craftsSlots[1,2].LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            craftsSlots[1,2].Width = 24.0f;
+            craftsSlots[1,2].Height = 26.5f;
+            craftsSlots[1,2].Outline = 0;
+            craftsSlots[1,2].Shadow = 0;
+            craftsSlots[1,2].Alignment = TextDrawAlignment.Left;
+            craftsSlots[1,2].ForeColor = -1;
+            craftsSlots[1,2].BackColor = -1094795651;
+            craftsSlots[1,2].BoxColor = -16777103;
+            craftsSlots[1,2].UseBox = false;
+            craftsSlots[1,2].Proportional = true;
+            craftsSlots[1,2].Selectable = true;
+            craftsSlots[1,2].PreviewModel = 19478;
+            craftsSlots[1,2].PreviewRotation = new SampSharp.GameMode.Vector3(90, 0, 0);
+            craftsSlots[1,2].PreviewZoom = 1;
+
+            craftsSlots[2,0] = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(393.000000, 195.000000), "Preview_Model");
+            craftsSlots[2,0].Font = TextDrawFont.PreviewModel;
+            craftsSlots[2,0].LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            craftsSlots[2,0].Width = 24.0f;
+            craftsSlots[2,0].Height = 26.5f;
+            craftsSlots[2,0].Outline = 0;
+            craftsSlots[2,0].Shadow = 0;
+            craftsSlots[2,0].Alignment = TextDrawAlignment.Left;
+            craftsSlots[2,0].ForeColor = -1;
+            craftsSlots[2,0].BackColor = -1094795651;
+            craftsSlots[2,0].BoxColor = -16777103;
+            craftsSlots[2,0].UseBox = false;
+            craftsSlots[2,0].Proportional = true;
+            craftsSlots[2,0].Selectable = true;
+            craftsSlots[2,0].PreviewModel = 19478;
+            craftsSlots[2,0].PreviewRotation = new SampSharp.GameMode.Vector3(90, 0, 0);
+            craftsSlots[2,0].PreviewZoom = 1;
+
+            craftsSlots[2,1] = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(423.000000, 195.000000), "Preview_Model");
+            craftsSlots[2,1].Font = TextDrawFont.PreviewModel;
+            craftsSlots[2,1].LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            craftsSlots[2,1].Width = 24.0f;
+            craftsSlots[2,1].Height = 26.5f;
+            craftsSlots[2,1].Outline = 0;
+            craftsSlots[2,1].Shadow = 0;
+            craftsSlots[2,1].Alignment = TextDrawAlignment.Left;
+            craftsSlots[2,1].ForeColor = -1;
+            craftsSlots[2,1].BackColor = -1094795651;
+            craftsSlots[2,1].BoxColor = -16777103;
+            craftsSlots[2,1].UseBox = false;
+            craftsSlots[2,1].Proportional = true;
+            craftsSlots[2,1].Selectable = true;
+            craftsSlots[2,1].PreviewModel = 19478;
+            craftsSlots[2,1].PreviewRotation = new SampSharp.GameMode.Vector3(90, 0, 0);
+            craftsSlots[2,1].PreviewZoom = 1;
+
+            craftsSlots[2,2] = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(453.000000, 195.000000), "Preview_Model");
+            craftsSlots[2,2].Font = TextDrawFont.PreviewModel;
+            craftsSlots[2,2].LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            craftsSlots[2,2].Width = 24.0f;
+            craftsSlots[2,2].Height = 26.5f;
+            craftsSlots[2,2].Outline = 0;
+            craftsSlots[2,2].Shadow = 0;
+            craftsSlots[2,2].Alignment = TextDrawAlignment.Left;
+            craftsSlots[2,2].ForeColor = -1;
+            craftsSlots[2,2].BackColor = -1094795651;
+            craftsSlots[2,2].BoxColor = -16777103;
+            craftsSlots[2,2].UseBox = false;
+            craftsSlots[2,2].Proportional = true;
+            craftsSlots[2,2].Selectable = true;
+            craftsSlots[2,2].PreviewModel = 19478;
+            craftsSlots[2,2].PreviewRotation = new SampSharp.GameMode.Vector3(90, 0, 0);
+            craftsSlots[2,2].PreviewZoom = 1;
+
+            p.ClickPlayerTextDraw += OnClickForwardTd;
+            p.ClickPlayerTextDraw += OnClickCraftButtons;
+
+            /**
+craftslotmain[playerid] = CreatePlayerTextDraw(playerid, 523.000000, 154.000000, "Preview_Model");
+PlayerTextDrawFont(playerid, craftslotmain[playerid], 5);
+PlayerTextDrawLetterSize(playerid, craftslotmain[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, craftslotmain[playerid], 39.000000, 41.500000);
+PlayerTextDrawSetOutline(playerid, craftslotmain[playerid], 0);
+PlayerTextDrawSetShadow(playerid, craftslotmain[playerid], 0);
+PlayerTextDrawAlignment(playerid, craftslotmain[playerid], 1);
+PlayerTextDrawColor(playerid, craftslotmain[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, craftslotmain[playerid], 1097458045);
+PlayerTextDrawBoxColor(playerid, craftslotmain[playerid], 1097458033);
+PlayerTextDrawUseBox(playerid, craftslotmain[playerid], 0);
+PlayerTextDrawSetProportional(playerid, craftslotmain[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, craftslotmain[playerid], 1);
+PlayerTextDrawSetPreviewModel(playerid, craftslotmain[playerid], 11716);
+PlayerTextDrawSetPreviewRot(playerid, craftslotmain[playerid], 54.000000, 0.000000, 57.000000, 1.000000);
+PlayerTextDrawSetPreviewVehCol(playerid, craftslotmain[playerid], 1, 1);
+**/
+            craftingItemSlot = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(523.000000, 154.000000), "Preview_Model");
+            craftingItemSlot.Font = TextDrawFont.PreviewModel;
+            craftingItemSlot.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            craftingItemSlot.Width = 39.0f;
+            craftingItemSlot.Height = 41.5f;
+            craftingItemSlot.Outline = 0;
+            craftingItemSlot.Shadow = 0;
+            craftingItemSlot.Alignment = TextDrawAlignment.Left;
+            craftingItemSlot.ForeColor = -1;
+            craftingItemSlot.BackColor = -1094795651;
+            craftingItemSlot.BoxColor = -16777103;
+            craftingItemSlot.UseBox = false;
+            craftingItemSlot.Proportional = true;
+            craftingItemSlot.Selectable = true;
+            craftingItemSlot.PreviewModel = 19478;
+            craftingItemSlot.PreviewRotation = new SampSharp.GameMode.Vector3(90, 0, 0);
+            craftingItemSlot.PreviewZoom = 1;
+
+            /**
+CRAFTSIGN[playerid] = CreatePlayerTextDraw(playerid, 476.000000, 109.000000, "CRAFT");
+PlayerTextDrawFont(playerid, CRAFTSIGN[playerid], 1);
+PlayerTextDrawLetterSize(playerid, CRAFTSIGN[playerid], 0.366665, 1.399997);
+PlayerTextDrawTextSize(playerid, CRAFTSIGN[playerid], 400.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, CRAFTSIGN[playerid], 0);
+PlayerTextDrawSetShadow(playerid, CRAFTSIGN[playerid], 0);
+PlayerTextDrawAlignment(playerid, CRAFTSIGN[playerid], 2);
+PlayerTextDrawColor(playerid, CRAFTSIGN[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, CRAFTSIGN[playerid], 255);
+PlayerTextDrawBoxColor(playerid, CRAFTSIGN[playerid], 50);
+PlayerTextDrawUseBox(playerid, CRAFTSIGN[playerid], 0);
+PlayerTextDrawSetProportional(playerid, CRAFTSIGN[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, CRAFTSIGN[playerid], 0);
+**/
+            craftSign = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(435.000000, 109.000000), "CRAFT");
+
+            //19478
+            craftSign.Font = TextDrawFont.Slim;
+            craftSign.LetterSize = new SampSharp.GameMode.Vector2(0.366665, 1.399996);
+            craftSign.Outline = 1;
+            craftSign.Width = 400f;
+            craftSign.Height = 17f;
+            craftSign.Shadow = 0;
+            craftSign.Alignment = TextDrawAlignment.Center;
+            craftSign.ForeColor = -1;
+            craftSign.BackColor = 255;
+            craftSign.BoxColor = 50;
+            craftSign.UseBox = false;
+            craftSign.Proportional = true;
+            craftSign.Selectable = false;
+
+            /**
+craftslotmainName[playerid] = CreatePlayerTextDraw(playerid, 544.000000, 197.000000, "lockpick");
+PlayerTextDrawFont(playerid, craftslotmainName[playerid], 1);
+PlayerTextDrawLetterSize(playerid, craftslotmainName[playerid], 0.212500, 0.899999);
+PlayerTextDrawTextSize(playerid, craftslotmainName[playerid], 400.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, craftslotmainName[playerid], 1);
+PlayerTextDrawSetShadow(playerid, craftslotmainName[playerid], 0);
+PlayerTextDrawAlignment(playerid, craftslotmainName[playerid], 2);
+PlayerTextDrawColor(playerid, craftslotmainName[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, craftslotmainName[playerid], 255);
+PlayerTextDrawBoxColor(playerid, craftslotmainName[playerid], 50);
+PlayerTextDrawUseBox(playerid, craftslotmainName[playerid], 0);
+PlayerTextDrawSetProportional(playerid, craftslotmainName[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, craftslotmainName[playerid], 0);
+**/
+            craftingItemName = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(544.000000, 197.000000), "lockpick");
+
+            //19478
+            craftingItemName.Font = TextDrawFont.Normal;
+            craftingItemName.LetterSize = new SampSharp.GameMode.Vector2(0.212500, 0.899999);
+            craftingItemName.Outline = 1;
+            craftingItemName.Width = 400f;
+            craftingItemName.Height = 17f;
+            craftingItemName.Shadow = 0;
+            craftingItemName.Alignment = TextDrawAlignment.Center;
+            craftingItemName.ForeColor = -1;
+            craftingItemName.BackColor = 255;
+            craftingItemName.BoxColor = 50;
+            craftingItemName.UseBox = false;
+            craftingItemName.Proportional = true;
+            craftingItemName.Selectable = false;
+
+            /**
+PublicTD[0] = TextDrawCreate(486.000000, 163.000000, "LD_BEAT:right");
+TextDrawFont(PublicTD[0], 4);
+TextDrawLetterSize(PublicTD[0], 0.600000, 2.000000);
+TextDrawTextSize(PublicTD[0], 33.500000, 27.500000);
+TextDrawSetOutline(PublicTD[0], 1);
+TextDrawSetShadow(PublicTD[0], 0);
+TextDrawAlignment(PublicTD[0], 1);
+TextDrawColor(PublicTD[0], -1);
+TextDrawBackgroundColor(PublicTD[0], 255);
+TextDrawBoxColor(PublicTD[0], 50);
+TextDrawUseBox(PublicTD[0], 1);
+TextDrawSetProportional(PublicTD[0], 1);
+TextDrawSetSelectable(PublicTD[0], 1);
+**/
+            craftButton = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(486.000000, 163.000000), "LD_BEAT:right");
+
+            //19478
+            craftButton.Font = TextDrawFont.DrawSprite;
+            craftButton.LetterSize = new SampSharp.GameMode.Vector2(0.600000, 2.000000);
+            craftButton.Outline = 1;
+            craftButton.Width = 33.5f;
+            craftButton.Height = 27.5f;
+            craftButton.Shadow = 0;
+            craftButton.Alignment = TextDrawAlignment.Left;
+            craftButton.ForeColor = 1433087924;
+            craftButton.BackColor = 255;
+            craftButton.BoxColor = 50;
+            craftButton.UseBox = true;
+            craftButton.Proportional = true;
+            craftButton.Selectable = true;
         }
         public void Show()
         {
@@ -1046,6 +1539,7 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
             {
                 if (weaponSlotsInfo[i] != 0)
                 {
+                    this.p.GetWeaponData(i+1, out _, out weaponslotsAmmoNum[i]);
                     weaponslotsAmmo[i].Text = weaponslotsAmmoNum[i].ToString();
                     weaponslotsAmmo[i].Show();
                 }
@@ -1054,7 +1548,553 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
             {
                 s.Show();
             }
+            pageNum.Show();
+            backPage.Show();
+            forwardPage.Show();
+            isOpen = true;
+        }
 
+        public void ShowCookingSystem()
+        {
+            craftbackPlate.PreviewModel = 19527;
+            craftbackPlate.BackColor = -764862924;
+            craftbackPlate.ForeColor = -1;
+
+            craftSign.Text = "Cooking";
+            isCookingMenu = true;
+            p.SelectTextDraw(SampSharp.GameMode.SAMP.Color.Yellow);
+            Update();
+            inventoryBackPlate.Show();
+
+            closeinv.Show();
+
+
+            foreach (Slot s in slots)
+            {
+                s.Show();
+            }
+            pageNum.Show();
+            backPage.Show();
+            forwardPage.Show();
+            craftbackPlate.Show();
+            for (int i = 0; i < craftsSlots.GetLength(0); i++)
+            {
+                for (int j = 0; j < craftsSlots.GetLength(1); j++)
+                {
+                    craftsSlots[i, j].Show();
+                }
+            }
+            craftSign.Show();
+            craftButton.Show();
+            craftingItemSlot.Show();
+            craftingItemName.Show();
+
+        }
+
+        public void OnClickForwardTd(object sender, ClickPlayerTextDrawEventArgs e)
+        {
+            if (e.PlayerTextDraw == forwardPage)
+            {
+                if (currentPage == 1)
+                {
+                    currentPage++;
+                }
+                else if (currentPage == 2)
+                {
+                    currentPage++;
+                }
+                Update();
+            }
+            if(e.PlayerTextDraw == backPage)
+            {
+                if(currentPage == 2)
+                {
+                    currentPage--;
+                }
+                else if(currentPage == 3)
+                {
+                    currentPage--;
+                }
+                Update();
+            }
+        }
+        public Loot UpdateCraftMenu()
+        {
+            int currentRecipeW = 0;
+            int currentRecipeH = 0;
+            int currentRecipewStartIndex = -1;
+            int currentRecipehStartIndex = -1;
+
+            for (int i = 0; i < craftSlotsInfo.GetLength(0); i++)
+            {
+                for (int j = 0; j < craftSlotsInfo.GetLength(1); j++)
+                {
+                    if (craftSlotsInfo[i, j] != null)
+                    {
+                        craftsSlots[i, j].PreviewModel = craftSlotsInfo[i, j].previewModelId;
+                    }
+                    else craftsSlots[i, j].PreviewModel = 19478;
+                }
+            }
+            for (int i = 0; i < craftSlotsInfo.GetLength(0); i++)
+            {
+                for (int j = 0; j < craftSlotsInfo.GetLength(1); j++)
+                {
+
+                    if (craftSlotsInfo[i, j] != null)
+                    {
+                        if (currentRecipehStartIndex == -1)
+                        {
+                            currentRecipehStartIndex = i;
+                        }
+                        currentRecipeH++;
+                        break;
+                    }
+                }
+            }
+
+            for (int i = 0; i < craftSlotsInfo.GetLength(1); i++)
+            {
+
+                for (int j = 0; j < craftSlotsInfo.GetLength(0); j++)
+                {
+                    if (craftSlotsInfo[j, i] != null)
+                    {
+                        if (currentRecipewStartIndex == -1)
+                        {
+                            currentRecipewStartIndex = i;
+                        }
+                        currentRecipeW++;
+                        break;
+                    }
+                }
+            }
+            var craftOrder = new Loot[currentRecipeH * currentRecipeW];
+
+            for (int orderId = 0, i = currentRecipehStartIndex; i < currentRecipehStartIndex + currentRecipeH; i++)
+            {
+                for (int k = currentRecipewStartIndex; k < currentRecipewStartIndex + currentRecipeW; k++)
+                { 
+                    craftOrder[orderId++] = craftSlotsInfo[i, k];
+                }
+            }
+            if (isCraftMenu)
+            {
+                foreach (var item in CraftRecipe.recipeList)
+                {
+                    if (item.itemsOrder.SequenceEqual(craftOrder))
+                    {
+                        craftingItemName.Text = item.EngName;
+                        craftingItemSlot.PreviewModel = item.FinalLootItem.previewModelId;
+                        if (item.recipeType == RecipeType.Easy)
+                        {
+                            craftingItemSlot.BackColor = 0x85B7C2A1;
+                        }
+                        if (item.recipeType == RecipeType.Medium)
+                        {
+                            craftingItemSlot.BackColor = 0x5B66EDA1;
+                        }
+                        if (item.recipeType == RecipeType.Hard)
+                        {
+                            craftingItemSlot.BackColor = 0x9D3FFFA1;
+                        }
+                        if (item.recipeType == RecipeType.Extra)
+                        {
+                            craftingItemSlot.BackColor = 0xDD4444A1;
+                        }
+                        if (item.recipeType == RecipeType.Legendary)
+                        {
+                            craftingItemSlot.BackColor = 0xFFC107A1;
+                        }
+                        craftingItemSlot.PreviewRotation = item.FinalLootItem.rotation;
+                        
+                        return item.FinalLootItem;
+                        
+                    }
+                    else
+                    {
+                        craftingItemSlot.PreviewModel = 19478;
+                        craftingItemSlot.BackColor = 0x85B7C2A1;
+                        craftingItemName.Text = "";
+                    }
+                }
+            }
+            if (isCookingMenu)
+            {
+                foreach (var item in CookingRecipe.recipeList)
+                {
+                    if (item.itemsOrder.SequenceEqual(craftOrder))
+                    {
+                        craftingItemName.Text = item.EngName;
+                        craftingItemSlot.PreviewModel = item.FinalLootItem.previewModelId;
+                        if (item.recipeType == RecipeType.Easy)
+                        {
+                            craftingItemSlot.BackColor = 0x85B7C2A1;
+                        }
+                        if (item.recipeType == RecipeType.Medium)
+                        {
+                            craftingItemSlot.BackColor = 0x5B66EDA1;
+                        }
+                        if (item.recipeType == RecipeType.Hard)
+                        {
+                            craftingItemSlot.BackColor = 0x9D3FFFA1;
+                        }
+                        if (item.recipeType == RecipeType.Extra)
+                        {
+                            craftingItemSlot.BackColor = 0xDD4444A1;
+                        }
+                        if (item.recipeType == RecipeType.Legendary)
+                        {
+                            craftingItemSlot.BackColor = 0xFFC107A1;
+                        }
+                        craftingItemSlot.PreviewRotation = item.FinalLootItem.rotation;
+                        
+                        return item.FinalLootItem;
+                        
+                    }
+                    else
+                    {
+                        craftingItemSlot.PreviewModel = 19478;
+                        craftingItemSlot.BackColor = 0x85B7C2A1;
+                        craftingItemName.Text = "";
+                    }
+                }
+                
+            }
+            /**
+            for (int i = 0; i < craftSlotsInfo.Length; i++)
+            {
+
+                if (craftSlotsInfo[i] != 0)
+                {
+                    craftsSlots[i].PreviewModel = Loot.loots.FirstOrDefault(l => l.Id == craftSlotsInfo[i]).previewModelId;
+                }
+                else craftsSlots[i].PreviewModel = 19478;
+            }
+            **/
+            /**
+            if (isCraftMenu)
+            {
+                foreach (var recipe in CraftRecipe.recipeList)
+                {
+                    if (recipe.recipeGrid.SequenceEqual(craftSlotsInfo))
+                    {
+                        craftingItemName.Text = recipe.EngName;
+                        craftingItemSlot.PreviewModel = recipe.FinalLootItem.previewModelId;
+                        if (recipe.recipeType == RecipeType.Easy)
+                        {
+                            craftingItemSlot.BackColor = 0x85B7C2A1;
+                        }
+                        if (recipe.recipeType == RecipeType.Medium)
+                        {
+                            craftingItemSlot.BackColor = 0x5B66EDA1;
+                        }
+                        if (recipe.recipeType == RecipeType.Hard)
+                        {
+                            craftingItemSlot.BackColor = 0x9D3FFFA1;
+                        }
+                        if (recipe.recipeType == RecipeType.Extra)
+                        {
+                            craftingItemSlot.BackColor = 0xDD4444A1;
+                        }
+                        if (recipe.recipeType == RecipeType.Legendary)
+                        {
+                            craftingItemSlot.BackColor = 0xFFC107A1;
+                        }
+                        craftingItemSlot.PreviewRotation = recipe.FinalLootItem.rotation;
+                        break;
+                    }
+                    else
+                    {
+                        craftingItemSlot.PreviewModel = 19478;
+                        craftingItemSlot.BackColor = 0x85B7C2A1;
+                        craftingItemName.Text = "";
+                    }
+                }
+            }
+            if (isCookingMenu)
+            {
+                foreach (var recipe in CookingRecipe.recipeList)
+                {
+                    if (recipe.recipeGrid.SequenceEqual(craftSlotsInfo))
+                    {
+                        craftingItemName.Text = recipe.EngName;
+                        craftingItemSlot.PreviewModel = recipe.FinalLootItem.previewModelId;
+                        if (recipe.recipeType == RecipeType.Easy)
+                        {
+                            craftingItemSlot.BackColor = 0x85B7C2A1;
+                        }
+                        if (recipe.recipeType == RecipeType.Medium)
+                        {
+                            craftingItemSlot.BackColor = 0x5B66EDA1;
+                        }
+                        if (recipe.recipeType == RecipeType.Hard)
+                        {
+                            craftingItemSlot.BackColor = 0x9D3FFFA1;
+                        }
+                        if (recipe.recipeType == RecipeType.Extra)
+                        {
+                            craftingItemSlot.BackColor = 0xDD4444A1;
+                        }
+                        if (recipe.recipeType == RecipeType.Legendary)
+                        {
+                            craftingItemSlot.BackColor = 0xFFC107A1;
+                        }
+                        craftingItemSlot.PreviewRotation = recipe.FinalLootItem.rotation;
+                        break;
+                    }
+                    else
+                    {
+                        craftingItemSlot.PreviewModel = 19478;
+                        craftingItemSlot.BackColor = 0x85B7C2A1;
+                        craftingItemName.Text = "";
+                    }
+                }
+            }
+            **/
+            return null;
+        }
+
+        public void OnClickCraftButtons(object sender, ClickPlayerTextDrawEventArgs e)
+        {
+            //var dish = 0;
+            for (int i = 0; i < craftSlotsInfo.GetLength(0); i++) {
+                for (int j = 0; j < craftSlotsInfo.GetLength(1); j++)
+                {
+
+                    if (e.PlayerTextDraw == craftsSlots[i, j])
+                    {
+                        if (craftSlotsInfo[i, j] == null && selectedSlot >= 0 && slots[selectedSlot].Item.loot != null)
+                        {
+                            // dish = craftSlotsInfo[i];
+                            craftSlotsInfo[i, j] = slots[selectedSlot].Item.loot;
+                            craftsSlots[i, j].PreviewRotation = Loot.loots.Find(x => x == slots[selectedSlot].Item.loot).rotation;
+                            DeleteItem(selectedSlot);
+                            //slots[selectedSlot].ItemId = dish;
+                            UpdateCraftMenu();
+                            Update();
+                            break;
+                        }
+                        else if (craftSlotsInfo[i, j] != null && selectedSlot >= 0)
+                        {
+                            for (int k = 0; k < slotsItem.Length; k++)
+                            {
+                                if (slotsItem[k].loot == null)
+                                {
+                                    slotsItem[k].loot = Loot.loots.FirstOrDefault(l => l == craftSlotsInfo[i, j]);
+                                    craftSlotsInfo[i, j] = null;
+                                    UpdateCraftMenu();
+                                    Update();
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+            if(e.PlayerTextDraw == craftingItemSlot)
+            {
+                if(UpdateCraftMenu != null)
+                {
+                    UpdateCraftMenu().Info(p);
+                }
+                /**
+                if (isCraftMenu)
+                {
+                    foreach (var recipe in CraftRecipe.recipeList)
+                    {
+                        if (recipe.recipeGrid.SequenceEqual(craftSlotsInfo))
+                        {
+                            recipe.FinalLootItem.Info(p); 
+                            break;
+                        }
+
+                    }
+                }
+                if (isCookingMenu)
+                {
+                    foreach (var recipe in CookingRecipe.recipeList)
+                    {
+                        if (recipe.recipeGrid.SequenceEqual(craftSlotsInfo))
+                        {
+                            recipe.FinalLootItem.Info(p);
+                            break;
+                        }
+
+                    }
+                }
+                **/
+
+            }
+            if (e.PlayerTextDraw == craftButton)
+            {
+                var item = UpdateCraftMenu();
+                if (isCraftMenu)
+                {
+                    if (item != null)
+                    {
+                        for (int i = 0; i < slotsItem.Length; i++)
+                        {
+                            if (slotsItem[i].loot == null)
+                            {
+                                slotsItem[i].loot = item;
+
+                                for (int j = 0; j < craftSlotsInfo.GetLength(0); j++)
+                                {
+                                    for (int k = 0; k < craftSlotsInfo.GetLength(1); k++)
+                                    {
+                                        craftSlotsInfo[j, k] = null;
+                                    }
+                                }
+
+                                p.SendClientMessage($"{{285C26}}Вы успешно скрафтили {{FFC107}}{item.Name}");
+                                Update();
+                                UpdateCraftMenu();
+                                break;
+                            }
+                        }
+
+
+                    }
+                }
+                if (isCookingMenu)
+                {
+                    if (item != null)
+                    {
+                        for (int i = 0; i < slotsItem.Length; i++)
+                        {
+                            if (slotsItem[i].loot == null)
+                            {
+                                slotsItem[i].loot = item;
+
+                                for (int j = 0; j < craftSlotsInfo.GetLength(0); j++)
+                                {
+                                    for (int k = 0; k < craftSlotsInfo.GetLength(1); k++)
+                                    {
+                                        craftSlotsInfo[j, k] = null;
+                                    }
+                                }
+
+                                p.SendClientMessage($"{{285C26}}Вы успешно приготовили {{FFC107}}{item.Name}");
+                                Update();
+                                UpdateCraftMenu();
+                                break;
+                            }
+                        }
+
+
+                    }
+                }
+                    /**
+                     *
+                    foreach (var recipe in CraftRecipe.recipeList)
+                    {
+                        if (recipe.recipeGrid.SequenceEqual(craftSlotsInfo))
+                        {
+                            for (int i = 0; i < slotsItem.Length; i++)
+                            {
+                                if (slotsItem[i].loot == null)
+                                {
+                                    slotsItem[i].loot = recipe.FinalLootItem;
+
+                                    for (int j = 0; j < craftSlotsInfo.Length; j++)
+                                    {
+                                        craftSlotsInfo[j] = 0;
+                                    }
+                                    p.SendClientMessage($"{{285C26}}Вы успешно скрафтили {{FFC107}}{recipe.FinalLootItem.Name}");
+                                    Update();
+                                    UpdateCraftMenu();
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+
+                    }
+                    **/
+
+                    if (isCookingMenu)
+                {
+                    /**
+                    foreach (var recipe in CookingRecipe.recipeList)
+                    {
+                        if (recipe.recipeGrid.SequenceEqual(craftSlotsInfo))
+                        {
+                            for (int i = 0; i < slotsItem.Length; i++)
+                            {
+                                if (slotsItem[i].loot == null)
+                                {
+                                    slotsItem[i].loot = recipe.FinalLootItem;
+
+                                    for (int j = 0; j < craftSlotsInfo.Length; j++)
+                                    {
+                                        craftSlotsInfo[j] = 0;
+                                    }
+                                    p.SendClientMessage($"{{285C26}}Вы успешно приготовили {{FFC107}}{recipe.FinalLootItem.Name}");
+                                    Update();
+                                    UpdateCraftMenu();
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+
+                    }
+                    **/
+                }
+            }
+        }
+        public void ShowCraftMenu()
+        {
+            if (!p.parameters.nearCampFire)
+            {
+                craftbackPlate.ForeColor = -764862721;
+                craftbackPlate.BackColor = 1097458045;
+                craftbackPlate.PreviewModel = 3096;
+
+                craftSign.Text = "Craft";
+
+                p.SelectTextDraw(SampSharp.GameMode.SAMP.Color.Yellow);
+                Update();
+                inventoryBackPlate.Show();
+
+                closeinv.Show();
+                isCraftMenu = true;
+
+                foreach (Slot s in slots)
+                {
+                    s.Show();
+                }
+                pageNum.Show();
+                backPage.Show();
+                forwardPage.Show();
+                craftbackPlate.Show();
+                for (int i = 0; i < craftsSlots.GetLength(0); i++)
+                {
+                    for (int j = 0; j < craftsSlots.GetLength(1); j++)
+                    {
+                        craftsSlots[i,j].Show();
+                    }
+                }
+                craftSign.Show();
+                craftButton.Show();
+                craftingItemSlot.Show();
+                craftingItemName.Show();
+            }
+        }
+
+        public bool AddItem(int id)
+        {
+            for (int i = 0; i < slotsItem.Length; i++)
+            {
+                if (slotsItem[i].loot == null)
+                {
+                    slotsItem[i].loot = Loot.loots.FirstOrDefault(l => l.Id == id);
+                    return true;
+                }
+            }
+            return false;
         }
         public void Close()
         {
@@ -1095,17 +2135,59 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
             sellButton.Hide();
             infoButton.Hide();
             closeinv.Hide();
+            pageNum.Hide();
+            forwardPage.Hide();
+            backPage.Hide();
 
+            craftbackPlate.Hide();
+            
+                craftingItemSlot.PreviewModel = 19478;
+                craftingItemSlot.BackColor = Color.LightYellow;
+                for (int i = 0; i < craftSlotsInfo.GetLength(0); i++)
+                {
+                for (int j = 0; j < craftSlotsInfo.GetLength(1); j++)
+                {
+                    craftsSlots[i,j].Hide();
+                    craftsSlots[i,j].PreviewModel = 19478;
+                    if (craftSlotsInfo[i, j] != null)
+                    {
+                        for (int k = 0; k < slotsItem.Length; k++)
+                        {
+                            if (slotsItem[k].loot == null)
+                            {
+                                slotsItem[k].loot = Loot.loots.FirstOrDefault(l => l == craftSlotsInfo[i, j]);
+
+                                break;
+
+                            }
+                        }
+                    }
+
+                    craftSlotsInfo[i , j] = null;
+                }
+                    
+                }
+                isCraftMenu = false;
+            isCookingMenu = false;
+            
+            craftSign.Hide();
+            craftButton.Hide();
+            craftingItemSlot.Hide();
+            craftingItemName.Hide();
+            
             foreach (Slot s in slots)
             {
                 s.Hide();
             }
+            isOpen = false;
+            isCraftMenu = false;
+            Update();
         }
         public void Clear()
         {
             foreach (var s in slots)
             {
-                s.ItemId = 0;
+                s.Item = null;
                 s.Td.PreviewModel = 19478;
 
             }
@@ -1118,6 +2200,10 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
             foreach (var wsa in weaponslotsAmmo)
             {
                 wsa.Text = "0";
+            }
+            for(int i = 0; i < weaponslotsAmmoNum.Length; i++)
+            {
+                weaponslotsAmmoNum[i] = 0;
             }
             ArmorSlot = 0;
             armourButton.PreviewModel = 19478;
@@ -1134,6 +2220,7 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
             {
                 if (e.PlayerTextDraw == slots[i].Td)
                 {
+
                     selectedSlot = i;
 
                 }
@@ -1151,7 +2238,43 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
         }
         public void Update()
         {
-
+            int numerator = 0;
+            pageNum.Text = currentPage.ToString();
+            
+            if(currentPage == 1)
+            {
+                numerator = 0;
+            }
+            else if(currentPage == 2)
+            {
+                numerator = 28;
+            }
+            else if(currentPage == 3)
+            {
+                numerator = 56;
+            }
+            for (int i = 0; i < slots.Length; i++)
+            {
+                
+                if (slotsItem[i + numerator].loot != null)
+                {
+                    var slotsitem = slotsItem[i + numerator];
+                    slots[i].Item = slotsitem;
+                    slots[i].Td.PreviewModel = slotsitem.loot.previewModelId;
+                    slots[i].Td.PreviewRotation = slotsitem.loot.rotation;
+                    
+                }
+                else
+                {
+                    slots[i].Item = new InventoryLoot();
+                    slots[i].Item.condition = 0;
+                    slots[i].Td.PreviewModel = 19478;
+                    
+                }
+                
+            }
+                
+            
         }
         public void Use(ClickPlayerTextDrawEventArgs e)
         {
@@ -1161,12 +2284,14 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
 
                 if (selectedSlot > -1)
                 {
-                    Loot.Use(slots[selectedSlot].ItemId, selectedSlot, p);
-                    slots[selectedSlot].Unselect();
-                    selectedSlot = -1;
-                    p.CancelSelectTextDraw();
-                    Close();
-
+                    if (slots[selectedSlot].Item.loot != null)
+                    {
+                        Loot.Use(slots[selectedSlot].Item.loot.Id, selectedSlot, p);
+                        slots[selectedSlot].Unselect();
+                        selectedSlot = -1;
+                        p.CancelSelectTextDraw();
+                        Close();
+                    }
                     return;
                 }
             }
@@ -1176,9 +2301,10 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
         {
             if (e.PlayerTextDraw == infoButton)
             {
-                if (selectedSlot > -1 && slots[selectedSlot].ItemId != 0)
+                if (selectedSlot > -1 && slots[selectedSlot].Item.loot != null)
                 {
-                    Loot.Info(slots[selectedSlot].ItemId, p);
+                    //  Loot.Info(slots[selectedSlot], p);
+                    slots[selectedSlot].Item.loot.Info(p, slots[selectedSlot].Item.condition);
                     return;
                 }
             }
@@ -1187,9 +2313,9 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
         {
             if (e.PlayerTextDraw == dropButton)
             {
-                if (selectedSlot > -1 && slots[selectedSlot].ItemId != 0)
+                if (selectedSlot > -1 && slots[selectedSlot].Item.loot != null)
                 {
-                    Loot.Drop(slots[selectedSlot].ItemId, selectedSlot, p);
+                    slots[selectedSlot].Item.loot.Drop(slots[selectedSlot].Item.loot, slots[selectedSlot].Item.condition, selectedSlot, p);
                     slots[selectedSlot].Unselect();
                     selectedSlot = -1;
                     Close();
@@ -1203,12 +2329,13 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
                 if (helmetSlot != 0)
                 {
                     p.ApplyAnimation("GOGGLES", "GOGGLES_PUT_ON", 4.1f, false, true, true, false, 0, true);
-                    foreach (var slot in slots)
+                    for (int i = 0; i < slotsItem.Length; i++)
                     {
-                        if (slot.ItemId == 0)
+                        if (slotsItem[i].loot == null)
                         {
-                            slot.ItemId = helmetSlot;
-                            slot.Td.PreviewModel = Loot.loots.Find(l => l.Id == helmetSlot).previewModelId;
+                            Update();
+                            slotsItem[i].loot = Loot.loots.FirstOrDefault(l => l.Id == helmetSlot);
+                            // slot.Td.PreviewModel = Loot.loots.Find(l => l.Id == helmetSlot).previewModelId;
                             currentWeight += Loot.loots.Find(l => l.Id == helmetSlot).weight;
                             helmetSlot = 0;
                             helmetbutton.PreviewModel = 19478;
@@ -1237,12 +2364,13 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
                     else
                     {
                         p.SendClientMessage("{708090}Вы сняли лёгкий бронежилет.");
-                        foreach (var slot in slots)
+                        for(int i = 0; i < slotsItem.Length; i++)
                         {
-                            if (slot.ItemId == 0)
+                            if (slotsItem[i].loot == null)
                             {
-                                slot.ItemId = ArmorSlot;
-                                slot.Td.PreviewModel = Loot.loots.Find(l => l.Id == ArmorSlot).previewModelId;
+                                Update();
+                                slotsItem[i].loot = Loot.loots.FirstOrDefault(l => l.Id == ArmorSlot);
+
                                 currentWeight += Loot.loots.Find(l => l.Id == ArmorSlot).weight;
                                 ArmorSlot = 0;
                                 armourButton.PreviewModel = 19478;
@@ -1266,12 +2394,13 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
                     else
                     {
                         p.SendClientMessage("{708090}Вы сняли бронежилет.");
-                        foreach (var slot in slots)
+                        for(int i = 0; i < slotsItem.Length; i++)
                         {
-                            if (slot.ItemId == 0)
+                            if (slotsItem[i].loot == null)
                             {
-                                slot.ItemId = ArmorSlot;
-                                slot.Td.PreviewModel = Loot.loots.Find(l => l.Id == ArmorSlot).previewModelId;
+                                Update();
+                                slotsItem[i].loot = Loot.loots.FirstOrDefault(l => l.Id == ArmorSlot);
+                                //slot.Td.PreviewModel = Loot.loots.Find(l => l.Id == ArmorSlot).previewModelId;
                                 currentWeight += Loot.loots.Find(l => l.Id == ArmorSlot).weight;
                                 ArmorSlot = 0;
                                 armourButton.PreviewModel = 19478;
@@ -1291,12 +2420,13 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
             {
                 if(backpackSlot != 0)
                 {
-                    foreach (var slot in slots)
+                    for (int i = 0; i < slotsItem.Length; i++)
                     {
-                        if (slot.ItemId == 0)
+                        if (slotsItem[i].loot == null)
                         {
-                            slot.ItemId = backpackSlot;
-                            slot.Td.PreviewModel = Loot.loots.Find(l => l.Id == backpackSlot).previewModelId;
+                            Update();
+                            slotsItem[i].loot = Loot.loots.FirstOrDefault(l => l.Id == backpackSlot);
+                          //  slot.Td.PreviewModel = Loot.loots.Find(l => l.Id == backpackSlot).previewModelId;
                             currentWeight += Loot.loots.Find(l => l.Id == backpackSlot).weight;
                             backpackSlot = 0;
                             backpackButton.PreviewModel = 19478;
@@ -1311,11 +2441,11 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
         }
         public void DropAllLoot()
         {
-            foreach(var sl in slots)
+            foreach(var sl in slotsItem)
             {
-                if(sl.ItemId != 0)
+                if(sl.loot != null)
                 {
-                    PlayerLootObject.Create(Loot.loots.Find(l => l.Id == sl.ItemId),p.Position,p.VirtualWorld);
+                    PlayerLootObject.Create(Loot.loots.Find(l => l == sl.loot),sl.condition,p.Position,p.VirtualWorld);
                     
                 }
             }
@@ -1323,18 +2453,31 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
             {
                 if(ws != 0)
                 {
-                    PlayerLootObject.Create(Loot.loots.Find(l => l.Id == ws), p.Position, p.VirtualWorld);
+                    PlayerLootObject.Create(Loot.loots.Find(l => l.Id == ws),100, p.Position, p.VirtualWorld);
                     
                 }
             }
             if(backpackSlot != 0)
             {
-                PlayerLootObject.Create(Loot.loots.Find(l => l.Id == backpackSlot), p.Position, p.VirtualWorld);
+                PlayerLootObject.Create(Loot.loots.Find(l => l.Id == backpackSlot),100, p.Position, p.VirtualWorld);
             }
         }
         public void DeleteItem(int slotId)
         {
-            slots[slotId].ItemId = 0;
+            if (currentPage == 1)
+            {
+                slotsItem[slotId].loot = null;
+            }
+            else if (currentPage == 2)
+            {
+                slotsItem[slotId + 28].loot = null;
+            }
+            else if (currentPage == 3)
+            {
+                slotsItem[slotId + 56].loot = null;
+            }
+            slots[slotId].Item.loot = null;
+            slots[slotId].Item.condition = 0;
             slots[slotId].Td.PreviewModel = 19478;
         }
         
@@ -1347,12 +2490,38 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
             }
             return;
         }
+        public bool HaveItem(int id)
+        {
+            for (int i = 0; i < slotsItem.Length; i++) {
+                if (slotsItem[i].loot?.Id == id) return true;
+            }
+            return false;
+        }
         
 
     }
+
+    public class InventoryLoot
+    {
+        public Loot loot;
+
+        public int condition = 100;
+        
+        public InventoryLoot()
+        {
+            
+        }
+        public InventoryLoot(Loot l, int condition)
+        {
+            loot = l;
+            this.condition = condition;
+        }
+
+    }
+
     public class Slot {
         public PlayerTextDraw Td;
-        public int ItemId = 0;
+        public InventoryLoot Item;
         public bool IsPressed = false;
 
         
@@ -1375,6 +2544,8 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
             Td.PreviewModel = 19478;
             Td.PreviewRotation = new SampSharp.GameMode.Vector3(3.0, 0.0, -131.0);
             Td.PreviewZoom = 1;
+            Item = new InventoryLoot();
+
         }
         
         public void Create(Player p,float posx, float posy)
@@ -1383,6 +2554,8 @@ PlayerTextDrawSetPreviewVehCol(playerid, batterypng[playerid], 1, 1);
         }
         public void Show()
         {
+            
+           
             Td.Show();
         }
         

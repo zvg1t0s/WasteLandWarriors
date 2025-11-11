@@ -1,24 +1,39 @@
 ﻿using SampSharp.GameMode.Definitions;
 using SampSharp.GameMode.Display;
+using SampSharp.GameMode.Events;
+using SampSharp.GameMode.SAMP;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WasteLandWarriors.Others.Dialogs;
 
 namespace WasteLandWarriors.Display
 {
-    internal class PlayerInterface
+    public class PlayerInterface
     {
         private Player p;
         PlayerTextDraw booms;
-        PlayerTextDraw EatPNG;
-        PlayerTextDraw EatNum;
-        PlayerTextDraw WaterPng;
-        PlayerTextDraw WaterNum;
-        PlayerTextDraw RadPng;
-        PlayerTextDraw RadNum;
-        PlayerTextDraw DangerPlate;
+        public PlayerTextDraw EatPNG;
+        public PlayerTextDraw EatNum;
+        public PlayerTextDraw WaterPng;
+        public PlayerTextDraw WaterNum;
+        public PlayerTextDraw RadPng;
+        public PlayerTextDraw RadNum;
+        public PlayerTextDraw DangerPlate;
+        public PlayerTextDraw OdejdaPng;
+        public PlayerTextDraw OdejdaNum;
+        public PlayerTextDraw pissPng;
+        public PlayerTextDraw pissNum;
+        public PlayerTextDraw imunPng;
+        public PlayerTextDraw imunNum;
+
+        public PlayerTextDraw bonesPng;
+        public PlayerTextDraw healthPng;
+        public PlayerTextDraw clothPng;
+        public PlayerTextDraw bleedPng;
+
         PlayerTextDraw menuPlate1;
         PlayerTextDraw boomsTurn;
         PlayerTextDraw healthMenuPNG;
@@ -30,9 +45,16 @@ namespace WasteLandWarriors.Display
         PlayerTextDraw menuPlate5;
         PlayerTextDraw mMenuPNG;
         PlayerTextDraw BackPlate;
+
+        
+
+
+        public static Color yellow = 0xFFFF08FF;
+        public static Color red = 0xFF1717FF;
         public PlayerInterface(Player player) {
             p = player;
-
+            p.ClickPlayerTextDraw += OnClickMenu;
+            p.ClickPlayerTextDraw += OnClickCarMenu;
         }
         public void Create()
         {
@@ -49,7 +71,7 @@ namespace WasteLandWarriors.Display
             booms.Selectable = false;
             
 
-            EatPNG = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(614.0f, 6.0f), "HUD:radar_datefood");
+            EatPNG = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(614.000000, 169.000000), "HUD:radar_datefood");
 
             EatPNG.Font = TextDrawFont.DrawSprite;
             EatPNG.LetterSize = new SampSharp.GameMode.Vector2(0.6, 2.0);
@@ -67,7 +89,7 @@ namespace WasteLandWarriors.Display
             
             
 
-            EatNum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(617.0f, 23.0f), "100");
+            EatNum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(618.000000, 186.000000), "99");
 
             
             EatNum.Text = "100";
@@ -86,7 +108,7 @@ namespace WasteLandWarriors.Display
             EatNum.Selectable = false;
             
 
-            WaterPng = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(614.0f, 36.0f), "HUD:radar_diner");
+            WaterPng = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(614.000000, 199.000000), "HUD:radar_diner");
 
             WaterPng.Font = TextDrawFont.DrawSprite;
             WaterPng.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
@@ -103,7 +125,7 @@ namespace WasteLandWarriors.Display
             WaterPng.Selectable = false;
             
 
-            WaterNum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(617.0f, 53.0f), "100");
+            WaterNum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(618.000000, 216.000000), "99");
 
             WaterNum.Font = TextDrawFont.Normal;
             WaterNum.LetterSize = new SampSharp.GameMode.Vector2(0.191667f, 1.2f);
@@ -152,10 +174,321 @@ namespace WasteLandWarriors.Display
             RadNum.UseBox = false;
             RadNum.Proportional = true;
             RadNum.Selectable = false;
-            
 
-            DangerPlate = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(609.0f, 95.0f), "DANGER!");
 
+            /**
+tempico[playerid] = CreatePlayerTextDraw(playerid, 614.000000, 199.000000, "hud:radar_tshirt");
+PlayerTextDrawFont(playerid, tempico[playerid], 4);
+PlayerTextDrawLetterSize(playerid, tempico[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, tempico[playerid], 17.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, tempico[playerid], 1);
+PlayerTextDrawSetShadow(playerid, tempico[playerid], 0);
+PlayerTextDrawAlignment(playerid, tempico[playerid], 1);
+PlayerTextDrawColor(playerid, tempico[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, tempico[playerid], 255);
+PlayerTextDrawBoxColor(playerid, tempico[playerid], 50);
+PlayerTextDrawUseBox(playerid, tempico[playerid], 0);
+PlayerTextDrawSetProportional(playerid, tempico[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, tempico[playerid], 0);
+**/
+
+            OdejdaPng = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(614.000000, 228.000000), "HUD:radar_tshirt");
+
+            OdejdaPng.Font = TextDrawFont.DrawSprite;
+            OdejdaPng.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            OdejdaPng.Width = 17;
+            OdejdaPng.Height = 17;
+            OdejdaPng.Outline = 1;
+            OdejdaPng.Shadow = 0;
+            OdejdaPng.Alignment = TextDrawAlignment.Left;
+            OdejdaPng.ForeColor = -1;
+            OdejdaPng.BackColor = 255;
+            OdejdaPng.BoxColor = 50;
+            OdejdaPng.UseBox = false;
+            OdejdaPng.Proportional = true;
+            OdejdaPng.Selectable = false;
+
+            /**
+tempnum[playerid] = CreatePlayerTextDraw(playerid, 618.000000, 215.000000, "99");
+PlayerTextDrawFont(playerid, tempnum[playerid], 1);
+PlayerTextDrawLetterSize(playerid, tempnum[playerid], 0.191667, 1.200000);
+PlayerTextDrawTextSize(playerid, tempnum[playerid], 17.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, tempnum[playerid], 1);
+PlayerTextDrawSetShadow(playerid, tempnum[playerid], 0);
+PlayerTextDrawAlignment(playerid, tempnum[playerid], 1);
+PlayerTextDrawColor(playerid, tempnum[playerid], 1433087999);
+PlayerTextDrawBackgroundColor(playerid, tempnum[playerid], 255);
+PlayerTextDrawBoxColor(playerid, tempnum[playerid], 50);
+PlayerTextDrawUseBox(playerid, tempnum[playerid], 0);
+PlayerTextDrawSetProportional(playerid, tempnum[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, tempnum[playerid], 0);
+**/
+            OdejdaNum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(618.000000, 245.000000), "98");
+
+            OdejdaNum.Font = TextDrawFont.Normal;
+            OdejdaNum.LetterSize = new SampSharp.GameMode.Vector2(0.191667, 1.200000);
+            OdejdaNum.Width = 17;
+            OdejdaNum.Height = 17;
+            OdejdaNum.Outline = 1;
+            OdejdaNum.Shadow = 0;
+            OdejdaNum.Alignment = TextDrawAlignment.Left;
+            OdejdaNum.ForeColor = 1433087999;
+            OdejdaNum.BackColor = 255;
+            OdejdaNum.BoxColor = 50;
+            OdejdaNum.UseBox = false;
+            OdejdaNum.Proportional = true;
+            OdejdaNum.Selectable = false;
+
+            /**
+pisspng[playerid] = CreatePlayerTextDraw(playerid, 614.000000, 228.000000, "HUD:radar_centre");
+PlayerTextDrawFont(playerid, pisspng[playerid], 4);
+PlayerTextDrawLetterSize(playerid, pisspng[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, pisspng[playerid], 17.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, pisspng[playerid], 1);
+PlayerTextDrawSetShadow(playerid, pisspng[playerid], 0);
+PlayerTextDrawAlignment(playerid, pisspng[playerid], 1);
+PlayerTextDrawColor(playerid, pisspng[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, pisspng[playerid], 255);
+PlayerTextDrawBoxColor(playerid, pisspng[playerid], 50);
+PlayerTextDrawUseBox(playerid, pisspng[playerid], 0);
+PlayerTextDrawSetProportional(playerid, pisspng[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, pisspng[playerid], 0);
+**/
+            pissPng = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(614.000000, 257.000000f), "HUD:radar_centre");
+
+            pissPng.Font = TextDrawFont.DrawSprite;
+            pissPng.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            pissPng.Width = 17;
+            pissPng.Height = 17;
+            pissPng.Outline = 1;
+            pissPng.Shadow = 0;
+            pissPng.Alignment = TextDrawAlignment.Left;
+            pissPng.ForeColor = -1;
+            pissPng.BackColor = 255;
+            pissPng.BoxColor = 50;
+            pissPng.UseBox = false;
+            pissPng.Proportional = true;
+            pissPng.Selectable = false;
+
+            /**
+pissnum[playerid] = CreatePlayerTextDraw(playerid, 618.000000, 245.000000, "99");
+PlayerTextDrawFont(playerid, pissnum[playerid], 1);
+PlayerTextDrawLetterSize(playerid, pissnum[playerid], 0.191667, 1.200000);
+PlayerTextDrawTextSize(playerid, pissnum[playerid], 17.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, pissnum[playerid], 1);
+PlayerTextDrawSetShadow(playerid, pissnum[playerid], 0);
+PlayerTextDrawAlignment(playerid, pissnum[playerid], 1);
+PlayerTextDrawColor(playerid, pissnum[playerid], 1433087999);
+PlayerTextDrawBackgroundColor(playerid, pissnum[playerid], 255);
+PlayerTextDrawBoxColor(playerid, pissnum[playerid], 50);
+PlayerTextDrawUseBox(playerid, pissnum[playerid], 0);
+PlayerTextDrawSetProportional(playerid, pissnum[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, pissnum[playerid], 0);
+**/
+            pissNum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(618.000000, 275.000000), "97");
+
+            pissNum.Font = TextDrawFont.Normal;
+            pissNum.LetterSize = new SampSharp.GameMode.Vector2(0.191667, 1.200000);
+            pissNum.Width = 17;
+            pissNum.Height = 17;
+            pissNum.Outline = 1;
+            pissNum.Shadow = 0;
+            pissNum.Alignment = TextDrawAlignment.Left;
+            pissNum.ForeColor = 1433087999;
+            pissNum.BackColor = 255;
+            pissNum.BoxColor = 50;
+            pissNum.UseBox = false;
+            pissNum.Proportional = true;
+            pissNum.Selectable = false;
+
+            /**
+imunpng[playerid] = CreatePlayerTextDraw(playerid, 614.000000, 257.000000, "HUD:radar_girlfriend");
+PlayerTextDrawFont(playerid, imunpng[playerid], 4);
+PlayerTextDrawLetterSize(playerid, imunpng[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, imunpng[playerid], 17.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, imunpng[playerid], 1);
+PlayerTextDrawSetShadow(playerid, imunpng[playerid], 0);
+PlayerTextDrawAlignment(playerid, imunpng[playerid], 1);
+PlayerTextDrawColor(playerid, imunpng[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, imunpng[playerid], 255);
+PlayerTextDrawBoxColor(playerid, imunpng[playerid], 50);
+PlayerTextDrawUseBox(playerid, imunpng[playerid], 0);
+PlayerTextDrawSetProportional(playerid, imunpng[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, imunpng[playerid], 0);
+**/
+            imunPng = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(614.000000, 139.000000), "HUD:radar_girlfriend");
+
+            imunPng.Font = TextDrawFont.DrawSprite;
+            imunPng.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            imunPng.Width = 17;
+            imunPng.Height = 17;
+            imunPng.Outline = 1;
+            imunPng.Shadow = 0;
+            imunPng.Alignment = TextDrawAlignment.Left;
+            imunPng.ForeColor = -1;
+            imunPng.BackColor = 255;
+            imunPng.BoxColor = 50;
+            imunPng.UseBox = false;
+            imunPng.Proportional = true;
+            imunPng.Selectable = false;
+
+            /**
+imunnum[playerid] = CreatePlayerTextDraw(playerid, 618.000000, 275.000000, "99");
+PlayerTextDrawFont(playerid, imunnum[playerid], 1);
+PlayerTextDrawLetterSize(playerid, imunnum[playerid], 0.191667, 1.200000);
+PlayerTextDrawTextSize(playerid, imunnum[playerid], 17.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, imunnum[playerid], 1);
+PlayerTextDrawSetShadow(playerid, imunnum[playerid], 0);
+PlayerTextDrawAlignment(playerid, imunnum[playerid], 1);
+PlayerTextDrawColor(playerid, imunnum[playerid], 1433087999);
+PlayerTextDrawBackgroundColor(playerid, imunnum[playerid], 255);
+PlayerTextDrawBoxColor(playerid, imunnum[playerid], 50);
+PlayerTextDrawUseBox(playerid, imunnum[playerid], 0);
+PlayerTextDrawSetProportional(playerid, imunnum[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, imunnum[playerid], 0);
+**/
+            //618.000000, 156.000000 618.0f, 275.0
+            imunNum = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(618.000000, 156.000000), "97");
+
+            imunNum.Font = TextDrawFont.Normal;
+            imunNum.LetterSize = new SampSharp.GameMode.Vector2(0.191667, 1.200000);
+            imunNum.Width = 17;
+            imunNum.Height = 17;
+            imunNum.Outline = 1;
+            imunNum.Shadow = 0;
+            imunNum.Alignment = TextDrawAlignment.Left;
+            imunNum.ForeColor = 1433087999;
+            imunNum.BackColor = 255;
+            imunNum.BoxColor = 50;
+            imunNum.UseBox = false;
+            imunNum.Proportional = true;
+            imunNum.Selectable = false;
+
+            /**
+bonesPng[playerid] = CreatePlayerTextDraw(playerid, 614.000000, 18.000000, "particle:handman");
+PlayerTextDrawFont(playerid, bonesPng[playerid], 4);
+PlayerTextDrawLetterSize(playerid, bonesPng[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, bonesPng[playerid], 17.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, bonesPng[playerid], 1);
+PlayerTextDrawSetShadow(playerid, bonesPng[playerid], 0);
+PlayerTextDrawAlignment(playerid, bonesPng[playerid], 1);
+PlayerTextDrawColor(playerid, bonesPng[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, bonesPng[playerid], 255);
+PlayerTextDrawBoxColor(playerid, bonesPng[playerid], 50);
+PlayerTextDrawUseBox(playerid, bonesPng[playerid], 0);
+PlayerTextDrawSetProportional(playerid, bonesPng[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, bonesPng[playerid], 0);
+**/
+            bonesPng = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(614.000000, 18.000000), "particle:handman");
+
+            bonesPng.Font = TextDrawFont.DrawSprite;
+            bonesPng.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            bonesPng.Width = 17;
+            bonesPng.Height = 17;
+            bonesPng.Outline = 1;
+            bonesPng.Shadow = 0;
+            bonesPng.Alignment = TextDrawAlignment.Left;
+            bonesPng.ForeColor = -1;
+            bonesPng.BackColor = 255;
+            bonesPng.BoxColor = 50;
+            bonesPng.UseBox = false;
+            bonesPng.Proportional = true;
+            bonesPng.Selectable = false;
+
+            /**
+healthPng[playerid] = CreatePlayerTextDraw(playerid, 614.000000, 39.000000, "HUD:radar_hostpital");
+PlayerTextDrawFont(playerid, healthPng[playerid], 4);
+PlayerTextDrawLetterSize(playerid, healthPng[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, healthPng[playerid], 17.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, healthPng[playerid], 1);
+PlayerTextDrawSetShadow(playerid, healthPng[playerid], 0);
+PlayerTextDrawAlignment(playerid, healthPng[playerid], 1);
+PlayerTextDrawColor(playerid, healthPng[playerid], -1);
+PlayerTextDrawBackgroundColor(playerid, healthPng[playerid], 255);
+PlayerTextDrawBoxColor(playerid, healthPng[playerid], 50);
+PlayerTextDrawUseBox(playerid, healthPng[playerid], 0);
+PlayerTextDrawSetProportional(playerid, healthPng[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, healthPng[playerid], 0);
+**/
+
+
+            healthPng = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(614.000000,39.000000), "HUD:radar_hostpital");
+
+            healthPng.Font = TextDrawFont.DrawSprite;
+            healthPng.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            healthPng.Width = 17;
+            healthPng.Height = 17;
+            healthPng.Outline = 1;
+            healthPng.Shadow = 0;
+            healthPng.Alignment = TextDrawAlignment.Left;
+            healthPng.ForeColor = -1;
+            healthPng.BackColor = 255;
+            healthPng.BoxColor = 50;
+            healthPng.UseBox = false;
+            healthPng.Proportional = true;
+            healthPng.Selectable = false;
+
+            /**
+ClothesPNG[playerid] = CreatePlayerTextDraw(playerid, 610.000000, 51.000000, "LD_OTB2:Ric5");
+PlayerTextDrawFont(playerid, ClothesPNG[playerid], 4);
+PlayerTextDrawLetterSize(playerid, ClothesPNG[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, ClothesPNG[playerid], 25.000000, 31.000000);
+PlayerTextDrawSetOutline(playerid, ClothesPNG[playerid], 1);
+PlayerTextDrawSetShadow(playerid, ClothesPNG[playerid], 0);
+PlayerTextDrawAlignment(playerid, ClothesPNG[playerid], 1);
+PlayerTextDrawColor(playerid, ClothesPNG[playerid], 255);
+PlayerTextDrawBackgroundColor(playerid, ClothesPNG[playerid], 255);
+PlayerTextDrawBoxColor(playerid, ClothesPNG[playerid], 50);
+PlayerTextDrawUseBox(playerid, ClothesPNG[playerid], 0);
+PlayerTextDrawSetProportional(playerid, ClothesPNG[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, ClothesPNG[playerid], 0);
+**/
+            clothPng = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(610.000000, 51.000000), "LD_OTB2:Ric5");
+            clothPng.Font = TextDrawFont.DrawSprite;
+            clothPng.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            clothPng.Width = 25;
+            clothPng.Height = 31;
+            clothPng.Outline = 1;
+            clothPng.Shadow = 0;
+            clothPng.Alignment = TextDrawAlignment.Left;
+            clothPng.ForeColor = 255;
+            clothPng.BackColor = 255;
+            clothPng.BoxColor = 50;
+            clothPng.UseBox = false;
+            clothPng.Proportional = true;
+            clothPng.Selectable = false;
+
+            /**
+BleedPng[playerid] = CreatePlayerTextDraw(playerid, 614.000000, 80.000000, "particle:bloodpool_64");
+PlayerTextDrawFont(playerid, BleedPng[playerid], 4);
+PlayerTextDrawLetterSize(playerid, BleedPng[playerid], 0.600000, 2.000000);
+PlayerTextDrawTextSize(playerid, BleedPng[playerid], 17.000000, 17.000000);
+PlayerTextDrawSetOutline(playerid, BleedPng[playerid], 1);
+PlayerTextDrawSetShadow(playerid, BleedPng[playerid], 0);
+PlayerTextDrawAlignment(playerid, BleedPng[playerid], 1);
+PlayerTextDrawColor(playerid, BleedPng[playerid], 255);
+PlayerTextDrawBackgroundColor(playerid, BleedPng[playerid], 255);
+PlayerTextDrawBoxColor(playerid, BleedPng[playerid], 50);
+PlayerTextDrawUseBox(playerid, BleedPng[playerid], 0);
+PlayerTextDrawSetProportional(playerid, BleedPng[playerid], 1);
+PlayerTextDrawSetSelectable(playerid, BleedPng[playerid], 0);
+**/
+            bleedPng = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(614.000000, 80.000000), "particle:bloodpool_64");
+            bleedPng.Font = TextDrawFont.DrawSprite;
+            bleedPng.LetterSize = new SampSharp.GameMode.Vector2(0.6f, 2.0f);
+            bleedPng.Width = 17;
+            bleedPng.Height = 17;
+            bleedPng.Outline = 1;
+            bleedPng.Shadow = 0;
+            bleedPng.Alignment = TextDrawAlignment.Left;
+            bleedPng.ForeColor = 255;
+            bleedPng.BackColor = 255;
+            bleedPng.BoxColor = 50;
+            bleedPng.UseBox = false;
+            bleedPng.Proportional = true;
+            bleedPng.Selectable = false;
+
+            DangerPlate = new PlayerTextDraw(p, new SampSharp.GameMode.Vector2(607.000000, 297.000000), "DANGER!");
             DangerPlate.Font = TextDrawFont.Normal;
             DangerPlate.LetterSize = new SampSharp.GameMode.Vector2(0.183330, 1.799998);
             DangerPlate.Width = 400;
@@ -372,17 +705,44 @@ namespace WasteLandWarriors.Display
             BackPlate.UseBox = true;
             BackPlate.Proportional = true;
             BackPlate.Selectable = false;
-            
+
+           
+        }
+        public void OnClickMenu(object sender, ClickPlayerTextDrawEventArgs e)
+        {
+            if(e.PlayerTextDraw == boomsTurn)
+            {
+                p.skillMenu.Show();
+            }
+            if (e.PlayerTextDraw == healthMenuPNG)
+            {
+                DiseasesDialog.showDiseasesDialog(p);
+            }
+        }
+        public void OnClickCarMenu(object sender, ClickPlayerTextDrawEventArgs e)
+        {
+            if(e.PlayerTextDraw == carMenuPNG) PlayerCarMenu.ShowCarMenu(p);
+
         }
         public void Show()
         {
-             booms.Show();
+            bonesPng.Show();
+            healthPng.Show();
+            clothPng.Show();
+            bleedPng.Show();
+           //  booms.Show();
              EatPNG.Show();
              EatNum.Show();
              WaterPng.Show();
              WaterNum.Show();
-             RadPng.Show();
-             RadNum.Show();
+            //  RadPng.Show();
+            //  RadNum.Show();
+            OdejdaNum.Show();
+            OdejdaPng.Show();
+            pissPng.Show();
+            pissNum.Show();
+            imunNum.Show();
+            imunPng.Show();
              DangerPlate.Show();
              menuPlate1.Show();
              boomsTurn.Show();
@@ -398,13 +758,23 @@ namespace WasteLandWarriors.Display
         }
         public void Hide()
         {
-            booms.Hide();
+            bonesPng.Hide();
+            healthPng.Hide();
+            clothPng.Hide();
+            bleedPng.Hide();
+            // booms.Hide();
             EatPNG.Hide();
             EatNum.Hide();
             WaterPng.Hide();
             WaterNum.Hide();
-            RadPng.Hide();
-            RadNum.Hide();
+            //  RadPng.Hide();
+            //  RadNum.Hide();
+            OdejdaNum.Hide();
+            OdejdaPng.Hide();
+            pissPng.Hide();
+            pissNum.Hide();
+            imunNum.Hide();
+            imunPng.Hide();
             DangerPlate.Hide();
             menuPlate1.Hide();
             boomsTurn.Hide();

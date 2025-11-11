@@ -40,7 +40,11 @@ namespace SampSharpGameMode1.Physics
 		{
 			return Internal.RayCastLineID(startPos.X, startPos.Y, startPos.Z, endPos.X, endPos.Y, endPos.Z, out float x, out float y, out float z);
 		}
-		/*
+        public static int RayCastLineAngle(Vector3 startPos, Vector3 endPos, out float x, out float y, out float z, out float rx, out float ry, out float rz)
+        {
+            return Internal.RayCastLineAngle(startPos.X, startPos.Y, startPos.Z, endPos.X, endPos.Y, endPos.Z, out x, out y, out z, out rx, out ry, out rz);
+        }
+        /*
 		public RayCastCollisionTarget[] RayCastMultiLine(Vector3 startPos, Vector3 endPos, int size)
 		{
 			float[] retx = new float[size];
@@ -80,7 +84,7 @@ namespace SampSharpGameMode1.Physics
 			return (Internal.ContactTest(modelid, x, y, z, rx, ry, rz) == 1);
 		}
 		*/
-		public void EulerToQuat(float rx, float ry, float rz, out float x, out float y, out float z, out float w)
+        public void EulerToQuat(float rx, float ry, float rz, out float x, out float y, out float z, out float w)
 		{
 			Internal.EulerToQuat(rx, ry, rz, out x, out y, out z, out w);
 		}

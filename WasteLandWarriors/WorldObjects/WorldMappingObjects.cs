@@ -1096,7 +1096,7 @@ namespace WasteLandWarriors.WorldObjects
             GlobalObject glavamappz23 = new GlobalObject(1814, new Vector3(1339.769165, 1573.057495, 2998.975341), new Vector3(0.000000, 0.000000, 270.000000), 30.0f);
             //tmpobjid = CreateDynamicObject(18075, 1331.966796, 1577.373657, 3003.880126, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00);
             GlobalObject glavamappz24 = new GlobalObject(18075, new Vector3(1331.966796, 1577.373657, 3003.880126), new Vector3(0.000000, 0.000000, 0.000000), 30.0f);
-
+            
 
         }
     }

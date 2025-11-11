@@ -12,8 +12,7 @@ namespace SampSharpGameMode1.Physics
 		}
 
 		public class ColAndreasInternal
-		{
-			[NativeMethod(Function = "CA_Init")]
+		{	[NativeMethod(Function = "CA_Init")]
 			public virtual int Init()
 			{
 				throw new NativeNotImplementedException();

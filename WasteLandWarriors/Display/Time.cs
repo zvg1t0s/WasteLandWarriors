@@ -8,14 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
+using WasteLandWarriors.Systems;
 
 namespace WasteLandWarriors.Display
 {
-    internal class Time
+    public class Time
     {
         static TextDraw TimePNG = new TextDraw(new SampSharp.GameMode.Vector2(88.0f, 319.0f), "0");
-        static int minutes = 0;
-        static int hours = 0;
+         static int minutes = 0;
+         static int hours = 12;
+        public static int GetHours()
+        {
+            return hours;
+        }
         public static void Create()
         {
             TimePNG.Font = TextDrawFont.Pricedown;
@@ -66,7 +71,11 @@ namespace WasteLandWarriors.Display
                     TimePNG.Text = $"{hours}:{minutes}";
                 }
 
-                Player.All.ToList().ForEach(t => { if (t.VirtualWorld == 0 && t.Interior == 0) t.SetTime(hours, minutes); });
+                Player.All?.ToList().ForEach(t => { if (t.VirtualWorld == 0 && t.Interior == 0 && !t.IsDisposed) t.SetTime(hours, minutes); });
+                if(minutes == 15)
+                {
+                    WeatherSystem.NextWeather();
+                }
                 
             }
 
@@ -74,6 +83,7 @@ namespace WasteLandWarriors.Display
         public static void SetTimeTo(BasePlayer p)
         {
             p.SetTime(hours,minutes);
+            WeatherSystem.SetWeather(p);
         }
         public static void Show(Player p)
         {
